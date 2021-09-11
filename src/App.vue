@@ -1,13 +1,36 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <n-theme-editor>
+     <n-layout style="height: 100vh">
+      <n-layout-header>
+        <Header />
+      </n-layout-header>
+      <n-layout>
+      <Menu />
+      </n-layout>
+    </n-layout>
+  </n-theme-editor>
 </template>
+
+<script>
+import { defineComponent } from 'vue'
+import { NThemeEditor } from 'naive-ui'
+import Menu from '@/layout/menu.vue'
+import Header from '@/layout/header.vue'
+
+
+  export default defineComponent({
+    components: {
+      NThemeEditor,
+      Menu,
+      Header
+    }
+  })
+</script>
 
 <style lang="less">
 #app {
+  width: 100vw;
+  height: 100vh;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
