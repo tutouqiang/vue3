@@ -1,28 +1,32 @@
 <template>
-  <n-theme-editor>
-     <n-layout style="height: 100vh">
-      <n-layout-header>
-        <Header />
-      </n-layout-header>
-      <n-layout>
-      <Menu />
-      </n-layout>
-    </n-layout>
-  </n-theme-editor>
+  <div>{{home}}</div>
+  <button @click="change">切换语言</button>
+  <Home></Home>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
-import { NThemeEditor } from 'naive-ui'
-import Menu from '@/layout/menu.vue'
-import Header from '@/layout/header.vue'
-
-
+import Home from './views/Home.vue'
+import {i18n} from './until/new'
   export default defineComponent({
     components: {
-      NThemeEditor,
-      Menu,
-      Header
+      Home: Home
+     },
+    data () {
+      return {
+        home: this.$t('ok')
+      }
+    },
+    created() {
+    },
+    mounted() {
+      console.log()
+    },
+    methods: {
+      change () {
+        i18n.setLocales(i18n.getLocales() === 'en-US' ? 'zh-CN' : 'en-US')
+        console.log(i18n.getLocales());
+      }
     }
   })
 </script>

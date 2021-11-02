@@ -3,25 +3,15 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
-import {
-  create,
-  NButton,
-  NSpace,
-  NSwitch,
-  NLayout,
-  NMenu,
-  NLayoutHeader,
-  NLayoutSider,
-  NLayoutContent,
-  NLayoutFooter
-} from 'naive-ui'
+import api from './api'
+import './locales'
 
-const naive = create({
-  components: [
-    NButton, NSpace, NSwitch, NLayout, NMenu, NLayoutHeader, NLayoutSider,
-    NLayoutContent, NLayoutFooter
-  ]
-})
+// @ts-ignore
+import { t } from './until/new'
 
-const app = createApp(App).use(store).use(router).use(naive);
+
+
+const app = createApp(App).use(store).use(router);
+app.config.globalProperties.$api = api
+app.config.globalProperties.$t = t
 app.mount('#app');

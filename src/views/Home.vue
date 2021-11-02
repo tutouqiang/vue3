@@ -1,39 +1,25 @@
+<!-- 地理围栏 -->
 <template>
-  <div class="home">
-    <n-button type="primary">naive-ui</n-button>
+  <div class="geofence">
+    {{$t('title')}}
   </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
-
-@Options({
-  components: {
-  },
-  data() {
-    return {
-      progress: 1,
-      time: "",
-      hd: true,
-    };
-  },
-  created() {
-    // this.setInt();
-  },
-  beforeDestroy() {
-    clearInterval(this.time);
-  },
-  methods: {
-    setInt() {
-      const that = this;
-      this.time = setInterval(function () {
-        that.progress += 5;
-      }, 300);
-    },
-  },
-})
-export default class Home extends Vue {}
+import { onMounted, toRefs, reactive } from 'vue'
+export default {
+  setup() {
+    const state = reactive({
+      // home: t('home.go')
+    })
+    onMounted(() => {
+      
+    })
+    return { onMounted, ...toRefs(state) }
+  }
+}
 </script>
 
-<style scoped lang="less">
+<style scope lang="less">
+
 </style>

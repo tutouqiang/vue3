@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "new": "node ./src/until/new.js && vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@vicons/ionicons5": "^0.11.0",
+    "axios": "^0.24.0",
     "core-js": "^3.6.5",
     "register-service-worker": "^1.7.1",
     "vue": "^3.0.0",
@@ -19,6 +20,7 @@
   },
   "devDependencies": {
     "@types/jest": "^24.0.19",
+    "@types/node": "^16.11.6",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-pwa": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
@@ -30,7 +32,6 @@
     "@vue/test-utils": "^2.0.0-0",
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
-    "naive-ui": "^2.18.1",
     "typescript": "~4.1.5",
     "vue-jest": "^5.0.0-0"
   }
