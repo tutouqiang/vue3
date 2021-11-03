@@ -1,15 +1,15 @@
 <!-- 地理围栏 -->
 <template>
   <div class="geofence">
-    围栏
+    {{$t('home')}}
   </div>
 </template>
 
 <script lang="ts">
 
 export default {
-  setup() {
-    return {}
+  created() {
+    // console.log(this.$i18n);
   }
 }
 </script>

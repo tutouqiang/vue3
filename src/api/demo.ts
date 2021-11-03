@@ -1,2 +1,2 @@
 import req from './request';
-export const getLang = req.get('/')
+// export const getLang = req.get('/')

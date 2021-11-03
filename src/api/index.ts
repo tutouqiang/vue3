@@ -1,3 +1,3 @@
-import { getLang } from './demo';
+// import { getLang } from './demo';
 
-export default { getLang }
+export default {  }

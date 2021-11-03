@@ -1,23 +1,32 @@
 <template>
-  <div>{{home}}</div>
-  <button @click="change">切换语言</button>
-  <Home></Home>
+  <a-layout style="height: 100vh">
+    <Menu />
+    <a-layout>
+      <Header />
+      <Content />
+    </a-layout>
+  </a-layout>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
-import Home from './views/Home.vue'
-import {i18n} from './until/new'
+import Header from './layout/header.vue'
+import Menu from './layout/menu.vue'
+import Content from './layout/content.vue'
+
+import {i18n} from './until/mini-i18n'
   export default defineComponent({
     components: {
-      Home: Home
+      Header,
+      Menu,
+      Content
      },
     data () {
       return {
-        home: this.$t('ok')
       }
     },
     created() {
+      // console.log(this.$router);
     },
     mounted() {
       console.log()
@@ -25,7 +34,6 @@ import {i18n} from './until/new'
     methods: {
       change () {
         i18n.setLocales(i18n.getLocales() === 'en-US' ? 'zh-CN' : 'en-US')
-        console.log(i18n.getLocales());
       }
     }
   })
