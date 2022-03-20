@@ -17,6 +17,7 @@ export default {
 
 
 <style>
+
 * {
   margin: 0;
   padding: 0;
