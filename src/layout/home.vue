@@ -22,6 +22,7 @@ export default {
 <style lang="less" scoped>
 #home {
   margin: 0 auto;
+  min-height: 100vh;
   .ant-layout-content {
     min-height: 50vh;
   }

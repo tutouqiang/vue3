@@ -1,13 +1,14 @@
 <template>
     <a-layout-header :style="{ position: 'fixed', zIndex: 1, width: '100%' }">
-      <div class="logo" />
+      <h1 class="logo" >WOOC</h1>>
       <a-menu
         v-model:selectedKeys="selectedKeys"
         mode="horizontal"
         theme="dark"
         :style="{ lineHeight: '64px' }"
+        @click="selectMenu"
       >
-        <a-menu-item key="1">导航</a-menu-item>        
+        <a-menu-item v-for="item in menuList" :key="item.key">{{item.name}}</a-menu-item>        
       </a-menu>
       <a href="https://github.com/zhangchao-wooc"><github-outlined class="icon-github"/></a>
     </a-layout-header>
@@ -20,7 +21,25 @@ export default {
   },
   data () {
     return {
-      selectedKeys: ['1']
+      selectedKeys: ['1'],
+      menuList: [
+        {
+          name: '首页',
+          path: '/home',
+          key: '1',
+        },
+        {
+          name: '导航网站',
+          path: '/navWebsite',
+          key: '2',
+        },
+      ]
+    }
+  },
+  methods: {
+    selectMenu (item, key, selectedKeys) {
+      console.log('selectMenu', item.key);
+      this.$router.push(this.menuList[parseInt(item.key) - 1].path)
     }
   }
 }
@@ -31,11 +50,7 @@ export default {
   justify-content: space-between;
   align-items: center;
     .logo {
-    width: 120px;
-    height: 31px;
-    background: rgba(255, 255, 255, 0.2);
-    margin: 16px 24px 16px 0;
-    float: left;
+    color: #fff;
   }
   .ant-menu {
     flex-grow: 1;

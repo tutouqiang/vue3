@@ -1,13 +1,10 @@
 <template>
 <!-- 文章布局 -->
-  <div id="article">
-    <a-layout>
+  <a-layout id="article">
     <Header />
-    <a-layout-content :style="{ padding: '0 50px', marginTop: '64px' }">
+    <a-layout-content :style="{ padding: '0 50px', marginTop: '64px', flexGrow: 1 }">
       <a-breadcrumb :style="{ margin: '16px 0' }">
-        <a-breadcrumb-item>Home</a-breadcrumb-item>
-        <a-breadcrumb-item>List</a-breadcrumb-item>
-        <a-breadcrumb-item>App</a-breadcrumb-item>
+        <a-breadcrumb-item v-for="item in articleList">{{item.name}}</a-breadcrumb-item>
       </a-breadcrumb>
       <section class="content">
         <router-view />
@@ -15,23 +12,38 @@
     </a-layout-content>
     
     <Footer />
-    </a-layout>
-  </div>
+  </a-layout>
 </template>
 <script>
 import Header from './header.vue'
 import Footer from './footer.vue'
+import { deepRouter } from '../util/index'
 
 export default {
   components: {
     Header,
     Footer,
+  },
+  data () {
+    return {
+      articleList: []
+    }
+  },
+  created () {
+    this.articleList = this.$route.matched.map(item => {
+      return {
+        name: item.meta.name,
+        path: item.path
+      }
+    })
+    console.log(this.articleList);
   }
 }
 </script>
 
 <style lang="less" scoped>
 #article {
+  min-height: 100vh;
   background-color: #FFFFEE;
   .content {
     max-width: 800px;

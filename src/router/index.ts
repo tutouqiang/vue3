@@ -11,13 +11,26 @@ const routes = [
         path: '/home',
         name: 'Home',
         component: () => import(/* webpackChunkName: "home" */ '../views/index.vue')
+      },
+      {
+        path: 'navWebsite',
+        name: 'NAVWEBSITE',
+        meta: '导航网站',
+        component: () => import(/* webpackChunkName: "home" */ '../views/website/index.vue')
       }
     ]
   },
-  {...article},
+  {
+    path: '/article',
+    name: 'ARTICLE',
+    meta: { name: '文章'},
+    component: () => import(/* webpackChunkName: "home" */ '../layout/article.vue'),
+    children: article
+  },
   {
     path: '/showTime',
-    name: 'showTime',
+    name: 'SHOWTIME',
+    meta: '时钟',
     component: () => import(/* webpackChunkName: "home" */ '../views/showTime.vue')
   },
 ]

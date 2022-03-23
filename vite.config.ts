@@ -7,6 +7,7 @@ import path from "path";
 import MdRouterGenerate from './src/plugin/router'
 // import commonjsExternals from 'vite-plugin-commonjs-externals'
 import hljs from 'highlight.js'
+// import './src/notes'
 // import ClipboardJS from 'clipboard';
 
 const preClass = 'position: relative; padding: 20px 15px; margin: 10px 0; border-radius: 5px'
@@ -34,6 +35,10 @@ export default defineConfig({
     },
   },
   plugins: [
+    MdRouterGenerate({
+      filePath: path.resolve(__dirname, 'src/notes'),
+      outputPath: path.resolve(__dirname, 'src/router/article.ts')
+    }),
     vue({
      include: [/\.vue$/, /\.md$/], // <--
     }),
