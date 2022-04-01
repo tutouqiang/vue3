@@ -23,8 +23,9 @@ export default defineConfig({
   },
   plugins: [
     MdRouterGenerate({
-      filePath: path.resolve(__dirname, 'src/views/article'),
-      outputPath: path.resolve(__dirname, 'src/router/article.ts')
+      dirname: __dirname,
+      filePath: 'src/views/article',
+      outputPath: 'src/router/article.ts'
     }),
     vue({
      include: [/\.vue$/, /\.md$/],
