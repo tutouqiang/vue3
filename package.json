@@ -7,10 +7,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vueuse/head": "^0.7.5",
     "@wooc/brokenwheel": "^0.0.2",
     "ant-design-vue": "^2.2.8",
     "clipboard": "^2.0.10",
     "install": "^0.13.0",
+    "markdown-it-anchor": "^8.4.1",
+    "markdown-it-prism": "^2.2.3",
     "npm": "^8.5.5",
     "unplugin-vue-components": "^0.18.3",
     "vite-plugin-style-import": "^2.0.0",

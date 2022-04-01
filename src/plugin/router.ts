@@ -31,12 +31,7 @@ async function getFilePath (filePath: string) {
       } else {
         let reg = /\.md$/
         if(reg.test(dirent.name)) {
-          routes += `{
-            path: '${dirent.name}',
-            name: '${dirent.name.toLocaleUpperCase()}',
-            meta: {name: '${dirent.name}'},
-            component: () => import('${curpath}'),
-          },`
+          routes += `{ \n  path: '${dirent.name}', \n  name: '${dirent.name.toLocaleUpperCase()}', \n  meta: {name: '${dirent.name}'}, \n  component: () => import('${curpath}') \n}, \n`
         }
       }
     }
@@ -57,18 +52,13 @@ async function getFilePath (filePath: string) {
 export default function MdRouterGenerate(config: Config) {
   return {
     name: 'md-router-generate',
-    options (options) {
-    },
-    buildStart (options) {
+    buildStart () {
       const { filePath, outputPath } = config
       getFilePath(filePath).then(res => {
-        // console.log(JSON.parse(res))
+        // console.log(JSON.parse(JSON.stringify(res)))
         fs.writeFileSync(outputPath, `export default [${res}]`, {encoding: 'utf-8'})
         // fileParse('/Users/hexie/Desktop/my/wooc/src/notes/interview/Draza-Alibaba.md')
-      }
-        
-      )
-      console.log('buildStart', options);
+      })
     },
     // resolveId (source, importer, options) {
     //   console.log('resolveId');

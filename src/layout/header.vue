@@ -38,7 +38,8 @@ export default {
   },
   methods: {
     selectMenu (item, key, selectedKeys) {
-      console.log('selectMenu', item.key);
+      console.log('selectMenu', item, key, selectedKeys);
+      this.selectedKeys = item.keyPath
       this.$router.push(this.menuList[parseInt(item.key) - 1].path)
     }
   }

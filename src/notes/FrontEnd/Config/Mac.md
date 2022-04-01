@@ -23,12 +23,13 @@ brew install git
 ````
 ### 基本配置
 ```javascript
-git config --global user.name "你的名字或昵称"   初始化名称
-git config --global user.email "你的邮箱"       初始化邮箱
-git config --global -l                         查看刚刚设置 的名称、邮箱
+git config --global user.name "你的名字或昵称"   // 初始化名称
+git config --global user.email "你的邮箱"       // 初始化邮箱
+git config --global -l                         // 查看刚刚设置 的名称、邮箱
+
 // 多公钥配置，可忽略此处，直接看下一部分
-ssh-keygen -t rsa -C "你提交代码的邮箱"           密钥生成
-cat ~/.ssh/id_rsa.pub                          查看生成的公钥，复制到 Github 等代码库
+ssh-keygen -t rsa -C "你提交代码的邮箱"           // 密钥生成
+cat ~/.ssh/id_rsa.pub                          // 查看生成的公钥，复制到 Github 等代码库
 ````
 
 ### 多公钥配置

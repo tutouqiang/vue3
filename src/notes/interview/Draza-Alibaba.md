@@ -1,8 +1,9 @@
 ---
-123
+name: 123
 ---
 # Draza 海外电商
 ## 笔试
+
 ```javascript
 // 1 this 指向问题
 
@@ -139,4 +140,5 @@ function num (n1,n2) {
 //  [1,1,1]
 //  [1,1,1]]
 // return 4
+
 ```
