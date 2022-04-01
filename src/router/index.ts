@@ -15,7 +15,7 @@ const routes = [
       {
         path: 'navWebsite',
         name: 'NAVWEBSITE',
-        meta: '导航网站',
+        meta: { name: '导航网站' },
         component: () => import(/* webpackChunkName: "home" */ '../views/website/index.vue')
       }
     ]
@@ -30,7 +30,7 @@ const routes = [
   {
     path: '/showTime',
     name: 'SHOWTIME',
-    meta: '时钟',
+    meta: { name: '时钟' },
     component: () => import(/* webpackChunkName: "home" */ '../views/showTime.vue')
   },
 ]
