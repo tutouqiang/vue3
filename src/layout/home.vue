@@ -1,11 +1,15 @@
 <template>
   <a-layout id="home">
     <Header />
-    <a-layout-content :style="{ padding: '50px 100px', marginTop: '64px' }">
-      <router-view />
-    </a-layout-content>
-    
-    <Footer />
+    <transition
+      mode="out-in"
+      :duration="{ enter: 500, leave: 800 }"
+    >
+      <a-layout-content :style="{ padding: '3rem 1rem', marginTop: '64px' }">
+        <router-view />
+      </a-layout-content>
+    </transition>
+    <!-- <Footer /> -->
   </a-layout>
 </template>
 <script>
@@ -25,6 +29,7 @@ export default {
   min-height: 100vh;
   .ant-layout-content {
     min-height: 50vh;
+    transition: all 0.3s;
   }
 }
 </style>

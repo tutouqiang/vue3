@@ -9,15 +9,10 @@
 
 <script lang="ts">
 export default {
-  setup() {
-    
-  },
-}
+};
 </script>
 
-
 <style>
-
 * {
   margin: 0;
   padding: 0;

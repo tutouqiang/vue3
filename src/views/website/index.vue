@@ -5,7 +5,12 @@
       <div class="webSiteType">{{list.type}}</div>
       <div class="content">
         <div class="webSiteInfo" @click="jump(item.url)" v-for="item in list.list" :key="item.title">
-          <img class="img" :src="item.img"  />
+          <img 
+            class="img" 
+            loading="lazy" 
+            :src="item.img || 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'" 
+            :onerror="onerror" alt="木有图片"
+            :style="`background-color: ${item.bgc || '#fff'}`"/>
           <div class="title">{{item.title}}</div>
           <div class="desc">{{item.desc}}</div>
         </div>
@@ -26,6 +31,10 @@ export default {
   methods: {
     jump (url: string) {
       window.open(url, '_blank')
+    },
+    onerror (e) {
+      console.log(e.target.src);
+      
     }
   }
 }
@@ -39,26 +48,28 @@ export default {
   }
   .content {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 100px);
+    grid-template-columns: repeat(auto-fill, 150px);
     grid-template-rows: repeat(auto-fill, 100px);
     grid-gap: 20px;
     .webSiteInfo {
+      width: 150px;
       height: 100px;
       display: grid;
       place-items: center;
       background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,.1);
+      border-radius: 5px;
+      box-shadow:  
+             0px 0px 10px rgba(0,0,0,.1);
       cursor: pointer;
       transition: all 0.3s;
       &:hover {
-        transform: scale(1.1);
-        box-shadow: -5px 15px 10px rgb(0 0 0 / 10%);
+        border-radius: 15px;
+        transform: translateY(-15px) scale(1.05);
       }
       .img {
         width: 35px;
         height: 35px;
-        object-fit: scale-down
+        object-fit: scale-down;
       }
       .desc {
         width: 90px;

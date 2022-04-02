@@ -8,6 +8,7 @@ export interface webList {
     img: string,
     desc: string,
     url: string,
+    bgc?: string,
   }[]
 }
 const list: webList[] = [
@@ -55,6 +56,18 @@ const list: webList[] = [
         img: 'https://docs.taro.zone/img/logo-taro.png',
         desc: '京东跨端框架，支持react、vue转换为任意小程序',
         url: 'https://docs.taro.zone/docs/README',
+        bgc: '#0000c2'
+      },
+    ],
+  },
+  {
+    type: 'WEB 安全',
+    list: [
+      {
+        title: 'Web安全学习笔记',
+        img: '',
+        desc: '中文版，非常全的 WEB 安全方面的文档',
+        url: 'https://websec.readthedocs.io/zh/latest/index.html',
       },
     ],
   },
@@ -63,7 +76,7 @@ const list: webList[] = [
     list: [
       {
         title: 'lodash',
-        img: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+        img: '',
         desc: '一个流行的Js方法库',
         url: '',
       },
@@ -74,13 +87,13 @@ const list: webList[] = [
     list: [
       {
         title: '免费邮箱',
-        img: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+        img: '',
         desc: '使用邮箱测试',
         url: 'https://yopmail.com/zh/',
       },
       {
         title: '免费手机',
-        img: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+        img: '',
         desc: '使用免费手机号收取短信',
         url: 'http://z-sms.com/',
       },
@@ -101,6 +114,26 @@ const list: webList[] = [
         img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDk6lC0E8fO_1Rsjv0iDtCDYZUzMlfTFXb3w&usqp=CAU',
         desc: 'Esprima 抽象语法树解析的可视化',
         url: 'https://esprima.org/demo/parse.html',
+      },
+      {
+        title: 'carbon',
+        img: 'https://user-images.githubusercontent.com/10369094/31211729-591d059c-a950-11e7-86af-fa5ea3d7dbac.png',
+        desc: '用来创建精美的代码图像，用于分享和展示',
+        url: 'https://carbon.now.sh/',
+        bgc: '#000'
+      },
+      {
+        title: 'prismjs',
+        img: 'https://prismjs.com/assets/logo.svg',
+        desc: 'Markdown 中高亮代码的 css 样式文件下载站点，支持度及样式类型非常丰富',
+        url: 'https://prismjs.com/index.html',
+        bgc: '#000'
+      },
+      {
+        title: 'neumorphism',
+        img: '',
+        desc: 'css 拟态风格效果在线调试',
+        url: 'https://neumorphism.io/#e0e0e0',
       },
     ],
   },
@@ -131,6 +164,18 @@ const list: webList[] = [
         desc: '美团技术文章',
         url: 'https://tech.meituan.com/',
       },
+      {
+        title: '明远的自留地',
+        img: '',
+        desc: '97 年生人，江西老表，毕业于华中科技大学，目前就职于字节跳动',
+        url: 'https://mayandev.top/',
+      },
+      {
+        title: "springleo's blog",
+        img: '',
+        desc: '一个前端开发的博客，很多前端实用的工具及常见的问题解析',
+        url: 'https://lq782655835.github.io/blogs/',
+      },
     ],
   },
   {
@@ -143,16 +188,28 @@ const list: webList[] = [
         url: 'https://github.com/justjavac/free-programming-books-zh_CN',
       },
       {
-        title: 'JavaScript 教程',
-        img: 'https://zh.javascript.info/img/sitetoolbar__logo_en.svg',
-        desc: '基础到高阶的 JavaScript 相关知识',
-        url: 'https://zh.javascript.info/',
+        title: 'ECMA 2015 英文原版',
+        img: 'https://262.ecma-international.org/6.0/Ecma_RVB-003.jpg',
+        desc: 'TC 39 的最终定版，对于 ES 6 原理的理解一定要多看看这个',
+        url: 'https://262.ecma-international.org/6.0/#sec-let-and-const-declarations',
+      },
+      {
+        title: '超赞合集',
+        img: '',
+        desc: 'awesome 列表中文版，各编程资源的大合集 ',
+        url: 'https://asmcn.icopy.site/',
       },
       {
         title: 'nodeJs 教程',
         img: 'http://nodejs.cn/website2/static/nodejs-logo-light-mode-e8344f71081da53be8ee1098584a0ab6.svg',
         desc: 'nodejs教程，细致',
         url: 'http://nodejs.cn/learn/the-package-lock-json-file',
+      },
+      {
+        title: 'GitHub中文社区',
+        img: 'https://play-lh.googleusercontent.com/PCpXdqvUWfCW1mXhH1Y_98yBpgsWxuTSTofy3NGMo9yBTATDyzVkqU580bfSln50bFU',
+        desc: '查看开源项目排行榜和当前流行趋势',
+        url: 'https://www.githubs.cn/',
       },
     ],
   },
@@ -167,6 +224,36 @@ const list: webList[] = [
       },
     ],
   },
+  {
+    type: '服务端',
+    list: [
+      {
+        title: 'Node 地下铁沙龙',
+        img: '',
+        desc: 'Node 地下铁沙龙，圈内大牛技术分享',
+        url: 'https://subway.midwayjs.org/season-1.html',
+      },
+      {
+        title: 'Rust 中文月刊',
+        img: 'https://rustmagazine.github.io/rust_magazine_2021/image/rust_magazine3.png',
+        desc: 'Rust 中文社区',
+        url: 'https://rustmagazine.github.io/rust_magazine_2021/index.html',
+      },
+    ],
+  },
+  {
+    type: '本人读过并且非常推荐你们读的',
+    list: [
+      {
+        title: 'Pro Git',
+        img: 'http://iissnan.com/progit/assets/img/git-logo.png',
+        desc: 'Git 的线上书籍，有中文版，必读',
+        url: 'http://iissnan.com/progit/',
+        bgc: '#101010'
+      },
+    ],
+  },
+
 ];
 
 export default list
