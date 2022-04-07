@@ -1,12 +1,19 @@
 export function deepRouter (routes: any[], preFix: string) {
-  let arr:any = []
+  let arr:any = {}
   for(const i of routes) {
-    if(i.children && i.children.length) {
-      arr = [...arr, ...deepRouter(i.children, `${preFix}/${i.path}`)]
+    const { children, meta: { type, name }} = i
+    if(children && children.length) {
+      arr = [...arr, ...deepRouter(children, `${preFix}/${i.path}`)]
     } else {
-      arr.push({
+      if(!arr[type]) {
+        arr[type] = {
+          type,
+          children: []
+        }
+      }
+      arr[type].children.push({
         path: `${preFix}/${i.path}`,
-        meta: i.meta.name,
+        meta: name,
       })
     }
   }

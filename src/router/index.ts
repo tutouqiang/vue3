@@ -13,11 +13,17 @@ const routes = [
         component: () => import(/* webpackChunkName: "home" */ '../views/index.vue')
       },
       {
-        path: 'navWebsite',
+        path: '/navWebsite',
         name: 'NAVWEBSITE',
         meta: { name: '导航网站' },
-        component: () => import(/* webpackChunkName: "home" */ '../views/website/index.vue')
-      }
+        component: () => import(/* webpackChunkName: "navWebsite" */ '../views/website/index.vue')
+      },
+      {
+        path: '/about',
+        name: 'ABOUT',
+        meta: { name: '关于' },
+        component: () => import(/* webpackChunkName: "about" */ '../views/about/index.vue')
+      },
     ]
   },
   {
@@ -27,12 +33,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "home" */ '../layout/article.vue'),
     children: article
   },
-  {
-    path: '/showTime',
-    name: 'SHOWTIME',
-    meta: { name: '时钟' },
-    component: () => import(/* webpackChunkName: "home" */ '../views/showTime.vue')
-  },
+  
 ]
 
 const router = createRouter({

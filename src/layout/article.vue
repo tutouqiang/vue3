@@ -12,17 +12,22 @@
     </a-layout-content>
     <Footer />
   </a-layout>
+  <a-back-top>
+    <caret-up-outlined class="backup"/>
+  </a-back-top>
 </template>
 <script>
 import Header from './header.vue'
 import Footer from './footer.vue'
+import { CaretUpOutlined } from '@ant-design/icons-vue'
 import '../style/markdown/smartblue.less'
 import '../style/hightlight/prism.css'
 
 export default {
   components: {
     Header,
-    Footer
+    Footer,
+    CaretUpOutlined
   },
   data () {
     return {
@@ -39,11 +44,9 @@ export default {
   },
   mounted () {
     const element = document.getElementsByClassName('content')[0];
-    console.log(element);
     window.requestAnimationFrame(() => {
       element.style.transform = 'translateX(0)';
       element.style.opacity = 1;
-      console.log('beforeMount');
     });
   }
 }
@@ -61,6 +64,21 @@ export default {
     transform: translateX(-300px);
     opacity: 0;
     transition: all 0.3s linear;
+  }
+}
+
+.backup {
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  border-radius: 4px;
+  background-color: #1088e9;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+  transition: all 0.2s linear;
+  &:hover {
+    transform: scale(1.1);
   }
 }
 

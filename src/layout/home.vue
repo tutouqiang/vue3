@@ -5,11 +5,11 @@
       mode="out-in"
       :duration="{ enter: 500, leave: 800 }"
     >
-      <a-layout-content :style="{ padding: '3rem 1rem', marginTop: '64px' }">
+      <a-layout-content>
         <router-view />
       </a-layout-content>
     </transition>
-    <!-- <Footer /> -->
+    <Footer />
   </a-layout>
 </template>
 <script>
@@ -29,7 +29,13 @@ export default {
   min-height: 100vh;
   .ant-layout-content {
     min-height: 50vh;
+    margin: 64px 80px 0;
+    padding: 20px 15px;
     transition: all 0.3s;
+    @media screen and (max-width: 800px) {
+      padding: 20px 15px;
+      margin: 64px 0px 0;
+    }
   }
 }
 </style>

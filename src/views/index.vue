@@ -1,16 +1,21 @@
 <template>
   <div class="home">
-    <a-row :gutter="[30,16]">
-      <a-col :span="24" :lg="18">
-        <div class="article">
-          <h3>所有文章</h3>
-          <router-link
-            class="routerLink"
-            v-for="(item, index) in articleList" 
-            :to="`${item.path}`" 
-            :style="index % 2 === 0 ? '' : 'background-color: rgba(0,0,0,.01);' "
-          >{{item.meta}}</router-link>
-        </div>
+    <a-row>
+      <a-col :span="24" :lg="24">
+        <a-skeleton :loading="loading" active>
+          <div class="article">
+            <a-tabs v-model:activeKey="activeKey" >
+              <a-tab-pane v-for="item in articleList" :key="item.type" :tab="item.type" @tabClick="tabClick(item)">
+                <router-link
+                  class="routerLink"
+                  v-for="(it, id) in item.children" 
+                  :to="`${it.path}`" 
+                  :style="id % 2 === 0 ? '' : 'background-color: rgba(0,0,0,.01);' "
+                >{{it.meta}}</router-link>
+              </a-tab-pane>
+            </a-tabs>
+          </div>
+        </a-skeleton>
       </a-col>
       <!-- <a-col :span="0" :lg="6"> 
         <div class="notesType">
@@ -27,12 +32,15 @@
   </div>
 </template>
 <script>
+import { ref } from 'vue'
 import { deepRouter } from '../util/index'
 
 export default {
   data () {
     return {
       articleList: [],
+      loading: true,
+      activeKey: ref('前端'),
       notesType: [
         {
           name: '前端',
@@ -51,25 +59,25 @@ export default {
   },
   created() {
     this.articleList = deepRouter(this.$router.options.routes[1].children, '/article')
+    console.log(deepRouter(this.$router.options.routes[1].children, '/article'))
   },
   mounted() {
+    this.loading = false
   },
   methods: {
+    tabClick (item) {
+      this.activeKey = item.type
+    }
   }
 }
 </script>
 <style lang="less" scoped>
 .home {
-  /* background-color: #FFFFEE; */
   margin: 0 auto;
-  .notesType, .article {
+  .article .ant-tabs-tabpane {
     display: flex;
     flex-direction: column;
-    padding: 20px;
     border-radius: 10px;
-// background: linear-gradient(145deg, #ffffff, #e6e5d6);
-// box-shadow: inset 5px 5px 10px #e8e7d9,
-//             inset -5px -5px 10px #ffffff;
     h3 {
       margin-bottom: 10px;
     }

@@ -1,6 +1,6 @@
 <template>
   <!--导航网站-->
-  <div class="website">
+  <div class="website" v-if="!loading">
     <template v-for="list in websiteList" :key="list.type">
       <div class="webSiteType">{{list.type}}</div>
       <div class="content">
@@ -16,11 +16,10 @@
         </div>
       </div>
     </template>
-      
   </div>
 </template>
-<script lang="ts">
-import websiteList, { webList } from './webSite'
+<script>
+import websiteList from './webSite'
 export default {
   
   data () {
@@ -28,8 +27,10 @@ export default {
       websiteList: websiteList
     }
   },
+  mounted() {
+  },
   methods: {
-    jump (url: string) {
+    jump (url) {
       window.open(url, '_blank')
     },
     onerror (e) {
@@ -41,6 +42,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .website {
+  // padding: 0 20px;
   .webSiteType {
     padding: 30px 0 30px;
     font-size: 20px;
@@ -51,6 +53,7 @@ export default {
     grid-template-columns: repeat(auto-fill, 150px);
     grid-template-rows: repeat(auto-fill, 100px);
     grid-gap: 20px;
+    justify-content: center;
     .webSiteInfo {
       width: 150px;
       height: 100px;

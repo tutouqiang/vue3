@@ -1,7 +1,7 @@
 /*
  * 常用工具
  */
-export interface webList {
+interface webList {
   type: string,
   list: {
     title: string,
