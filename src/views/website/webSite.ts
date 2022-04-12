@@ -80,6 +80,12 @@ const list: webList[] = [
         desc: '一个流行的Js方法库',
         url: '',
       },
+      {
+        title: 'Axios',
+        img: 'https://axios-http.com/assets/logo.svg',
+        desc: '基于 promise 的网络请求库，可以用于浏览器和 node.js',
+        url: 'https://axios-http.com/zh/',
+      },
     ],
   },
   {

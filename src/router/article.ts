@@ -6,10 +6,28 @@
   component: () => import('../views/article/frontEnd/block.md') 
 }, 
 { 
+  path: 'Configure.md', 
+  name: 'CONFIGURE.MD', 
+  meta: {name: 'Configure.md', type:'前端'}, 
+  component: () => import('../views/article/frontEnd/Configure.md') 
+}, 
+{ 
+  path: 'interview.md', 
+  name: 'INTERVIEW.MD', 
+  meta: {name: 'interview.md', type:'前端'}, 
+  component: () => import('../views/article/frontEnd/interview.md') 
+}, 
+{ 
   path: 'weakup.md', 
   name: 'WEAKUP.MD', 
   meta: {name: 'weakup.md', type:'前端'}, 
   component: () => import('../views/article/frontEnd/weakup.md') 
+}, 
+{ 
+  path: 'VsCode.md', 
+  name: 'VSCODE.MD', 
+  meta: {name: 'VsCode.md', type:'前端'}, 
+  component: () => import('../views/article/frontEnd/VsCode.md') 
 }, 
 { 
   path: 'husky.md', 
