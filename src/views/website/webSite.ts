@@ -248,7 +248,7 @@ const list: webList[] = [
     ],
   },
   {
-    type: '本人读过并且非常推荐你们读的',
+    type: '读过并且非常推荐的',
     list: [
       {
         title: 'Pro Git',
