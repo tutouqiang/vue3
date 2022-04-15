@@ -6,9 +6,20 @@
       <a-breadcrumb :style="{ margin: '16px 0' }">
         <a-breadcrumb-item v-for="item in articleList">{{item.name}}</a-breadcrumb-item>
       </a-breadcrumb>
-      <section class="content">
-        <router-view />
-      </section>
+      <a-row justify="center" :gutter="50">
+          <section class="content">
+            <router-view />
+          </section>
+        <a-col :span="0" :lg="5" :xl="4" :xxxl="3">
+            <a-anchor :offsetTop="64" @click="(e) => e.preventDefault()">
+              <a-anchor-link
+                v-for="item in anchorList" :key="item.href"
+                :href="'#' + item.href"
+                :title="item.title"
+              />
+            </a-anchor>
+        </a-col>
+      </a-row>
     </a-layout-content>
     <Footer />
   </a-layout>
@@ -32,6 +43,7 @@ export default {
   data () {
     return {
       articleList: [],
+      anchorList: [],
     }
   },
   created () {
@@ -48,6 +60,21 @@ export default {
       element.style.transform = 'translateX(0)';
       element.style.opacity = 1;
     });
+    this.filterdAnchor()
+  },
+  methods: {
+    filterdAnchor () {
+      const mdc = document.getElementsByClassName('markdown-body')[0].children
+      const reg = /H|h\d/
+      for(let i = 0; i < mdc.length; i++) {
+        if (reg.test(mdc[i].tagName)) {
+          this.anchorList.push({
+            title: decodeURI(mdc[i].id),
+            href: mdc[i].id
+          })
+        }
+      }
+    }
   }
 }
 </script>
@@ -58,7 +85,7 @@ export default {
   background-color: #FFFFEE;
   .content {
     max-width: 800px;
-    margin: 0 auto; 
+    // margin: 0 auto; 
     padding: 10px 0px;
     will-change: auto;
     transform: translateX(-300px);
