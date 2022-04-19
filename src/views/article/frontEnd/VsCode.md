@@ -1,5 +1,8 @@
-# VSCode 常用配置
-
+---
+title: VSCode 常用配置
+createTime: 2022 年 3 月 10 日
+updateTime: 2022 年 4 月 1 日
+---
 ## 常用插件
 
 ### 1、Volar

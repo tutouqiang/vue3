@@ -1,21 +1,41 @@
 <template>
   <!--导航网站-->
   <div class="website" v-if="!loading">
+    <a-row>
+    <a-col :span="24" :lg="21" :xl="22">
     <template v-for="list in websiteList" :key="list.type">
-      <div class="webSiteType">{{list.type}}</div>
+      <div class="webSiteType" :id="list.type">{{list.type}}</div>
       <div class="content">
         <div class="webSiteInfo" @click="jump(item.url)" v-for="item in list.list" :key="item.title">
-          <img 
-            class="img" 
-            loading="lazy" 
-            :src="item.img || 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'" 
-            :onerror="onerror" alt="木有图片"
-            :style="`background-color: ${item.bgc || '#fff'}`"/>
-          <div class="title">{{item.title}}</div>
-          <div class="desc">{{item.desc}}</div>
+          <a-popover>
+            <div style="text-align: center">
+              <img 
+                class="img" 
+                loading="lazy" 
+                :src="item.img || 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'" 
+                :onerror="onerror" alt="木有图片"
+                :style="`background-color: ${item.bgc || '#fff'}`"
+              />
+              <div class="title">{{item.title}}</div>
+              <div class="desc">{{item.desc}}</div>
+            </div>
+            <template #title>{{item.title}}</template>
+            <template #content>{{item.desc}}</template>
+          </a-popover>
         </div>
       </div>
     </template>
+    </a-col>
+    <a-col :lg="3" :xl="2" :span="0">
+      <a-anchor :offsetTop="64" @click="(e) => e.preventDefault()">
+        <a-anchor-link
+          v-for="list in websiteList" :key="list.type"
+          :href="'#' + list.type"
+          :title="list.type"
+        />
+      </a-anchor>
+    </a-col>
+    </a-row>
   </div>
 </template>
 <script>
@@ -42,7 +62,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .website {
-  // padding: 0 20px;
+  margin-bottom: 50px;
   .webSiteType {
     padding: 30px 0 30px;
     font-size: 20px;
@@ -68,6 +88,9 @@ export default {
       &:hover {
         border-radius: 15px;
         transform: translateY(-15px) scale(1.05);
+      }
+      .popover {
+        text-align: center!important;
       }
       .img {
         width: 35px;
