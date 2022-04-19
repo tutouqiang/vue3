@@ -2,11 +2,10 @@
 highlight: zenburn
 theme: orange
 title: husky 源码分析——这个库到底做了什么？
-createTime: '2022 年 1 月 22 日'
-updateTime: '2022 年 4 月 1 日'
+createTime: 2022 年 1 月 22 日
+updateTime: 2022 年 4 月 1 日
 ---
 
-# husky 源码分析
 
 ## 前言
 Github：https://github.com/typicode/husky  使用 Git 钩子变得简单

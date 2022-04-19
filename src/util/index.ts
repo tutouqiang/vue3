@@ -1,7 +1,7 @@
 export function deepRouter (routes: any[], preFix: string) {
   let arr:any = {}
   for(const i of routes) {
-    const { children, meta: { type, name }} = i
+    const { children, meta, meta: { type, name }} = i
     if(children && children.length) {
       arr = [...arr, ...deepRouter(children, `${preFix}/${i.path}`)]
     } else {
@@ -13,7 +13,7 @@ export function deepRouter (routes: any[], preFix: string) {
       }
       arr[type].children.push({
         path: `${preFix}/${i.path}`,
-        meta: name,
+        meta: meta,
       })
     }
   }

@@ -2,11 +2,10 @@
  * md 文档的路由生成、名称解析
  *
  */
-import {opendir} from 'fs/promises'
+import { opendir } from 'fs/promises'
 import fs from 'fs'
 import path from 'path'
 import articleType from '../views/article/index'
-// console.log();
 
 interface Config {
   dirname: string,
@@ -28,14 +27,29 @@ async function getFilePath (filePath: string) {
     for await (const dirent of dir) {
       let curpath = path.resolve(filePath, dirent.name);
       let state = fs.lstatSync(curpath); 
+      // 目录，继续深度读取
       if (state.isDirectory()) {
         routes += await getFilePath(curpath)
-      } else {
+      } else { // 文件，处理内容
         let reg = /\.md$/
         if(reg.test(dirent.name)) {
+          let headInfo:any = {}
+          // 读取 md 文档头部信息区，存储在 route meta 对象中，同时提取文章名称、分类
+          const mdFile = fs.readFileSync(curpath, { encoding: 'utf-8'})
+          const str = mdFile.slice(3, mdFile.indexOf('\n---'))
+          if(str) {
+            const strArr = str.split('\n')
+            strArr.forEach(item => {
+              if(item) {
+                const it = item.split(':')
+                headInfo[it[0]] = it[1]
+              }
+            })
+          }
           const componentPath = '../' + curpath.slice(curpath.indexOf('views'), curpath.length) // 相对路径
           const type = componentPath.split('/')[3] // 文件分类
-          routes += `{ \n  path: '${dirent.name}', \n  name: '${dirent.name.toLocaleUpperCase()}', \n  meta: {name: '${dirent.name}', type:'${articleType?.get(type)}'}, \n  component: () => import('${componentPath}') \n}, \n`
+          const meta = Object.assign({name: dirent.name, type: articleType.get(type)}, headInfo)
+          routes += `{ \n  path: '${dirent.name}', \n  name: '${dirent.name.toLocaleUpperCase()}', \n  meta: ${JSON.stringify(meta)}, \n  component: () => import('${componentPath}') \n}, \n`
         }
       }
     }

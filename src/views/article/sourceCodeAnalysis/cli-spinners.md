@@ -1,8 +1,11 @@
 ---
 theme: healer-readable
+title: cli-spinners 做了什么？
+createTime: 2022 年 1 月 20 日
+updateTime: 2022 年 4 月 1 日
 ---
 
-# [cli-spinners](https://github.com/sindresorhus/cli-spinners)
+## [cli-spinners](https://github.com/sindresorhus/cli-spinners)
 
 > 在 [ora 源码分析 ———— ora 怎么实现的？](https://juejin.cn/post/7055688184264556557) 这篇文章中有提到过 cli-spinners 这个库，它也是 ora 的核心物料库，提供着 '**定格动画中的每一帧画面**'。
 
