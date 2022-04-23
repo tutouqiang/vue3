@@ -8,7 +8,6 @@
 # 目录
 每一个 git 存储库根目录都有一个 .git 文件，这个文件会具备几个基础文件，并且随着你使用范围的增减会相应的新增一些其他的文件用于记录你操作的内容。
 
-文件、目录、快照则会以 hash 的形式保存，长度均为 40 位。
 
 ## 初始文件
 - FETCH_HEAD  本地分支的指针、名称、状态及远程地址的列表
@@ -17,8 +16,68 @@
 - description 
 - hooks       git 操作对应的回调钩子      
 - info        
-- objects     文件内容、目录树及快照内容。文件名为 hash 的前两位，文件名为后面的 38 位     
+- objects     文件内容、目录树及快照内容。  
 - refs        heads：分支名称,内容为名称的 hash 值 tags：tag 信息
+
+### objects
+默认文件 head、info
+
+文件、目录、快照则会以 hash 的形式保存，长度均为 40 位。文件夹名为 hash 的前两位，文件名为后面的 38 位，文件内容为则为真实的文件内容。
+```sh
+// 生成一个初始仓库并在仓库中新增内容为 ‘test’ 的 index.txt 文件
+$ git init project && cd project
+$ echo 'test' > index.txt
+$ git hash-object -w index.txt
+9daeafb9864cf43055ae93beb0afd6c7d144bfa4
+```
+#### 文件存储
+此时 .git/objects 文件中新增文件夹 9d, 9d 文件夹中新增文件 aeafb9864cf43055ae93beb0afd6c7d144bfa4, 可以通过命令查看文件内容为 test
+```sh
+$ git cat-file -p 9daeafb9864cf43055ae93beb0afd6c7d144bfa4
+test
+```
+
+#### 文件树存储
+文件树（tree）下面包含生成的文件信息
+
+将新增的文件添加到暂存区，使用 git write-tree 生成文件树，文件树生成逻辑与文件相同
+```sh
+$ git update-index --add --cacheinfo 100644 9daeafb9864cf43055ae93beb0afd6c7d144bfa4 index.txt
+$ git write-tree
+bf46be7f487eb5f42bfa6cbd10b9f7efdb3ed7ac
+```
+此时 .git/objects 新增文件夹和文件为 bf/46be7f487eb5f42bfa6cbd10b9f7efdb3ed7ac, 我们使用同样的命令查看文件树内容
+
+```sh
+$ git cat-file -p bf46be7f487eb5f42bfa6cbd10b9f7efdb3ed7ac
+100644 blob 9daeafb9864cf43055ae93beb0afd6c7d144bfa4	index.txt
+```
+文件树内容为该目录下的文件信息
+- 100644 文件权限标识: [100644 普通文件]、[100755 可执行文件]、[120000 符号链接]
+- blob   文件类型
+- 9daeafb9864cf43055ae93beb0afd6c7d144bfa4 文件树 hash
+- index.txt 对应的文件名称
+
+每一次的文件树的生成都会包含最新的文件 hash 或者嵌套的文件树, 其嵌套逻辑如下:
+
+![tree](https://iissnan.com/progit/book_src/figures/18333fig0902-tn.png)
+
+#### commit
+一次 commit 提交也就意味着一次快照生成
+
+```sh
+$ git commit -m 'First commit'
+$ git cat-file -p 
+```
+commit 下的信息
+- tree 文件树的完整 hash
+- author 作者名称、邮箱、时间戳
+- committer 本次 commit 的提交者名称、邮箱、时间戳
+- 'First commit' 提交说明
+
+创建 commit 时同样会在 .git/objects 中新增文件，机制与上述几项均相同
+
+
 
 ## 动态文件
 - index 
