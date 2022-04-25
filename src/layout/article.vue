@@ -4,16 +4,18 @@
     <Header />
     <a-layout-content :style="{ padding: '0 1rem', marginTop: '64px', flexGrow: 1 }">
       <a-breadcrumb separator=">" :style="{ margin: '16px 0' }">
-        <a-breadcrumb-item v-for="item in articleList" :href="item.path">
-          <router-link :to="item.path">{{
-            item.meta.title || item.meta.name
-          }}</router-link>
-        </a-breadcrumb-item>
+        <template v-for="item in articleList">
+          <a-breadcrumb-item :href="item.path" v-if="item.meta.name !== '文章'">
+            <router-link :to="item.path">{{
+              item.meta.title || item.meta.name
+            }}</router-link>
+          </a-breadcrumb-item>
+        </template>
       </a-breadcrumb>
       <a-row justify="center">
         <section class="content">
           <div class="head">
-            <h2 style="text-align: center">{{ headInfo.title }}</h2>
+            <h1>{{ headInfo.title }}</h1>
             <br />
             <div class="articleInfo">
               <div v-if="headInfo.title">作者: &nbsp;&nbsp;张超</div>
@@ -28,10 +30,11 @@
         <a-col :span="0" :lg="5" :xl="4" :xxxl="3" style="margin-left: 50px">
           <a-anchor :offsetTop="64" @click="(e) => e.preventDefault()">
             <a-anchor-link
-              v-for="item in anchorList"
-              :key="item.href"
-              :href="'#' + item.href"
-              :title="item.title"
+              v-for="{ href, title, level } in anchorList"
+              :key="href"
+              :href="'#' + href"
+              :title="title"
+              :style="{ paddingLeft: level > 1 ? (level - 1) * 15 + 11 + 'px' : '11px' }"
             />
           </a-anchor>
         </a-col>
@@ -91,11 +94,13 @@ export default {
     filterdAnchor() {
       const mdc = document.getElementsByClassName("markdown-body")[0].children;
       const reg = /H|h\d/;
+      const filterReg = /\d/;
       for (let i = 0; i < mdc.length; i++) {
         if (reg.test(mdc[i].tagName)) {
           this.anchorList.push({
             title: decodeURI(mdc[i].id),
             href: mdc[i].id,
+            level: Number(mdc[i].tagName.match(filterReg)[0]) || 0,
           });
         }
       }
@@ -118,6 +123,10 @@ export default {
     transition: all 0.3s linear;
     .head {
       margin: 30px 0;
+      h1 {
+        padding: 0 10px;
+        font-size: 22px;
+      }
     }
     .articleInfo {
       display: flex;
