@@ -3,6 +3,7 @@
  */
 interface webList {
   type: string,
+  title?: string,
   list: {
     title: string,
     img: string,
@@ -248,13 +249,39 @@ const list: webList[] = [
     ],
   },
   {
+    type: '可以部署的二开框架',
+    list: [
+      {
+        title: 'grafana',
+        img: 'https://grafana.com/static/assets/internal/grafana_logo-web-white-text.svg',
+        desc: '服务监控可视化',
+        url: 'https://grafana.com/'
+      }
+    ]
+  },
+  {
     type: '读过并且非常推荐的',
+    title: '提取码可关注公众号并回复书名',
     list: [
       {
         title: 'Pro Git',
         img: 'http://iissnan.com/progit/assets/img/git-logo.png',
         desc: 'Git 的线上书籍，有中文版，必读',
         url: 'http://iissnan.com/progit/',
+        bgc: '#101010'
+      },
+      {
+        title: '我的第一本算法书',
+        img: 'https://img11.360buyimg.com/n1/jfs/t1/26907/22/5787/185613/5c419b46E9cf10e55/e9229f7f0f0eadc7.jpg',
+        desc: '算法入门友好，图形化的介绍一些常见的数据结构及算法，易于理解',
+        url: 'https://www.aliyundrive.com/s/TowakrPYfiG',
+        bgc: '#101010'
+      },
+      {
+        title: '算法 （第四版）',
+        img: 'https://images-cn.ssl-images-amazon.cn/images/I/41OhCo2B-VL.jpg',
+        desc: '算法学习必读，配套的网站 https://algs4.cs.princeton.edu/home/',
+        url: 'https://www.aliyundrive.com/s/xWn4ncKTFRV',
         bgc: '#101010'
       },
     ],

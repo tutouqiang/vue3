@@ -7,7 +7,7 @@ updateTime: 2022 年 4 月 1 日
 ---
 
 
-## 前言
+# 前言
 Github：https://github.com/typicode/husky  使用 Git 钩子变得简单
 <br>
 

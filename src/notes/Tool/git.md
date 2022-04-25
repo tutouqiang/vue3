@@ -10,17 +10,17 @@
 
 
 ## 初始文件
-- FETCH_HEAD  本地分支的指针、名称、状态及远程地址的列表
-- HEAD        当前头部指针对应的分支在 refs 文件中的路径
-- config      远程地址及分支信息、核心配置
-- description 
+- FETCH_HEAD  本地分支的指针、名称、状态及远程地址的列表。默认为空
+- HEAD        当前头部指针对应的分支在 refs 文件中的路径。默认为：ref: refs/heads/master
+- config      配置信息。
+- description 文件仅供 GitWeb 程序使用，所以不用关心这些内容。
 - hooks       git 操作对应的回调钩子      
-- info        
-- objects     文件内容、目录树及快照内容。  
-- refs        heads：分支名称,内容为名称的 hash 值 tags：tag 信息
+- info        目录保存了一份不希望在 .gitignore 文件中管理的忽略模式 (ignored patterns) 的全局可执行文件。
+- objects     存储所有数据内容。文件内容、目录树及快照内容。  
+- refs        refs/heads：分支名称,内容为名称的 hash 值。 refs/tags：tag 信息
 
 ### objects
-默认文件 head、info
+默认文件 pack、info
 
 文件、目录、快照则会以 hash 的形式保存，长度均为 40 位。文件夹名为 hash 的前两位，文件名为后面的 38 位，文件内容为则为真实的文件内容。
 ```sh
@@ -63,21 +63,69 @@ $ git cat-file -p bf46be7f487eb5f42bfa6cbd10b9f7efdb3ed7ac
 ![tree](https://iissnan.com/progit/book_src/figures/18333fig0902-tn.png)
 
 #### commit
-一次 commit 提交也就意味着一次快照生成
+一次 commit 提交也就意味着一次快照生成。commit 指向 tree 或文件
 
 ```sh
-$ git commit -m 'First commit'
-$ git cat-file -p 
+$ echo 'first commit' | git commit-tree bf46be7f487eb5f42bfa6cbd10b9f7efdb3ed7ac
+$ git cat-file -p bf46be7f487eb5f42bfa6cbd10b9f7efdb3ed7ac
 ```
 commit 下的信息
 - tree 文件树的完整 hash
 - author 作者名称、邮箱、时间戳
 - committer 本次 commit 的提交者名称、邮箱、时间戳
-- 'First commit' 提交说明
+- 'first commit' 提交说明
 
 创建 commit 时同样会在 .git/objects 中新增文件，机制与上述几项均相同
 
+## refs
+默认包含两个空文件
+### heads
+记录分支信息，默认为空。
+当产生第一次 commit 提交之后，该文件下方会出现提交到的分支名称，内容为 commit 的 hash
+```sh
+$ git update-ref refs/heads/master bf46be7f487eb5f42bfa6cbd10b9f7efdb3ed7ac
+```
 
+### tags
+记录所有 tag，tag 指向一个 commit。 但这个指向与分支指向不同，它不会变化，可以看作一个不可以更改指向的分支。
+
+tag 可以通过命令创建
+```sh
+$ git update-ref refs/tags/V1.0 bf46be7f487eb5f42bfa6cbd10b9f7efdb3ed7ac
+$ cat .git/refs/tags/v1.0
+bf46be7f487eb5f42bfa6cbd10b9f7efdb3ed7ac
+```
+### remotes
+记录远程 push 的分支信息。
+
+当前 git 仓库有过远程地址的 push 操作后会自动创建该文件夹。
+
+内容为 origin 文件夹，该文件夹下记录被 push 过的分支名。例如：origin/master、origin/dev。
+```sh
+$ git init
+$ find .git/refs // 查看默认文件
+.git/refs
+.git/refs/heads
+.git/refs/tags
+$ echo '1' > one.txt
+$ git commit -a -m 'first commit' // 综合 git add 、git commit 操作命令
+$ git remote add origin git@gitee.com:zhangchao-wooc/project.git // 添加远程分支地址
+$ git push
+$ find .git/refs // 可以看到已经创建 remotes/origin/master 文件
+.git/refs
+.git/refs/heads
+.git/refs/heads/master
+.git/refs/tags
+.git/refs/remotes
+.git/refs/remotes/origin
+.git/refs/remotes/origin/master
+$ cat .git/regs/remotes/master // 该文件内容为 commit 指针
+adf7ca10f5d2f93c3680e94dd9b4905ab18fa511
+```
+Remote 引用和分支主要区别在于他们是不能被 check out 的。Git 把他们当作是标记了这些分支在服务器上最后状态的一种书签。
+
+
+文件内容为 commit 指针
 
 ## 动态文件
 - index 
@@ -191,7 +239,7 @@ This is one.text
 将暂存区内容生成快照 hash
 
 ```sh
-$ git commit-tree 2c5f1a0106801d13f8631e99aa020f55b7663a48
+$ echo 'first commit' | git commit-tree 2c5f1a0106801d13f8631e99aa020f55b7663a48
 7c842470b33f51605708734aa4372ef4d9370c97
 ```
 
@@ -215,10 +263,18 @@ $ echo 7c842470b33f51605708734aa4372ef4d9370c97 > .git/refs/heads/master
 ```
 此时 .git/refs/heads 目录会生成 master 文件并且内容为 7c842470b33f51605708734aa4372ef4d9370c97, 也就是说此时指针指向刚刚生成的快照, git log 即可查看当前分支的的快照（commit）。如果 master 已存在，则直接替换指针内容。
 
-该命令会自动替换当前分支的指针
+直接操作文件内容的方式替换当前分支指向可行，但官方不建议。Git 命令 git update-ref 可以安全的执行此操作
+```sh
+$ git update-ref refs/heads/dev 7c842470b33f51605708734aa4372ef4d9370c97
+```
+此时会新建或更新 dev 分支的指向为 7c842470b33f51605708734aa4372ef4d9370c97
+
+git commit 执行完之后其他文件相应的更新
+
+
 log 的查找方式为
 
-按照分支指针指向的逻辑来看，下面几个命令的逻辑也就更好理解了
+# 按照分支指针指向的逻辑来看，下面几个命令的逻辑也就更好理解了
 
 ## git reset
 重置当前分支的指针为指定的快照, 完成快照的切换
@@ -232,19 +288,42 @@ HEAD 是一个特殊的指针，代表当前分支的指针，可以以它为基
 - HEAD~n 即当前指针之前的第 n 个指针
   
 ## git checkout
-切换到指定分支，将当前指针指向要切换的分支的指针
+切换到指定分支，将当前指针指向要切换的分支的指针，本质上是切换指针的引用的路径操作。
 ```sh
 $ git checkout master // 切换到 master 分支
 $ cat .git/HEAD
-ref: refs/heads/master
+ref: refs/heads/master // 此时指针指向 master 中最新的 commit
+$ git checkout dev // 切换到 dev 分支
+$ cat .git/HEAD
+ref: refs/heads/dev // 此时指针指向 dev 中最新的 commit
 $ git checkout 785f188674ef3c6ddc5b516307884e1d551f53ca // 切换到指定的快照
 $ cat .git/HEAD
 785f188674ef3c6ddc5b516307884e1d551f53ca
 ```
 此时的 HEAD 文件指针指向 785f188674ef3c6ddc5b516307884e1d551f53ca 而不是分支头部中的文件。当前处于分离头指针状态, 这里就不展开讲了。
 
+也可以通过 git symbolic-ref HEAD 查看或者更改当前分支
+```sh
+$ git symbolic-ref HEAD
+refs/heads/dev
+$ git symbolic-ref HEAD refs/heads/master
+$ git symbolic-ref HEAD
+refs/heads/master
+```
+
+## git update-ref
+更新指定分支的指针。
+
+相关的命令有 
+- git branch <分支名称> 将要创建的分支中的指针更新为当前分支的指针
+```sh
+git update-ref refs/heads/dev 7c842470b33f51605708734aa4372ef4d9370c97
+```
+
 ## git branch
-查看所有分支，创建分支
+查看所有分支，创建分支。
+
+TIP：新 git 仓库使用该命令创建分支时会报错，当 git 存储库有了第一次的 commit 提交到指定分支后，此命令创建分支才可正常使用
 ```shell
 $ git branch // 查看本地所有分支
 * master
