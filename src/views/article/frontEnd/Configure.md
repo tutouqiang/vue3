@@ -1,5 +1,5 @@
 ---
-title: Mac 开发环境配置
+title: 项目开发配置
 createTime: 2021 年 10 月 11 日
 updateTime: 2022 年 4 月 1 日
 ---
