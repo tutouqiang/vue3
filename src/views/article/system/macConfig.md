@@ -89,15 +89,50 @@ Markdown Preview Github Styling
 
 本地 md 文档样式上传到 Github、npm 时，经常出现本地与线上表现不一致的问题，此插件可在编写时预览本地 md 文档在 Github 上展现的样式。
 
+## JDK
+安装zulu 8 jdk
+参考文档 https://www.winsonlo.com/it/howto/zulu-jdk8-on-m1/
+
+## mvn
+
+### 1、下载解压
+```sh
+$ curl -O http://mirrors.hust.edu.cn/apache/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
+$ tar -xvf  apache-maven-3.3.9-bin.tar.gz
+$ sudo mv -f apache-maven-3.3.9 /usr/local/
+```
+
+### 2、配置文件
+
+编辑 /etc/profile 文件 sudo vim /etc/profile，在文件末尾添加如下代码：
+```sh
+export MAVEN_HOME=/usr/local/apache-maven-3.5.4
+export PATH=${PATH}:${MAVEN_HOME}/bin
+```
+
+### 3、保存配置文件使配置环境生效
+```sh
+$ source /etc/profile
+```
+
+### 4、校验是否安装成功，控制台输出 Maven 相关版本信息，说明 Maven 安装成功
+```sh
+$ mvn -v
+Apache Maven 3.5.4 (1edded0938998edf8bf061f1ceb3cfdeccf443fe; 2018-06-18T02:33:14+08:00)
+Maven home: /usr/local/apache-maven-3.5.4
+Java version: 1.8.0_332, vendor: Azul Systems, Inc., runtime: /Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/jre
+Default locale: zh_CN, platform encoding: UTF-8
+OS name: "mac os x", version: "12.1", arch: "aarch64", family: "mac"
+```
 # 常见问题
-## raw.githubusercontent.com port 443
+## 443
 
 #### 问题再现
 ```sh
 Failed to connect to raw.githubusercontent.com port 443: Connection refused
 ```
 #### 问题原因
-Github 的地址访问不到或域名污染，可通过查找该域名真实 ip 的方式，选择一个最近的 ip 配置在域名文件中，使到 Github 下载文件时的域名解析根据你配置的 ip 地址去访问。
+软件包的地址访问不到或域名污染，可通过查找该域名真实 ip 的方式，选择一个最近的 ip 配置在域名文件中，使下载文件时的域名解析根据你配置的 ip 地址去访问。
 
 #### 问题解决
 

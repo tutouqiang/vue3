@@ -87,6 +87,12 @@ const list: webList[] = [
         desc: '基于 promise 的网络请求库，可以用于浏览器和 node.js',
         url: 'https://axios-http.com/zh/',
       },
+      {
+        title: 'passport',
+        img: 'http://www.passportjs.org/images/logo.svg',
+        desc: 'Passport 是Node.js的身份验证中间件。Passport 极其灵活和模块化，可以不显眼地放入任何 基于Express的 Web 应用程序中。一套全面的策略支持使用用户名和密码、 Facebook、Twitter等进行身份验证。',
+        url: 'http://www.passportjs.org/',
+      },
     ],
   },
   {
@@ -218,6 +224,12 @@ const list: webList[] = [
         desc: '查看开源项目排行榜和当前流行趋势',
         url: 'https://www.githubs.cn/',
       },
+      {
+        title: '年度 JavaScript 明星项目',
+        img: 'https://bestofjs.org/svg/bestofjs.svg',
+        desc: '查看每个年度对 JavaScript 领域的总结，涉及的前端面很广, 时刻关注前端生态的变化及优秀项目的发现',
+        url: 'https://risingstars.js.org/2021/zh',
+      },
     ],
   },
   {
@@ -285,6 +297,17 @@ const list: webList[] = [
         bgc: '#101010'
       },
     ],
+  },
+  {
+    type: '开发规范',
+    list: [
+      {
+        title: 'OAuth',
+        img: 'https://grafana.com/static/assets/internal/grafana_logo-web-white-text.svg',
+        desc: 'OAuth 2.0 是行业标准的授权协议。OAuth 2.0 专注于客户端开发人员的简单性，同时为 Web 应用程序、桌面应用程序、移动电话和客厅设备提供特定的授权流程。该规范及其扩展正在IETF OAuth 工作组内开发。',
+        url: 'https://oauth.net/2/'
+      }
+    ]
   },
 
 ];
