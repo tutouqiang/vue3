@@ -31,19 +31,19 @@ const list: webList[] = [
       {
         title: 'UmiJS',
         img: 'data:image/png;base64,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',
-        desc: '蚂蚁出品，react框架',
+        desc: '蚂蚁出品, react框架',
         url: 'https://umijs.org/zh-CN',
       },
       {
         title: 'qiankun',
         img: 'https://gw.alipayobjects.com/zos/bmw-prod/8a74c1d3-16f3-4719-be63-15e467a68a24/km0cv8vn_w500_h500.png',
-        desc: '蚂蚁出品，qiankun 微前端',
+        desc: '蚂蚁出品,qiankun 微前端',
         url: 'https://qiankun.umijs.org/zh',
       },
       {
         title: 'Electron',
         img: 'data:image/png;base64,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',
-        desc: 'electronjs PC框架，可结合vue、react等开发pc应用',
+        desc: 'electronjs PC框架,可结合vue、react等开发pc应用',
         url: 'https://www.electronjs.org/',
       },
       {
@@ -55,7 +55,7 @@ const list: webList[] = [
       {
         title: 'Taro',
         img: 'https://docs.taro.zone/img/logo-taro.png',
-        desc: '京东跨端框架，支持react、vue转换为任意小程序',
+        desc: '京东跨端框架,支持react、vue转换为任意小程序',
         url: 'https://docs.taro.zone/docs/README',
         bgc: '#0000c2'
       },
@@ -67,7 +67,7 @@ const list: webList[] = [
       {
         title: 'Web安全学习笔记',
         img: '',
-        desc: '中文版，非常全的 WEB 安全方面的文档',
+        desc: '中文版,非常全的 WEB 安全方面的文档',
         url: 'https://websec.readthedocs.io/zh/latest/index.html',
       },
     ],
@@ -84,13 +84,13 @@ const list: webList[] = [
       {
         title: 'Axios',
         img: 'https://axios-http.com/assets/logo.svg',
-        desc: '基于 promise 的网络请求库，可以用于浏览器和 node.js',
+        desc: '基于 promise 的网络请求库,可以用于浏览器和 node.js',
         url: 'https://axios-http.com/zh/',
       },
       {
         title: 'passport',
         img: 'http://www.passportjs.org/images/logo.svg',
-        desc: 'Passport 是Node.js的身份验证中间件。Passport 极其灵活和模块化，可以不显眼地放入任何 基于Express的 Web 应用程序中。一套全面的策略支持使用用户名和密码、 Facebook、Twitter等进行身份验证。',
+        desc: 'Passport 是Node.js的身份验证中间件。Passport 极其灵活和模块化,可以不显眼地放入任何 基于Express的 Web 应用程序中。一套全面的策略支持使用用户名和密码、 Facebook、Twitter等进行身份验证。',
         url: 'http://www.passportjs.org/',
       },
     ],
@@ -131,14 +131,14 @@ const list: webList[] = [
       {
         title: 'carbon',
         img: 'https://user-images.githubusercontent.com/10369094/31211729-591d059c-a950-11e7-86af-fa5ea3d7dbac.png',
-        desc: '用来创建精美的代码图像，用于分享和展示',
+        desc: '用来创建精美的代码图像,用于分享和展示',
         url: 'https://carbon.now.sh/',
         bgc: '#000'
       },
       {
         title: 'prismjs',
         img: 'https://prismjs.com/assets/logo.svg',
-        desc: 'Markdown 中高亮代码的 css 样式文件下载站点，支持度及样式类型非常丰富',
+        desc: 'Markdown 中高亮代码的 css 样式文件下载站点,支持度及样式类型非常丰富',
         url: 'https://prismjs.com/index.html',
         bgc: '#000'
       },
@@ -147,6 +147,12 @@ const list: webList[] = [
         img: '',
         desc: 'css 拟态风格效果在线调试',
         url: 'https://neumorphism.io/#e0e0e0',
+      },
+      {
+        title: 'freefrontend',
+        img: '',
+        desc: '有很多免费的页面效果、模版以及使用前端实现的动态桌面。并且有 react、vue 可直接使用的代码,大部分都是原生前端代码,方便使用。',
+        url: 'https://freefrontend.com/',
       },
     ],
   },
@@ -180,13 +186,13 @@ const list: webList[] = [
       {
         title: '明远的自留地',
         img: '',
-        desc: '97 年生人，江西老表，毕业于华中科技大学，目前就职于字节跳动',
+        desc: '97 年生人,江西老表,毕业于华中科技大学,目前就职于字节跳动',
         url: 'https://mayandev.top/',
       },
       {
         title: "springleo's blog",
         img: '',
-        desc: '一个前端开发的博客，很多前端实用的工具及常见的问题解析',
+        desc: '一个前端开发的博客,很多前端实用的工具及常见的问题解析',
         url: 'https://lq782655835.github.io/blogs/',
       },
     ],
@@ -203,19 +209,19 @@ const list: webList[] = [
       {
         title: 'ECMA 2015 英文原版',
         img: 'https://262.ecma-international.org/6.0/Ecma_RVB-003.jpg',
-        desc: 'TC 39 的最终定版，对于 ES 6 原理的理解一定要多看看这个',
+        desc: 'TC 39 的最终定版,对于 ES 6 原理的理解一定要多看看这个',
         url: 'https://262.ecma-international.org/6.0/#sec-let-and-const-declarations',
       },
       {
         title: '超赞合集',
         img: '',
-        desc: 'awesome 列表中文版，各编程资源的大合集 ',
+        desc: 'awesome 列表中文版,各编程资源的大合集 ',
         url: 'https://asmcn.icopy.site/',
       },
       {
         title: 'nodeJs 教程',
         img: 'http://nodejs.cn/website2/static/nodejs-logo-light-mode-e8344f71081da53be8ee1098584a0ab6.svg',
-        desc: 'nodejs教程，细致',
+        desc: 'nodejs教程,细致',
         url: 'http://nodejs.cn/learn/the-package-lock-json-file',
       },
       {
@@ -227,7 +233,7 @@ const list: webList[] = [
       {
         title: '年度 JavaScript 明星项目',
         img: 'https://bestofjs.org/svg/bestofjs.svg',
-        desc: '查看每个年度对 JavaScript 领域的总结，涉及的前端面很广, 时刻关注前端生态的变化及优秀项目的发现',
+        desc: '查看每个年度对 JavaScript 领域的总结,涉及的前端面很广, 时刻关注前端生态的变化及优秀项目的发现',
         url: 'https://risingstars.js.org/2021/zh',
       },
     ],
@@ -249,7 +255,7 @@ const list: webList[] = [
       {
         title: 'Node 地下铁沙龙',
         img: '',
-        desc: 'Node 地下铁沙龙，圈内大牛技术分享',
+        desc: 'Node 地下铁沙龙,圈内大牛技术分享',
         url: 'https://subway.midwayjs.org/season-1.html',
       },
       {
@@ -278,21 +284,21 @@ const list: webList[] = [
       {
         title: 'Pro Git',
         img: 'http://iissnan.com/progit/assets/img/git-logo.png',
-        desc: 'Git 的线上书籍，有中文版，必读',
+        desc: 'Git 的线上书籍,有中文版,必读',
         url: 'http://iissnan.com/progit/',
         bgc: '#101010'
       },
       {
         title: '我的第一本算法书',
         img: 'https://img11.360buyimg.com/n1/jfs/t1/26907/22/5787/185613/5c419b46E9cf10e55/e9229f7f0f0eadc7.jpg',
-        desc: '算法入门友好，图形化的介绍一些常见的数据结构及算法，易于理解',
+        desc: '算法入门友好,图形化的介绍一些常见的数据结构及算法,易于理解',
         url: 'https://www.aliyundrive.com/s/TowakrPYfiG',
         bgc: '#101010'
       },
       {
         title: '算法 （第四版）',
         img: 'https://images-cn.ssl-images-amazon.cn/images/I/41OhCo2B-VL.jpg',
-        desc: '算法学习必读，配套的网站 https://algs4.cs.princeton.edu/home/',
+        desc: '算法学习必读,配套的网站 https://algs4.cs.princeton.edu/home/',
         url: 'https://www.aliyundrive.com/s/xWn4ncKTFRV',
         bgc: '#101010'
       },
@@ -304,7 +310,7 @@ const list: webList[] = [
       {
         title: 'OAuth',
         img: 'https://grafana.com/static/assets/internal/grafana_logo-web-white-text.svg',
-        desc: 'OAuth 2.0 是行业标准的授权协议。OAuth 2.0 专注于客户端开发人员的简单性，同时为 Web 应用程序、桌面应用程序、移动电话和客厅设备提供特定的授权流程。该规范及其扩展正在IETF OAuth 工作组内开发。',
+        desc: 'OAuth 2.0 是行业标准的授权协议。OAuth 2.0 专注于客户端开发人员的简单性,同时为 Web 应用程序、桌面应用程序、移动电话和客厅设备提供特定的授权流程。该规范及其扩展正在IETF OAuth 工作组内开发。',
         url: 'https://oauth.net/2/'
       }
     ]

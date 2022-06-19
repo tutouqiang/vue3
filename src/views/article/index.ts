@@ -2,7 +2,7 @@
 
 const map = new Map([
   ['frontEnd', '前端'],
-  ['server', '服务端'],
+  ['system', '系统'],
   ['sourceCodeAnalysis', '源码分析'],
 ])
 

@@ -112,7 +112,7 @@ export default {
 <style lang="less" scoped>
 #article {
   min-height: 100vh;
-  background-color: #ffffee;
+  // background-color: #ffffee;
   .content {
     max-width: 800px;
     // margin: 0 auto;

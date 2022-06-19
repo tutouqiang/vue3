@@ -72,6 +72,12 @@ tag 自动补全
 
 <br>
 
+## 11、open in browser
+
+鼠标邮件直接在浏览器中打开 html 等文件
+
+<br>
+
 # 常用配置
 
 <br>
