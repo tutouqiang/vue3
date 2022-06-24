@@ -1,3 +1,10 @@
+---
+title:  Mac 开发环境配置
+theme: condensed-night-purple
+createTime: 2022 年 5 月 15 日
+updateTime: 2022 年 6 月 22 日
+---
+
 # Mac 开发环境配置
 
 ## brew

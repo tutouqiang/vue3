@@ -59,6 +59,37 @@ const list: webList[] = [
         url: 'https://docs.taro.zone/docs/README',
         bgc: '#0000c2'
       },
+      {
+        title: 'Docusaurus',
+        img: '	https://docusaurus.io/zh-CN/img/docusaurus.svg',
+        desc: '🧐 Docusaurus 是一款 React 静态站点生成器。 经常被用来搭建官方文档及个人博客等网站。',
+        url: 'https://docusaurus.io/',
+        bgc: '#0000c2'
+      },
+      {
+        title: 'VuePress',
+        img: 'https://vuepress.vuejs.org/hero.png',
+        desc: '使用 Vue + webpack 的静态站点生成器。与 Docusaurus, 功能基本相同, 主要依赖 vue 生态。 可以在 Markdown 中使用 Vue 组件，又可以使用 Vue 来开发自定义主题。',
+        url: 'https://vuepress.vuejs.org/',
+        bgc: '#0000c2'
+      },
+    ],
+  },
+  {
+    type: '构建工具',
+    list: [
+      {
+        title: 'webpack',
+        img: 'https://webpack.docschina.org/site-logo.1fcab817090e78435061.svg',
+        desc: 'webpack 是一个用于现代 JavaScript 应用程序的 静态模块打包工具。使用广泛、全能且臃肿、复杂',
+        url: 'https://webpack.docschina.org/',
+      },
+      {
+        title: 'esbuild',
+        img: 'https://esbuild.github.io/favicon.svg',
+        desc: '利用浏览器的特性进行快速构建，相关的衍生产品很多，例如 vite',
+        url: 'https://esbuild.github.io/',
+      },
     ],
   },
   {
@@ -75,6 +106,12 @@ const list: webList[] = [
   {
     type: 'npm库',
     list: [
+      {
+        title: 'Awehunt',
+        img: '',
+        desc: 'npm 包相关数据比对，可以用来对比 npm 的使用量等数据，帮助分析 npm 的流行、使用程度。也可以用来查看各企业流行的开发框架',
+        url: 'https://awehunt.com/npmdownloads?ids=',
+      },
       {
         title: 'lodash',
         img: '',
@@ -178,10 +215,52 @@ const list: webList[] = [
         url: 'https://juejin.cn/user/1978776660216136',
       },
       {
+        title: '淘系前端团队（FED）',
+        img: 'https://img.alicdn.com/tps/TB1Nv_wKXXXXXbmXVXXXXXXXXXX-295-195.png',
+        desc: '淘系前端团队（FED）技术文章',
+        url: 'https://fed.taobao.org/?spm=taofed.blogs.header.1.490a5ac8z7Any4',
+      },
+      {
+        title: '腾讯 alloyteam',
+        img: 'http://cdn.alloyteam.com/assets/img/alloyteam-w-34df9d.svg',
+        desc: '腾讯 技术文章',
+        url: 'http://www.alloyteam.com/',
+      },
+      {
+        title: '京东技术团队',
+        img: 'https://mmbiz.qpic.cn/mmbiz_png/VicflqIDTUVUCLfXzX…B27ick9C1icGBX0icw6xn5YmJicdBSJmDkMA/0?wx_fmt=png',
+        desc: '京东凹凸实验室技术文章',
+        url: 'https://aotu.io/',
+      },
+      {
+        title: '京东设计中心',
+        img: 'https://jelly.jd.com/3.0/fonts/2657ceafd877a9cbe0e7604b36c21906.svg',
+        desc: '京东设计及工具，资源丰富',
+        url: 'https://jelly.jd.com/',
+      },
+      {
         title: '美团技术团队',
         img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8X-WEQhqR1WSr2lm_jXytvRzwX9SFjWAl9A&usqp=CAU',
         desc: '美团技术文章',
         url: 'https://tech.meituan.com/',
+      },
+      {
+        title: '百度技术团队',
+        img: 'http://fex.baidu.com/public/images/logo.svg',
+        desc: '百度 fex 技术文章',
+        url: 'http://fex.baidu.com/',
+      },
+      {
+        title: '有赞技术团队',
+        img: 'https://tech.youzan.com/content/images/2017/10/logo.png',
+        desc: '有赞技术文章',
+        url: 'https://tech.youzan.com/',
+      },
+      {
+        title: '360 奇舞团',
+        img: 'https://p3.ssl.qhimg.com/t012d58bd54c2848357.png',
+        desc: '360 技术文章',
+        url: 'https://75.team/',
       },
       {
         title: '明远的自留地',
