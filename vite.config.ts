@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import Markdown from 'vite-plugin-md'
+import usePluginImport from 'vite-plugin-importer'
+import compression from 'vite-plugin-compression'
 import prism from 'markdown-it-prism'
 import path from "path";
 import MdRouterGenerate from './src/plugin/router'
@@ -43,7 +45,12 @@ export default defineConfig({
         md.use(prism)
       },
     }),
-     
+    usePluginImport({
+      libraryName: "ant-design-vue",
+      libraryDirectory: "es",
+      style: true,
+    }),
+    compression(),
   ],
   
 })

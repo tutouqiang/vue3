@@ -14,7 +14,7 @@ updateTime: 2022 年 6 月 27 日
 
 > 1、设备都不在公网状态下  
 > 2、webshell 需要免密登陆  
-> 3、动态的连接端口  
+> 3、动态连接的端口、账号、密码  
 > 4、可显示当前设备信息
 
 使用 mac 的同学应该会更加熟悉，使用 windows 的同学可以把它理解为 power shell 或者理解为 vscode 的终端。
@@ -43,10 +43,38 @@ webshell ➡️ 跳板机 ➡️ 设备
 >1、Start 1.7k。 说明这个库的使用者不少，搜索了一下有一定量的参考文章  
 >2、近期有更新。说明这个库还是一直在维护的  
 >3、根据 README.md 初步运行项目基本符合需求  
->4、使用 Express + Socket + Static 代码复杂度低，方便个人定制和部署
+>4、使用 Express + Socket + ssh2 + xtermjs 代码复杂度低，方便个人定制和部署
 
 以上几点完全满足我接到的需求，也非常适合定制界面和添加业务逻辑。
 
+## 开源项目的一些问题
+
+### 1、明文传输
+连接后的 ssh 域名、端口、账号、密码都是暴露在界面上的并不安全，url 动态传参也是使用的**明文传输**，这就直接**造成关键信息的泄漏**，需要进行**传参加密、页面显示的优化**。
+
+### 2、初始化参数问题
+https://github.com/billchurch/webssh2/blob/main/app/server/app.js
+路径下的方法
+```js
+// app.js
+setDefaultCredentials(config);
+
+// util.js
+// 这个方法的传参为用户信息的初始化
+exports.setDefaultCredentials = function setDefaultCredentials({
+  name: username,
+  password,
+  privatekey,
+  overridebasic,
+}) {
+  defaultCredentials = { username, password, privatekey, overridebasic };
+};
+
+// config 中的用户信息在 user 对象中，所以传参 config 时的数据初始化是错误的，应改为
+setDefaultCredentials(config.user);
+
+```
+以上方法在你选择**使用默认用户名密码的形式免密登陆时会用到**
 # 最终方案及实现
 
 > webssh2 + 跳板机
@@ -54,6 +82,7 @@ webshell ➡️ 跳板机 ➡️ 设备
 如果是基本需求的话，根据项目文档进行基本部署就可以通过 iframe 嵌套到网页中即可
 
 我做的一些定制
->1、页面更改  
->2、传参加密、简化  
->3、请求预检
+>1、页面优化。关键信息隐藏  
+>2、动态传参  
+>3、参数加密 
+
