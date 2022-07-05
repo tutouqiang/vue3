@@ -353,6 +353,12 @@ const list: webList[] = [
         img: 'https://grafana.com/static/assets/internal/grafana_logo-web-white-text.svg',
         desc: '服务监控可视化',
         url: 'https://grafana.com/'
+      },
+      {
+        title: 'SkyWalking',
+        img: 'https://skywalking.apache.org/images/logo.svg',
+        desc: '服务监控',
+        url: 'https://skywalking.apache.org/'
       }
     ]
   },
