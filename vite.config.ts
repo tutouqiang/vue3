@@ -45,11 +45,11 @@ export default defineConfig({
         md.use(prism)
       },
     }),
-    usePluginImport({
-      libraryName: "ant-design-vue",
-      libraryDirectory: "es",
-      style: true,
-    }),
+    // usePluginImport({
+    //   libraryName: "ant-design-vue",
+    //   libraryDirectory: "es",
+    //   style: true,
+    // }),
     compression(),
   ],
   

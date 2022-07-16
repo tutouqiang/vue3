@@ -1,17 +1,8 @@
 <template>
   <!-- 文章布局 -->
   <a-layout id="article">
-    <Header />
+    <!-- <Header /> -->
     <a-layout-content :style="{ padding: '0 1rem', marginTop: '64px', flexGrow: 1 }">
-      <a-breadcrumb separator=">" :style="{ margin: '16px 0' }">
-        <template v-for="item in articleList">
-          <a-breadcrumb-item :href="item.path" v-if="item.meta.name !== '文章'">
-            <router-link :to="item.path">{{
-              item.meta.title || item.meta.name
-            }}</router-link>
-          </a-breadcrumb-item>
-        </template>
-      </a-breadcrumb>
       <a-row justify="center">
         <section class="content">
           <div class="head">
@@ -27,20 +18,24 @@
           </div>
           <router-view />
         </section>
-        <a-col :span="0" :lg="5" :xl="4" :xxxl="3" style="margin-left: 50px">
-          <a-anchor :offsetTop="64" @click="(e) => e.preventDefault()">
-            <a-anchor-link
-              v-for="{ href, title, level } in anchorList"
-              :key="href"
-              :href="'#' + href"
-              :title="title"
-              :style="{ paddingLeft: level > 1 ? (level - 1) * 15 + 11 + 'px' : '11px' }"
-            />
-          </a-anchor>
+        <a-col :span="0" :lg="5" :xl="4" :xxxl="3" style="margin-left: 50px;">
+          <a-affix :offsetTop="100">
+            <div class="anchor" style="padding: 20px 0; height: 500px; background-color: #fff; overflow: auto">
+              <a-anchor :affix="false" @click="(e) => e.preventDefault()">
+              <a-anchor-link
+                v-for="{ href, title, level } in anchorList"
+                :key="href"
+                :href="'#' + href"
+                :title="title"
+                :style="{ paddingLeft: level > 1 ? (level - 1) * 15 + 11 + 'px' : '11px' }"
+              />
+            </a-anchor>
+            </div>
+          </a-affix>
         </a-col>
       </a-row>
     </a-layout-content>
-    <Footer />
+    <!-- <Footer /> -->
   </a-layout>
   <a-back-top>
     <caret-up-outlined class="backup" />
@@ -49,6 +44,7 @@
 <script>
 import Header from "./header.vue";
 import Footer from "./footer.vue";
+import Menu from './menu.vue'
 import { CaretUpOutlined } from "@ant-design/icons-vue";
 import "../style/markdown/smartblue.less";
 import "../style/hightlight/prism.css";
@@ -57,6 +53,7 @@ export default {
   components: {
     Header,
     Footer,
+    Menu,
     CaretUpOutlined,
   },
   data() {
@@ -97,10 +94,11 @@ export default {
       const filterReg = /\d/;
       for (let i = 0; i < mdc.length; i++) {
         if (reg.test(mdc[i].tagName)) {
-          this.anchorList.push({
+          const l = Number(mdc[i].tagName.match(filterReg)[0])
+          l < 4 && this.anchorList.push({
             title: decodeURI(mdc[i].id),
             href: mdc[i].id,
-            level: Number(mdc[i].tagName.match(filterReg)[0]) || 0,
+            level: l || 0,
           });
         }
       }
@@ -112,7 +110,11 @@ export default {
 <style lang="less" scoped>
 #article {
   min-height: 100vh;
-  // background-color: #ffffee;
+  // background-color: #fff;
+  .ant-anchor-wrapper {
+    min-height: 100%!important;
+  }
+  
   .content {
     max-width: 800px;
     // margin: 0 auto;

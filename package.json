@@ -7,6 +7,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ant-design/icons-vue": "^6.1.0",
     "@vueuse/head": "^0.7.5",
     "@wooc/brokenwheel": "^0.0.2",
     "ant-design-vue": "^2.2.8",

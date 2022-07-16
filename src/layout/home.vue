@@ -1,41 +1,63 @@
 <template>
   <a-layout id="home">
-    <Header />
+    <!-- <Header /> -->
+    <a-layout-sider theme="light" width="50" :style="{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0, top: 0, bottom: 0 }">
+      <Menu />
+    </a-layout-sider>
+    
     <transition
       mode="out-in"
       :duration="{ enter: 500, leave: 800 }"
     >
       <a-layout-content>
-        <router-view />
+        <template v-if="currentRoute.includes('/article/')">
+          <Article />
+        </template>
+        <template v-else>
+          <router-view />
+        </template>
       </a-layout-content>
     </transition>
-    <Footer />
+    <!-- <Footer /> -->
   </a-layout>
 </template>
+
 <script>
 import Header from './header.vue'
 import Footer from './footer.vue'
+import Menu from './menu.vue'
+import Article from './article.vue'
+
 
 export default {
   components: {
     Header,
-    Footer
+    Footer,
+    Article,
+    Menu
+  },
+  data(){
+    return {
+      currentRoute: ''
+    }
+  },  
+  watch: {
+    $route(to, from){
+      if(to.path !== this.currentRoute) {
+        this.currentRoute = to.path
+      }
+    }
   }
 }
 </script>
 <style lang="less" scoped>
 #home {
-  margin: 0 auto;
+  margin: 0 0 0 50px;
   min-height: 100vh;
   .ant-layout-content {
     min-height: 50vh;
-    margin: 64px 80px 0;
-    padding: 20px 15px;
+    padding: 15px;
     transition: all 0.3s;
-    @media screen and (max-width: 800px) {
-      padding: 20px 15px;
-      margin: 64px 0px 0;
-    }
   }
 }
 </style>

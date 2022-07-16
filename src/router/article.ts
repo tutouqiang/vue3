@@ -32,7 +32,7 @@
 { 
   path: 'gateway.md', 
   name: 'GATEWAY.MD', 
-  meta: {"name":"gateway.md","type":"前端","title":" 登录实现","theme":" condensed-night-purple","createTime":" 2022 年 6 月 24 日","updateTime":" 2022 年 6 月 24 日"}, 
+  meta: {"name":"gateway.md","type":"前端","title":"  API 网关搭建","theme":" condensed-night-purple","createTime":" 2022 年 6 月 24 日","updateTime":" 2022 年 6 月 24 日"}, 
   component: () => import('../views/article/frontEnd/gateway.md') 
 }, 
 { 

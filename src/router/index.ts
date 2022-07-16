@@ -16,21 +16,21 @@ const routes = [
         path: '/navWebsite',
         name: 'NAVWEBSITE',
         meta: { name: '导航网站' },
-        component: () => import(/* webpackChunkName: "navWebsite" */ '../views/website/index.vue')
+        component: () => import(/* webpackChunkName: "navWebsite" */ '../views/navWebsite/index.vue')
       },
-      {
-        path: '/about',
-        name: 'ABOUT',
-        meta: { name: '关于' },
-        component: () => import(/* webpackChunkName: "about" */ '../views/about/index.vue')
-      },
+      // {
+      //   path: '/about',
+      //   name: 'ABOUT',
+      //   meta: { name: '关于' },
+      //   component: () => import(/* webpackChunkName: "about" */ '../views/about/index.vue')
+      // },
     ]
   },
   {
     path: '/article',
     name: 'ARTICLE',
     meta: { name: '文章'},
-    component: () => import(/* webpackChunkName: "home" */ '../layout/article.vue'),
+    component: () => import(/* webpackChunkName: "home" */ '../layout/home.vue'),
     children: article
   },
   

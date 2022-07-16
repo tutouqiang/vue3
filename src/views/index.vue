@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <a-row>
-      <a-col :span="24" :lg="24">
+      <a-col :span="10" :lg="10">
         <a-skeleton :loading="loading" active>
           <div class="article">
             <a-tabs v-model:activeKey="activeKey">
@@ -28,17 +28,6 @@
           </div>
         </a-skeleton>
       </a-col>
-      <!-- <a-col :span="0" :lg="6"> 
-        <div class="notesType">
-          <h3>文章分类</h3>
-          <router-link 
-            class="routerLink"
-            v-for="item in notesType" 
-            :key="item.name" 
-            :to="item.route"
-          >{{item.name}}</router-link>
-        </div>
-      </a-col> -->
     </a-row>
   </div>
 </template>
@@ -95,6 +84,12 @@ export default {
 <style lang="less" scoped>
 .home {
   margin: 0 auto;
+  .article {
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 14px;
+    background-color: #FFF;
+  }
   .article .ant-tabs-tabpane {
     display: flex;
     flex-direction: column;
@@ -105,13 +100,13 @@ export default {
     .a-info {
       display: flex;
       align-items: center;
+      font-size: 14px;
       .a-info_time {
         padding: 0 5px;
         color: #999;
       }
     }
     .routerLink {
-      font-size: 16px;
       font-weight: bold;
       padding: 5px;
       transition: all 0.3s ease-in-out 0.1s;
