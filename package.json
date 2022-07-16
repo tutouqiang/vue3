@@ -16,6 +16,7 @@
     "vuex": "^4.0.2"
   },
   "devDependencies": {
+    "@types/babel__traverse": "^7.17.1",
     "@types/node": "^17.0.21",
     "@vitejs/plugin-vue": "^2.2.4",
     "less": "^4.1.2",
