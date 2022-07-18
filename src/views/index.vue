@@ -12,7 +12,7 @@
               </div>
             </a-select-option>
           </a-select>
-          <a-input v-model:value="searchText" placeholder="输入搜索内容" allowClear size="large" style="width: calc(100% - 200px); height: 50px" />
+          <a-input v-model:value="searchText" placeholder="输入搜索内容" allowClear size="large" style="height: 50px" />
           <a-button type="primary" size="large" @click="searchBtn" style="height: 50px">
             搜索
             <template #icon><SearchOutlined /></template>
@@ -31,7 +31,9 @@
     </a-row>
 
     <a-row :gutter="16" style="padding-top: 60px;">
-      <a-col :span="8" :lg="8">
+      <!-- <a-col :span="7" :lg="7" :offset="0" style="display: grid; justify-content: right">
+      </a-col> -->
+      <a-col :span="10" :lg="10" :offset="7">
         <a-skeleton :loading="loading" active>
           <div class="article">
             <a-tabs v-model:activeKey="activeKey">
@@ -59,9 +61,9 @@
           </div>
         </a-skeleton>
       </a-col>
-      <a-col :span="5" :lg="5" style="display: grid; justify-content: right">
-        <WeiboPage />
-      </a-col>
+      <!-- <a-col :span="5" :lg="5" style="display: grid; justify-content: right"> -->
+        <!-- <WeiboPage /> -->
+      <!-- </a-col> -->
     </a-row>
   </div>
 </template>
@@ -194,7 +196,8 @@ export default {
 .home {
   margin: 0 auto;
   .searchInput {
-     padding: 100px 0 30px;
+    display: flex;
+    padding: 100px 0 30px;
     :deep(.ant-select-selector) {
       height: 50px;
     }
@@ -205,6 +208,7 @@ export default {
     // grid-template: repeat(50px);
     grid-template-columns: repeat(auto-fill, 60px);
     grid-template-rows: repeat(auto-fill, 60px);
+    justify-content: center;
     grid-gap: 30px;
     font-size: 12px;
     a {

@@ -44,7 +44,7 @@
 { 
   path: 'npm.md', 
   name: 'NPM.MD', 
-  meta: {"name":"npm.md","type":"前端","title":" 众多 web 框架都使用到的基础 npm 包","theme":" condensed-night-purple","createTime":" 2022 年 6 月 18 日"}, 
+  meta: {"name":"npm.md","type":"前端","title":" npm 包","theme":" condensed-night-purple","createTime":" 2022 年 6 月 18 日"}, 
   component: () => import('../views/article/frontEnd/npm.md') 
 }, 
 { 
