@@ -4,6 +4,7 @@ import App from './App.vue'
 import router from '../src/router'
 import store from '../src/store'
 import Antd from 'ant-design-vue'
+import './style/iconfont/iconfont.css'
 import './style/theme.less'
 import './style/reset.less'
 

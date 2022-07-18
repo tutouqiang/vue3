@@ -2,7 +2,7 @@
   <!-- 文章布局 -->
   <a-layout id="article">
     <!-- <Header /> -->
-    <a-layout-content :style="{ padding: '0 1rem', marginTop: '64px', flexGrow: 1 }">
+    <a-layout-content :style="{ padding: '0 1rem', flexGrow: 1 }">
       <a-row justify="center">
         <section class="content">
           <div class="head">

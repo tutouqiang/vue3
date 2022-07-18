@@ -57,6 +57,8 @@ export default {
   .ant-layout-content {
     min-height: 50vh;
     padding: 15px;
+    background: url(http://clubimg.club.vmall.com/data/attachment/forum/201805/31/131554ai1zcy9kr6sphgws.jpg) no-repeat;
+    background-size: cover;
     transition: all 0.3s;
   }
 }
