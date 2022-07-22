@@ -49,3 +49,55 @@ node    68078 wooc   36u  IPv4 0xc597afa935d930ff      0t0  TCP localhost:irdmi 
 $ sudo kill -9 68078  // 占用端口的 PID
 $ sudo lsof -i:8000   // 再次查询，输出为空，清除端口占用成功
 ```
+
+## 配置本地域名
+开发过程中经常遇到两种问题
+- 本地 ip 不方便记忆和传播
+- 开发环境需要手动复制线上 cookies
+
+而配置本地域名可以很好的解决这两种问题。
+
+在文件  /etc/hosts 中添加响应配置即可
+
+### 方式一
+
+稍显繁琐，但方便管理。
+
+基本操作:  
+'i'： 进入编辑状态  
+’esc‘：退出编辑状态  
+’wq‘：保存并退出  
+```sh
+$ vi /etc/hosts
+##
+# Host Database
+#
+# localhost is used to configure the loopback interface
+# when the system is booting.  Do not change this entry.
+##
+127.0.0.1       localhostn
+255.255.255.255 broadcasthost
+::1             localhost
+
+# 添加此行
+127.0.0.1       wooc.com
+# Added by Docker Desktop
+# To allow the same kube context to work on the host and the container:
+127.0.0.1 kubernetes.docker.internal
+# End of section
+```
+
+### 方式二
+
+方便一些。但管理上不如【方式一】
+
+```sh
+$ echo '127.0.0.1     wooc.com' >> /etc/hosts
+```
+该命令会将文本添加到 /etc/hosts 文件最后一行
+
+```sh
+$ echo '127.0.0.1     wooc.com' >> /etc/hosts
+// 查看文件内容，检查是否添加成功
+$ cat /etc/hosts 
+```

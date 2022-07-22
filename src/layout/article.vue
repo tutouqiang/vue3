@@ -18,9 +18,9 @@
           </div>
           <router-view />
         </section>
-        <a-col :span="0" :lg="5" :xl="4" :xxxl="3" style="margin-left: 50px;">
+        <a-col :span="0" :lg="6" :xl="5" :xxxl="4" style="margin-left: 50px;">
           <a-affix :offsetTop="100">
-            <div class="anchor" style="padding: 20px 0; height: 500px; background-color: #fff; overflow: auto">
+            <div class="anchor" style="padding: 10px; height: 500px; background-color: #fff; overflow: auto; border-radius: 10px">
               <a-anchor :affix="false" @click="(e) => e.preventDefault()">
               <a-anchor-link
                 v-for="{ href, title, level } in anchorList"

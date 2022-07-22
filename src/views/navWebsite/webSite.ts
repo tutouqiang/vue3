@@ -359,6 +359,12 @@ const list: webList[] = [
         img: 'https://skywalking.apache.org/images/logo.svg',
         desc: '服务监控',
         url: 'https://skywalking.apache.org/'
+      },
+      {
+        title: 'verdaccio',
+        img: 'https://verdaccio.org/img/logo/uk/verdaccio-tiny-uk-no-bg.svg',
+        desc: 'npm 私有仓库',
+        url: 'https://verdaccio.org/'
       }
     ]
   },
@@ -385,6 +391,13 @@ const list: webList[] = [
         img: 'https://images-cn.ssl-images-amazon.cn/images/I/41OhCo2B-VL.jpg',
         desc: '算法学习必读,配套的网站 https://algs4.cs.princeton.edu/home/',
         url: 'https://www.aliyundrive.com/s/xWn4ncKTFRV',
+        bgc: '#101010'
+      },
+      {
+        title: '现代 JavaScript 教程',
+        img: 'https://zh.javascript.info/img/sitetoolbar__logo_en.svg',
+        desc: 'js 教程',
+        url: 'https://zh.javascript.info/',
         bgc: '#101010'
       },
     ],

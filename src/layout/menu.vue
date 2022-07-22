@@ -11,7 +11,6 @@
         <router-link to="/navWebsite">
           <compass-outlined />
         </router-link>
-        
       </a-tooltip>
 
       <a-tooltip title="关于" color="purple" placement="right">
@@ -35,6 +34,7 @@
         <wechat-outlined />
       </a-popover>
     </div>
+    
   </div>
 </template>
 
@@ -82,6 +82,7 @@ export default defineComponent({
 
 <style lang="less" scoped>
 #Menu {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(50px);
   grid-template-rows: repeat(50px);
