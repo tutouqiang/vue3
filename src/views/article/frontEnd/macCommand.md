@@ -9,7 +9,7 @@ createTime: 2022 年 5 月 10 日
 前端框架启动项目，在项目关闭之后再次以该端口启动项目后会报错或是默默的将端口号加1。
 
 如果你使用 node 开启服务的 3000 端口，关闭服务并再次启用时会报错如下。提醒你 3000 端口被占用
-```sh
+```bash
 $ node index.js
 node:events:505
       throw er; // Unhandled 'error' event
@@ -42,7 +42,7 @@ Node.js v18.0.0
 服务的关闭之后端口占用仍然存在，这会导致端口占用增多，如果你项目中涉及固定的端口配置，那么端口每变一次你都要手动改一次耗费很多时间。
 
 那么我们可以通过以下命令查看并清除被占用的端口
-```sh
+```bash
 $ sudo lsof -i:8000  // 查看端口是否被占用，被占用则会输出一下信息，反之则输出为空
 COMMAND   PID USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
 node    68078 wooc   36u  IPv4 0xc597afa935d930ff      0t0  TCP localhost:irdmi (LISTEN)
@@ -67,7 +67,7 @@ $ sudo lsof -i:8000   // 再次查询，输出为空，清除端口占用成功
 'i'： 进入编辑状态  
 ’esc‘：退出编辑状态  
 ’wq‘：保存并退出  
-```sh
+```bash
 $ vi /etc/hosts
 ##
 # Host Database
@@ -91,12 +91,12 @@ $ vi /etc/hosts
 
 方便一些。但管理上不如【方式一】
 
-```sh
+```bash
 $ echo '127.0.0.1     wooc.com' >> /etc/hosts
 ```
 该命令会将文本添加到 /etc/hosts 文件最后一行
 
-```sh
+```bash
 $ echo '127.0.0.1     wooc.com' >> /etc/hosts
 // 查看文件内容，检查是否添加成功
 $ cat /etc/hosts 

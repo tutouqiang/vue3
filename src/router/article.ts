@@ -8,7 +8,7 @@
 { 
   path: 'nodeNpm.md', 
   name: 'NODENPM.MD', 
-  meta: {"name":"nodeNpm.md","type":"前端","title":" 众多 node 框架都使用到的基础 npm 包","theme":" condensed-night-purple","createTime":" 2022 年 6 月 18 日"}, 
+  meta: {"name":"nodeNpm.md","type":"前端","title":" 衍生众多 npm 包之 ———— 基础 npm 包","theme":" condensed-night-purple","createTime":" 2022 年 6 月 18 日"}, 
   component: () => import('../views/article/frontEnd/nodeNpm.md') 
 }, 
 { 
@@ -40,6 +40,12 @@
   name: 'GATEWAY.MD', 
   meta: {"name":"gateway.md","type":"前端","title":"  API 网关搭建","theme":" condensed-night-purple","createTime":" 2022 年 6 月 24 日","updateTime":" 2022 年 6 月 24 日"}, 
   component: () => import('../views/article/frontEnd/gateway.md') 
+}, 
+{ 
+  path: 'git.md', 
+  name: 'GIT.MD', 
+  meta: {"name":"git.md","type":"前端","title":" GIT 原理及基本使用","theme":" condensed-night-purple","createTime":" 2022 年 7 月 27 日"}, 
+  component: () => import('../views/article/frontEnd/git.md') 
 }, 
 { 
   path: 'weakup.md', 

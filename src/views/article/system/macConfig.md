@@ -128,7 +128,7 @@ brew cleanup redis                         // 清理 redis
 
 #### redis 配置
 根据安装信息可知配置文件地址为：/opt/homebrew/etc/redis.conf
-```sh
+```bash
 $ vim  /opt/homebrew/etc/redis.conf
 ```
 根据你的需要配置即可，配置项可见官方文档：https://redis.io/
@@ -224,7 +224,7 @@ test.proto test.js
 ## mvn
 
 ### 1、下载解压
-```sh
+```bash
 $ curl -O http://mirrors.hust.edu.cn/apache/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
 $ tar -xvf  apache-maven-3.3.9-bin.tar.gz
 $ sudo mv -f apache-maven-3.3.9 /usr/local/
@@ -233,18 +233,18 @@ $ sudo mv -f apache-maven-3.3.9 /usr/local/
 ### 2、配置文件
 
 编辑 /etc/profile 文件 sudo vim /etc/profile，在文件末尾添加如下代码：
-```sh
+```bash
 export MAVEN_HOME=/usr/local/apache-maven-3.5.4
 export PATH=${PATH}:${MAVEN_HOME}/bin
 ```
 
 ### 3、保存配置文件使配置环境生效
-```sh
+```bash
 $ source /etc/profile
 ```
 
 ### 4、校验是否安装成功，控制台输出 Maven 相关版本信息，说明 Maven 安装成功
-```sh
+```bash
 $ mvn -v
 Apache Maven 3.5.4 (1edded0938998edf8bf061f1ceb3cfdeccf443fe; 2018-06-18T02:33:14+08:00)
 Maven home: /usr/local/apache-maven-3.5.4
@@ -256,7 +256,7 @@ OS name: "mac os x", version: "12.1", arch: "aarch64", family: "mac"
 ## 443
 
 #### 问题再现
-```sh
+```bash
 Failed to connect to raw.githubusercontent.com port 443: Connection refused
 ```
 #### 问题原因
@@ -266,7 +266,7 @@ Failed to connect to raw.githubusercontent.com port 443: Connection refused
 
 1、查询真实 ip 
 进入 [https://ipaddress.com](https://ipaddress.com/) 首页,输入 raw.githubusercontent.com 查询到真实 IP 地址为 185.199.108.133
-```sh
+```bash
 $ sudo vi /etc/hosts  
 ##
 # Host Database
