@@ -1,5 +1,11 @@
 // @ts-nocheck 
  export default [{ 
+  path: 'npm_warehouse.md', 
+  name: 'NPM_WAREHOUSE.MD', 
+  meta: {"name":"npm_warehouse.md","type":"前端","title":" 搭建 npm 私有仓库","theme":" condensed-night-purple","createTime":" 2022 年 7 月 21 日"}, 
+  component: () => import('../views/article/frontEnd/npm_warehouse.md') 
+}, 
+{ 
   path: 'nodeNpm.md', 
   name: 'NODENPM.MD', 
   meta: {"name":"nodeNpm.md","type":"前端","title":" 众多 node 框架都使用到的基础 npm 包","theme":" condensed-night-purple","createTime":" 2022 年 6 月 18 日"}, 
