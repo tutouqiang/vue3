@@ -1,22 +1,25 @@
 <template>
   <a-layout id="home">
     <!-- <Header /> -->
-    <a-layout-sider theme="light" :width="this.open ? 50 : 0" :style="{ height: '100vh', position: 'fixed', left: 0, top: 0, bottom: 0 }">
+    <a-layout-sider theme="light" :width="open ? 50 : 0" :style="{ height: '100vh', position: 'fixed', left: 0, top: 0, bottom: 0 }">
       <Menu />
-      <div class="fold" @click="() => { this.open = !this.open }">
-        
-        
+      <div class="fold" @click="() => { open = !open }">
         <double-left-outlined  v-if="open" />
         <double-right-outlined v-else  />
       </div>
+      <!-- <Button class="fold" @click="() => { open = !open }">
+        <double-left-outlined  v-if="open" />
+        <double-right-outlined v-else  />
+      </Button> -->
+      
     </a-layout-sider>
     
     <transition
       mode="out-in"
       :duration="{ enter: 500, leave: 800 }"
     >
-      <a-layout-content :style="{ marginLeft: this.open ? '50px' : 0}">
-        <template v-if="currentRoute.includes('/article/')">
+      <a-layout-content :style="{ marginLeft: open ? '50px' : 0}">
+        <template v-if="this.$route.path.includes('/article/')">
           <Article />
         </template>
         <template v-else>
@@ -29,6 +32,7 @@
 </template>
 
 <script>
+import { Button } from 'ant-design-vue';
 import { DoubleLeftOutlined, DoubleRightOutlined } from '@ant-design/icons-vue'
 import Header from './header.vue'
 import Footer from './footer.vue'
@@ -42,13 +46,14 @@ export default {
     Footer,
     Article,
     Menu,
+    Button,
     DoubleLeftOutlined,
     DoubleRightOutlined
   },
   data(){
     return {
       currentRoute: '',
-      open: false
+      open: true
     }
   },  
   watch: {
@@ -57,6 +62,9 @@ export default {
         this.currentRoute = to.path
       }
     }
+  },
+  created() {
+    console.log(this.$route.path)
   }
 }
 </script>
@@ -65,7 +73,6 @@ export default {
   min-height: 100vh;
   .ant-layout-content {
     min-height: 50vh;
-    padding: 15px;
     background: url(http://clubimg.club.vmall.com/data/attachment/forum/201805/31/131554ai1zcy9kr6sphgws.jpg) no-repeat;
     background-size: cover;
     transition: all 0.3s;
@@ -73,28 +80,34 @@ export default {
   .fold {
     position: absolute;
     top: 50%;
-    right: -13px;
-    padding: 3px 0;
+    right: -20px;
+    width: 20px;
+    height: 20px;
     transform: translateY(-50%);
     background-color: #fff;
-    border-radius: 0 50% 50% 0;
+    border-radius: 0 20px 20px 0;
     cursor: pointer;
-    animation: openBtn 2s ease-in infinite;
+    transition: all 0.3s;
+    &:hover {
+      right: -40px;
+      width: 40px;
+    }
+    // animation: openBtn 2s ease-in infinite;
   }
 
-  @keyframes openBtn {
-    0% {
-      top: 50%;
-    }
-    33% {
-      top: 48%;
-    }
-    660% {
-      top: 52%;
-    }
-    100% {
-      top: 50%;
-    }
-  }
+  // @keyframes openBtn {
+  //   0% {
+  //     top: 50%;
+  //   }
+  //   33% {
+  //     top: 48%;
+  //   }
+  //   660% {
+  //     top: 52%;
+  //   }
+  //   100% {
+  //     top: 50%;
+  //   }
+  // }
 }
 </style>

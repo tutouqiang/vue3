@@ -20,7 +20,7 @@
         </section>
         <a-col :span="0" :lg="6" :xl="5" :xxxl="4" style="margin-left: 50px;">
           <a-affix :offsetTop="100">
-            <div class="anchor" style="padding: 10px; height: 500px; background-color: #fff; overflow: auto; border-radius: 10px">
+            <div class="anchor" style="padding: 10px 0; height: 500px; background-color: #fff; overflow: auto; border-radius: 10px">
               <a-anchor :affix="false" @click="(e) => e.preventDefault()">
               <a-anchor-link
                 v-for="{ href, title, level } in anchorList"
@@ -108,6 +108,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import '../style/theme.less';
 #article {
   min-height: 100vh;
   // background-color: #fff;
@@ -136,6 +137,16 @@ export default {
     }
     .articleInfo > div {
       padding: 0 10px;
+    }
+  }
+
+  /deep/ .ant-anchor-ink::before {
+    width: 0px;
+  }
+  .ant-anchor-link-active {
+    background-color: @primary-color;
+    /deep/ .ant-anchor-link-title-active {
+      color: #fff;
     }
   }
 }

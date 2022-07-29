@@ -38,7 +38,7 @@ createTime: 2022 年 7 月 21 日
 ## 安装
 
 **Node**  
-如需要安装特定版本 node，将以下命令中的 v16.15.1 替换为指定版本即可，详细版本可查看  [node 官网](!https://nodejs.org/en/)
+如需要安装特定版本 node，将以下命令中的 v16.15.1 替换为指定版本即可，详细版本可查看  [node 官网](https://nodejs.org/en/)
 ```sh
 $ cd /usr/local/src
 $ wget https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
@@ -233,7 +233,7 @@ wooc:{SHA}fEqNCco3Yq9h5ZUglD3CZJT4lBs=:autocreated 2022-07-22T06:55:48.194Z
 ```
 
 2、在线创建  
-htpasswd-for-sinopia 提供了一个 [在线网站](!https://hostingcanada.org/htpasswd-generator/)，可通过手动输入的方式生成，然后手动复制到 htpasswd 文件中即可  
+htpasswd-for-sinopia 提供了一个 [在线网站](https://hostingcanada.org/htpasswd-generator/)，可通过手动输入的方式生成，然后手动复制到 htpasswd 文件中即可  
 
 ![创建用户 ](./img/npm_warehouse/createUser.jpg)
 
@@ -262,12 +262,12 @@ $ pm2 start `which verdaccio`
 
 # 使用 npm 私有库
 
-## 设置镜像源为 npm 私有库地址
+## 设置镜像源
 ```sh
 $ npm set registry https://npm.wooc.top/
 ```
 
-## 创建、发布 npm 项目  
+## 发布 npm 项目  
 
 **1、初始化项目并新建 index.js 文件**
 ```sh

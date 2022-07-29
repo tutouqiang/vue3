@@ -1,5 +1,5 @@
 ---
-title: 衍生众多 npm 包之 ———— 基础 npm 包
+title:  被 npm 包依赖的基础 npm 包
 theme: condensed-night-purple
 createTime: 2022 年 6 月 18 日
 ---
@@ -10,13 +10,13 @@ js 生态是非常丰富的。但不管在 js 基础上衍生出什么框架，�
 ## jsonwebtoken
 一个用于实现前端 token 的生成、校验、签名等一系列操作的工具包，通常以 jwt + redis 的组合出现。
 
-### 基于 jsonwebtoken 构建的包
+### 衍生包
 - eggjs
 - fastify [@fastify/jwt](!https://github.com/nearform/fast-jwt/blob/master/package.json)
 
 ## ioredis
 一个用于 node 连接 redis 的工具包
-### 基于 ioredis 构建的包
+### 衍生包
 - koa [koa-redis](!https://github.com/koajs/koa-redis)
 - eggjs [egg-redis](!https://github.com/eggjs/egg-redis)
 - fastify [@fastify/redis](!https://github.com/fastify/fastify-redis)
@@ -33,3 +33,12 @@ I18next is an internationalizati
 至于它到底支持多少种语言或框架使用，也许从官网的这张图上你可以看出来  
 
 ![123](https://1143667985-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-L9iS6Wm2hynS5H9Gj7j%2Fuploads%2FirOYLVMDW2PEQkhDdZ3N%2Fi18next_eco.jpg?alt=media&token=326ef734-6389-4950-a4d6-19f9e9daaba5)
+
+## [xterm.js](https://github.com/xtermjs/xterm.js)
+用于构建 webssh 的前端组件。让终端运行在 web 浏览器、pc 客户端上，有众多的工具基于此包开发，
+
+### 衍生包
+- vscode
+- Atom
+- ttyd
+- Opshell 

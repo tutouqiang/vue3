@@ -239,8 +239,10 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+@import '../style/theme.less';
 .home {
   margin: 0 auto;
+  padding: 15px;
   .searchInput {
     display: flex;
     padding: 100px 0 30px;
@@ -265,6 +267,7 @@ export default {
       align-items: center;
       width: 60px;
       height: 60px;
+      color: @text-color;
       img {
         width: 60px;
         min-height: 60px;
@@ -311,6 +314,7 @@ export default {
       }
     }
     .routerLink {
+      color: @text-color;
       font-weight: bold;
       padding: 5px;
       transition: all 0.3s ease-in-out 0.1s;

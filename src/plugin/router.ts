@@ -48,8 +48,8 @@ async function getFilePath (filePath: string) {
           }
           const componentPath = '../' + curpath.slice(curpath.indexOf('views'), curpath.length) // 相对路径
           const type = componentPath.split('/')[3] // 文件分类
-          const meta = Object.assign({name: dirent.name, type: articleType.get(type)}, headInfo)
-          routes += `{ \n  path: '${dirent.name}', \n  name: '${dirent.name.toLocaleUpperCase()}', \n  meta: ${JSON.stringify(meta)}, \n  component: () => import('${componentPath}') \n}, \n`
+          const meta = Object.assign({name: dirent.name.replace('.md', ''), type: articleType.get(type)}, headInfo)
+          routes += `{ \n  path: '${dirent.name.replace('.md', '')}', \n  name: '${dirent.name.toLocaleUpperCase().replace('.md', '')}', \n  meta: ${JSON.stringify(meta)}, \n  component: () => import('${componentPath}') \n}, \n`
         }
       }
     }
