@@ -350,4 +350,31 @@ npm notice Publishing to https://npm.wooc.top/
 ## 注意事项
 > 1、私有仓库缓存上游 npm 包并保存私有 npm 包，注意服务器空间预留充足  
 > 2、私有仓库可以缓存并加速公司项目 npm 的下载速度，但服务器的带宽消耗也是很大的  
-> 3、当公司内部系统并行构建时，npm 服务器会承受较大负载（看服务规模），注意配置充足  
+> 3、当公司内部系统并行构建时，npm 服务器会承受较大负载（看服务规模），注意配置充足
+
+>Tip: 如果私有库的使用需求不是那么强的话，建议私有库只用在私有包的下载、管理服务，其他的依赖下载指向淘宝源地址即可。  
+
+## 可能出现的问题
+#### verdaccio Error: 413 Payload Too Large - PUT request entity too large  
+
+包的大小超出限制。  
+
+verdaccio 配置问题  
+
+默认为 10mb，如需设置可对配置文件的 max_body_size 字段的值进行更改  
+
+ nginx 配置问题  
+
+ 添加如下配置
+ ```sh
+  http {
+    ...
+    client_max_body_size 100M;
+  } 
+ ```
+具体可见：[stackoverflow](!https://stackoverflow.com/questions/62946263/verdaccio-error-413-payload-too-large-put-request-entity-too-large)
+
+#### package-lock 依赖路径为 ip 而非 域名
+如果在服务器上开启多核心运行，下载依赖生成的 package-lock.json 文件中的依赖路径会变为私有库的 ip 地址而不是域名，这可能会导致依赖下载时报错。  
+解决方式：单线程启动
+
