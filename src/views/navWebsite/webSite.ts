@@ -76,6 +76,23 @@ const list: webList[] = [
     ],
   },
   {
+    type: '状态管理器',
+    list: [
+      {
+        title: 'redux',
+        img: 'https://cn.redux.js.org/img/redux.svg',
+        desc: 'JS 应用的状态容器，提供可预测的状态管理',
+        url: 'https://cn.redux.js.org/',
+      },
+      {
+        title: 'vuex',
+        img: 'https://forum.vuejs.org/uploads/default/original/2X/5/555257b8c5e7ecf34ce4f9b952eeaf006adfa339.png',
+        desc: 'Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式 + 库。',
+        url: 'https://vuex.vuejs.org/zh/',
+      },
+    ],
+  },
+  {
     type: '构建工具',
     list: [
       {
@@ -119,7 +136,7 @@ const list: webList[] = [
         url: '',
       },
       {
-        title: 'Axios',
+        title: 'axios',
         img: 'https://axios-http.com/assets/logo.svg',
         desc: '基于 promise 的网络请求库,可以用于浏览器和 node.js',
         url: 'https://axios-http.com/zh/',
@@ -315,6 +332,12 @@ const list: webList[] = [
         desc: '查看每个年度对 JavaScript 领域的总结,涉及的前端面很广, 时刻关注前端生态的变化及优秀项目的发现',
         url: 'https://risingstars.js.org/2021/zh',
       },
+      {
+        title: 'github 有趣开源项目集合',
+        img: 'https://bestofjs.org/svg/bestofjs.svg',
+        desc: '很多有趣的项目，也有可以二开的项目',
+        url: 'https://hellogithub.com/',
+      },
     ],
   },
   {
@@ -410,9 +433,37 @@ const list: webList[] = [
         img: 'https://grafana.com/static/assets/internal/grafana_logo-web-white-text.svg',
         desc: 'OAuth 2.0 是行业标准的授权协议。OAuth 2.0 专注于客户端开发人员的简单性,同时为 Web 应用程序、桌面应用程序、移动电话和客厅设备提供特定的授权流程。该规范及其扩展正在IETF OAuth 工作组内开发。',
         url: 'https://oauth.net/2/'
+      },
+      {
+        title: 'Promise/A+',
+        img: 'https://promisesaplus.com/assets/logo-small.png',
+        desc: 'Promise 规范。所有实现的 Promise 必须遵循此规范',
+        url: 'https://promisesaplus.com/'
       }
     ]
   },
+  {
+    type: 'AI',
+    list: [
+      {
+        title: 'AI 图片生成',
+        img: 'https://www.craiyon.com/_app/immutable/assets/craiyon_logo-9927047c.png',
+        desc: '根据自然语言描述，AI 生成图片',
+        url: 'https://www.craiyon.com/'
+      }
+    ]
+  },
+  {
+    type: 'js 在线游戏',
+    list: [
+      {
+        title: '俄罗斯方块',
+        img: 'https://is2-ssl.mzstatic.com/image/thumb/PurpleSource126/v4/3a/d4/d2/3ad4d271-0b46-e7af-d2c1-47817113d80c/7205d857-ae49-4073-b049-73c2c636ac57_Simulator_Screen_Shot_-_iPhone_8_Plus_-_2022-03-13_at_13.10.42.png/750x750bb.jpeg',
+        desc: 'React+Redux+Immutable 做的俄罗斯方块',
+        url: 'https://chvin.github.io/react-tetris/?lan=zh'
+      }
+    ]
+  }
 
 ];
 

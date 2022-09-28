@@ -23,7 +23,7 @@
 
       <a-tooltip title="掘金主页" color="purple" placement="right">
         <a href="https://juejin.cn/user/2400989127643864" class="anticon" target="_blank">
-          <a-image src="https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/6c61ae65d1c41ae8221a670fa32d05aa.svg" :width="16" alt="" />
+          <a-image src="https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/6c61ae65d1c41ae8221a670fa32d05aa.svg" :preview="false" :width="16" alt="" />
         </a>
       </a-tooltip>
       

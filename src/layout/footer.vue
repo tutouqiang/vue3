@@ -43,7 +43,7 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-@import '../style/theme.less';
+@import '@/assets/styles/theme.less';
 .footer {
   padding: 5px 10px 0;
   display: flex;

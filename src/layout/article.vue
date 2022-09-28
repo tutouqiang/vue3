@@ -46,8 +46,8 @@ import Header from "./header.vue";
 import Footer from "./footer.vue";
 import Menu from './menu.vue'
 import { CaretUpOutlined } from "@ant-design/icons-vue";
-import "../style/markdown/smartblue.less";
-import "../style/hightlight/prism.css";
+import "@/assets/styles/markdown/smartblue.less";
+import "@/assets/styles/hightlight/prism.css";
 
 export default {
   components: {
@@ -108,7 +108,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import '../style/theme.less';
+@import '@/assets/styles/theme.less';
 #article {
   min-height: 100vh;
   // background-color: #fff;

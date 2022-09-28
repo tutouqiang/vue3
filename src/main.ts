@@ -1,12 +1,13 @@
 import { createApp } from 'vue'
 import { createHead } from '@vueuse/head'
 import App from './App.vue'
-import router from '../src/router'
-import store from '../src/store'
+import router from './router'
+import store from './store'
 import Antd from 'ant-design-vue'
-import './style/iconfont/iconfont.css'
-import './style/theme.less'
-import './style/reset.less'
+import 'normalize.css/normalize.css'
+import 'nprogress/nprogress.css'
+import '@/assets/styles/iconfont/iconfont.css'
+import '@/assets/styles/theme.less'
 
 const app = createApp(App)
 const head = createHead()

@@ -80,9 +80,9 @@
 <script>
 import { ref } from "vue";
 import { SearchOutlined } from '@ant-design/icons-vue'
-import { Chrome, Bing, Baidu } from '@assets'
-import { deepRouter } from "../util/index";
-import { WeiboPage } from '@components'
+import { Chrome, Bing, Baidu } from '@/assets'
+import { deepRouter } from "@/utils/index";
+import { WeiboPage } from '@/components'
 
 export default {
   components: {
@@ -239,7 +239,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-@import '../style/theme.less';
+@import '@/assets/styles/theme.less';
 .home {
   margin: 0 auto;
   padding: 15px;

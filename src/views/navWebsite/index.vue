@@ -62,7 +62,8 @@ export default {
 </script>
 <style lang="less" scoped>
 .website {
-  margin-bottom: 50px;
+  padding: 0 20px 50px;
+  background-color: #eee;
   .webSiteType {
     padding: 30px 0 30px;
     font-size: 20px;

@@ -12,12 +12,6 @@
   component: () => import('../views/article/frontEnd/npm_warehouse.md') 
 }, 
 { 
-  path: 'feishu-sso', 
-  name: 'FEISHU-SSO.MD', 
-  meta: {"name":"feishu-sso","type":"前端","title":" 飞书授权登录","theme":" condensed-night-purple","createTime":" 2022 年 5 月 10 日"}, 
-  component: () => import('../views/article/frontEnd/feishu-sso.md') 
-}, 
-{ 
   path: 'block', 
   name: 'BLOCK.MD', 
   meta: {"name":"block","type":"前端","title":" 一道关于 ‘区块’ 的题目","theme":" condensed-night-purple","createTime":" 2022 年 3 月 15 日","updateTime":" 2022 年 4 月 1 日"}, 
