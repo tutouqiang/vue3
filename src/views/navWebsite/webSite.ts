@@ -130,10 +130,16 @@ const list: webList[] = [
         url: 'https://awehunt.com/npmdownloads?ids=',
       },
       {
+        title: 'Js-sdsl',
+        img: 'https://js-sdsl.github.io/assets/logo-small.png',
+        desc: '一款参考 C++ STL 实现的 JavaScript 标准数据结构库, 用于弥补 JavaScript 中缺少一些数据结构的缺点',
+        url: 'https://js-sdsl.github.io/#/zh-cn/README',
+      },
+      {
         title: 'lodash',
-        img: '',
+        img: 'https://lodash.com/assets/img/lodash.svg',
         desc: '一个流行的Js方法库',
-        url: '',
+        url: 'https://lodash.com/docs',
       },
       {
         title: 'axios',
@@ -207,6 +213,12 @@ const list: webList[] = [
         img: '',
         desc: '有很多免费的页面效果、模版以及使用前端实现的动态桌面。并且有 react、vue 可直接使用的代码,大部分都是原生前端代码,方便使用。',
         url: 'https://freefrontend.com/',
+      },
+      {
+        title: 'Quick Reference',
+        img: 'Quick Reference',
+        desc: '编程语言速查表，已经支持了挺多的语言，很方便',
+        url: 'https://wangchujiang.com/reference/index.html',
       },
     ],
   },
@@ -296,6 +308,12 @@ const list: webList[] = [
   {
     type: '资源',
     list: [
+      {
+        title: 'freeCodeCamp',
+        img: 'https://avatars.githubusercontent.com/u/9892522?s=64&v=4',
+        desc: '开发免费的程序员自学网站',
+        url: 'https://chinese.freecodecamp.org/learn',
+      },
       {
         title: '技术书籍',
         img: 'https://avatars.githubusercontent.com/u/359395?v=4',
@@ -461,6 +479,17 @@ const list: webList[] = [
         img: 'https://is2-ssl.mzstatic.com/image/thumb/PurpleSource126/v4/3a/d4/d2/3ad4d271-0b46-e7af-d2c1-47817113d80c/7205d857-ae49-4073-b049-73c2c636ac57_Simulator_Screen_Shot_-_iPhone_8_Plus_-_2022-03-13_at_13.10.42.png/750x750bb.jpeg',
         desc: 'React+Redux+Immutable 做的俄罗斯方块',
         url: 'https://chvin.github.io/react-tetris/?lan=zh'
+      }
+    ]
+  },
+  {
+    type: '有意思的网站',
+    list: [
+      {
+        title: '全球的风向',
+        img: 'https://earth.nullschool.net/favicon.ico',
+        desc: '3d 可以看到全球的风向',
+        url: 'https://earth.nullschool.net/#current/wind/surface/level/orthographic=102.44,26.08,447'
       }
     ]
   }

@@ -4,6 +4,7 @@ theme: condensed-night-purple
 createTime: 2022 年 5 月 10 日
 ---
 # 终端常用命令集合
+<br/>
 
 ## 清除端口占用
 前端框架启动项目，在项目关闭之后再次以该端口启动项目后会报错或是默默的将端口号加1。
@@ -49,6 +50,7 @@ node    68078 wooc   36u  IPv4 0xc597afa935d930ff      0t0  TCP localhost:irdmi 
 $ sudo kill -9 68078  // 占用端口的 PID
 $ sudo lsof -i:8000   // 再次查询，输出为空，清除端口占用成功
 ```
+<br/>
 
 ## 配置本地域名
 开发过程中经常遇到两种问题
@@ -58,6 +60,7 @@ $ sudo lsof -i:8000   // 再次查询，输出为空，清除端口占用成功
 而配置本地域名可以很好的解决这两种问题。
 
 在文件  /etc/hosts 中添加响应配置即可
+<br/>
 
 ### 方式一
 
@@ -86,6 +89,7 @@ $ vi /etc/hosts
 127.0.0.1 kubernetes.docker.internal
 # End of section
 ```
+<br/>
 
 ### 方式二
 
@@ -100,4 +104,54 @@ $ echo '127.0.0.1     wooc.com' >> /etc/hosts
 $ echo '127.0.0.1     wooc.com' >> /etc/hosts
 // 查看文件内容，检查是否添加成功
 $ cat /etc/hosts 
+```
+<br/>
+
+
+## 切换 node 版本
+```bash
+# 1.取消当前node版本的链接
+$ brew unlink node
+
+# 2.查询当前有哪些可用node版本
+$ brew search node
+==> Formulae
+libbitcoin-node     node-build          node@14 ✔           nodeenv
+linode-cli          node-sass           node@16             nodenv
+llnode              node@10             node_exporter       ode
+node ✔              node@12             nodebrew
+
+# 3.这里选择安装 node@14
+$ brew install node@14
+
+# 4.安装成功后链接到 node@14 版本 会出现如下提示，安照提示删除提示的文件即可
+$ brew link node@14
+Linking /opt/homebrew/Cellar/node@14/14.19.3...
+Error: Could not symlink bin/npm
+Target /opt/homebrew/bin/npm
+already exists. You may want to remove it:
+  rm '/opt/homebrew/bin/npm'
+
+To force the link and overwrite all conflicting files:
+  brew link --overwrite node@14
+
+To list all files that would be deleted:
+  brew link --overwrite --dry-run node@14
+  
+# 5.因为新的node版本会携带相关的包，和前一个node版本的起冲突，删除一个然后提示下一个，
+#   具体路径按照自己终端的提示删除（删除需谨慎）
+$ rm /opt/homebrew/bin/npm
+
+# 6.删除后重新 link 出现如下提示则为切换 node 版本成功
+$ brew link node@14
+Linking /opt/homebrew/Cellar/node@14/14.19.3... 3900 symlinks created.
+
+If you need to have this software first in your PATH instead consider running:
+  echo 'export PATH="/opt/homebrew/opt/node@14/bin:$PATH"' >> ~/.zshrc
+  
+# 7.查看node版本，确认是否替换成功
+$ node -v
+v14.19.3
+$ npm -v
+6.14.17
 ```
