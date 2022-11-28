@@ -213,7 +213,7 @@ export default {
         url: 'https://chinese.freecodecamp.org/learn',
       },
       {
-        title: 'Quick Reference',
+        name: 'Quick Reference',
         img: '',
         desc: '编程语言速查表，已经支持了挺多的语言，很方便',
         url: 'https://wangchujiang.com/reference/index.html',

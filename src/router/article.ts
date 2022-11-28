@@ -60,6 +60,12 @@
   component: () => import('../views/article/frontEnd/macCommand.md') 
 }, 
 { 
+  path: 'ubuntu', 
+  name: 'UBUNTU.MD', 
+  meta: {"name":"ubuntu","type":"系统","title":"  Ubuntu 安装及问题解决","theme":" condensed-night-purple","createTime":" 2022 年 11 月 17 日","updateTime":" 2022 年 11 月 17 日"}, 
+  component: () => import('../views/article/system/ubuntu.md') 
+}, 
+{ 
   path: 'macConfig', 
   name: 'MACCONFIG.MD', 
   meta: {"name":"macConfig","type":"系统","title":"  Mac 开发环境配置","theme":" condensed-night-purple","createTime":" 2022 年 5 月 15 日","updateTime":" 2022 年 6 月 22 日"}, 

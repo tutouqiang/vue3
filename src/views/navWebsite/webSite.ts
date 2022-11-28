@@ -367,6 +367,18 @@ const list: webList[] = [
         desc: '企业级Nodejs框架,基于 Koa 开发',
         url: 'https://eggjs.org/zh-cn/',
       },
+      {
+        title: '渐进式 Node.js 框架',
+        img: '	https://d33wubrfki0l68.cloudfront.net/e937e774cbbe…15ad5d7732decad182a/26072/logo-small.ede75a6b.svg',
+        desc: '支持 TS、JS 的 node 微服务框架，理念、语法上靠近 spring boot，可使用 Express、Fastify 作为底层框架并兼容各生态的包的使用',
+        url: 'https://nestjs.com/',
+      },
+      {
+        title: 'Express 微服务 API 网关',
+        img: 'https://github.com/ExpressGateway/express-gateway/…ion-graphic/ExpressGateway_Wordmark+Companion.png',
+        desc: '基于 Express.js 构建的微服务 API 网关',
+        url: 'https://www.express-gateway.io/',
+      },
     ],
   },
   {
@@ -490,6 +502,12 @@ const list: webList[] = [
         img: 'https://earth.nullschool.net/favicon.ico',
         desc: '3d 可以看到全球的风向',
         url: 'https://earth.nullschool.net/#current/wind/surface/level/orthographic=102.44,26.08,447'
+      },
+      {
+        title: '90 年代的鼠标特效',
+        img: 'https://tholman.com/favicon.ico',
+        desc: '90 年代的鼠标特效',
+        url: 'https://tholman.com/cursor-effects/'
       }
     ]
   }

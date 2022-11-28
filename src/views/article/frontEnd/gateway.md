@@ -96,8 +96,16 @@ jsonwebtoken + koa-redis + koa-views
 ## set cookies
 使用 node 在鉴权成功后重定向到指定页面的同时写入 cookies，如集中网关入口则必然出现跨域问题，服务器设置的 cookies 会被浏览器拒收，从而导致登陆操作失败
 
-# 解决
-首先将静态网站配置为 https 协议
+## 解决
+1、前端请求配置
+以 axios 为例
+```js
+// 允许跨域时携带 cookies。确保接口请求的服务为可信，否则会产生安全问题
+axios.defaults.withCredentials = true
+```
+
+
+2、服务端配置  
 
 koa 项目 中配置如下
 ```js
@@ -106,6 +114,14 @@ import cors from '@koa/cors' // 解决跨域问题
 app.proxy = true
 
 app.use(cors({
+  // 每个请求的 origin 必须为当前请求的域名
+  origin: (ctx): string => {
+      const origin = ctx.request.header.origin || ''
+      if (origin?.includes('wooc.com')) {
+        return origin
+      }
+      return ''
+    },
   credentials: true // 允许跨越请求携带 cookies
 }))
 

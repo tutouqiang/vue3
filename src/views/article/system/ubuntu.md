@@ -29,8 +29,65 @@ updateTime: 2022 年 11 月 17 日
 如果你从未安装过系统，可以参考[官方流程](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview)。  
 这里主要是记录安装后的问题解决，关于如何安装，网上教程很多，这里不多做赘述。
 
-## 问题及解决
+## 安装、配置
 
+### 修改镜像源
+Ubuntu 的默认镜像源为国外地址，速度较慢。改为国内或者离你较近的镜像源，这是常规操作
+
+#### 1. 备份源文件  
+```sh
+$ sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup
+```   
+#### 2. 编辑/etc/apt/sources.list文件
+按照镜像源官方操作步骤即可
+-  [清华镜像源](!https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/) 
+- [阿里镜像源](!https://developer.aliyun.com/mirror/ubuntu?spm=a2c6h.13651102.0.0.3e221b112XzfpP)
+
+#### 3. 执行更新命令
+```sh
+$ sudo apt-get update
+```
+
+### 安装 curl
+在安装其他很多软件时，需要用到 curl
+```sh
+# 更新源信息
+$ sudo apt update
+# 安装 curl
+$ sudo apt install curl
+# 查看 curl 安装信息
+$ curl 
+```
+
+### 安装 nodejs
+ubuntu 上 使用默认命令安装的 nodejs 的版本比较低，有很多方法去安装和控制 nodejs 的安装版本，这里使用 curl +  NodeSource   
+
+1、 查看 [NodeSource](!https://github.com/nodesource/distributions) 软件源提供了哪些 node 版本
+
+![node_source ](./img/ubuntu/node_source.jpg)
+
+截止文档完成时 NodeSource 已支持 node v19.x 版本，这里使用当前 LTS 最高版本 18.x 
+
+2、更新 nodejs 安装源
+```sh
+# 更新 nodejs 安装源为 18.x 版本
+$ curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - &&\
+```
+
+3、安装 nodejs 并校验版本
+```sh
+$ sudo apt-get install -y nodejs
+$ node --version
+```
+
+### 安装输入法
+https://zhuanlan.zhihu.com/p/58837239
+
+### 安装 clash 代理
+
+https://www.cnblogs.com/Jiang13537/p/15571504.html
+
+## 问题及解决
 ### vi 编辑问题
 我是用习惯了 mac、centos 的终端的，在 ubuntu 中的 vi 编辑时的方向键是对于 A、B、C、D 的字母的，只有在非编辑状态才会作为方向选择使用。
 
@@ -38,35 +95,9 @@ updateTime: 2022 年 11 月 17 日
 
 #### 解决
 ```sh
-$ sudo /etc/vim/vimrc.tiny
+$ sudo vi /etc/vim/vimrc.tiny
 # 编辑该文件，修改 set compatible 为 set nocompatible
 # 新增 set backspace=2 然后保存即可
 # 如果显示为只读文件，不可修改且保存失败时，先将文件夹权限降级
 # sudo chmod 777 /etc/vim/vimrc.tiny 操作完成后再恢复文件的权限
 ```
-
-### 修改镜像源
-Ubuntu 的默认镜像源为国外地址，速度较慢。改为国内或者离你较近的镜像源，这是常规操作
-```sh
-# 1. 备份源文件  
-$ sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup
-
-# 2. 编辑/etc/apt/sources.list文件
-$ vi /etc/apt/sources.list
-# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
-deb http://mirrors.163.com/ubuntu/ focal main restricted universe multiverse
-deb http://mirrors.163.com/ubuntu/ focal-security main restricted universe multiverse
-deb http://mirrors.163.com/ubuntu/ focal-updates main restricted universe multiverse
-deb http://mirrors.163.com/ubuntu/ focal-backports main restricted universe multiverse
-# deb-src http://mirrors.163.com/ubuntu/ focal main restricted universe multiverse
-# deb-src http://mirrors.163.com/ubuntu/ focal-security main restricted universe multiverse
-# deb-src http://mirrors.163.com/ubuntu/ focal-updates main restricted universe multiverse
-# deb-src http://mirrors.163.com/ubuntu/ focal-backports main restricted universe multiverse
-# 预发布软件源，不建议启用
-# deb http://mirrors.163.com/ubuntu/ focal-proposed main restricted universe multiverse
-# deb-src http://mirrors.163.com/ubuntu/ focal-proposed main restricted universe multiverse
-
-# 3. 执行更新命令
-$ sudo apt-get update
-```
-
