@@ -60,6 +60,12 @@
   component: () => import('../views/article/frontEnd/macCommand.md') 
 }, 
 { 
+  path: 'nginx', 
+  name: 'NGINX.MD', 
+  meta: {"name":"nginx","type":"系统","title":"  Nginx 安装及常用配置","theme":" condensed-night-purple","createTime":" 2022 年 12 月 12 日","updateTime":" 2022 年 12 月 12 日"}, 
+  component: () => import('../views/article/system/nginx.md') 
+}, 
+{ 
   path: 'ubuntu', 
   name: 'UBUNTU.MD', 
   meta: {"name":"ubuntu","type":"系统","title":"  Ubuntu 安装及问题解决","theme":" condensed-night-purple","createTime":" 2022 年 11 月 17 日","updateTime":" 2022 年 11 月 17 日"}, 

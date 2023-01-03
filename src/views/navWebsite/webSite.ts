@@ -1,6 +1,8 @@
 /*
  * 常用工具
  */
+import { AwehuntImg, QuickReferenceImg, ExpressGatewayImg } from '../../assets'
+
 interface webList {
   type: string,
   title?: string,
@@ -100,6 +102,7 @@ const list: webList[] = [
         img: 'https://webpack.docschina.org/site-logo.1fcab817090e78435061.svg',
         desc: 'webpack 是一个用于现代 JavaScript 应用程序的 静态模块打包工具。使用广泛、全能且臃肿、复杂',
         url: 'https://webpack.docschina.org/',
+        bgc: 'black'
       },
       {
         title: 'esbuild',
@@ -125,13 +128,13 @@ const list: webList[] = [
     list: [
       {
         title: 'Awehunt',
-        img: '',
+        img: AwehuntImg,
         desc: 'npm 包相关数据比对，可以用来对比 npm 的使用量等数据，帮助分析 npm 的流行、使用程度。也可以用来查看各企业流行的开发框架',
         url: 'https://awehunt.com/npmdownloads?ids=',
       },
       {
         title: 'Js-sdsl',
-        img: 'https://js-sdsl.github.io/assets/logo-small.png',
+        img: 'https://js-sdsl.org/assets/image/logo/logo-small.png',
         desc: '一款参考 C++ STL 实现的 JavaScript 标准数据结构库, 用于弥补 JavaScript 中缺少一些数据结构的缺点',
         url: 'https://js-sdsl.github.io/#/zh-cn/README',
       },
@@ -160,15 +163,15 @@ const list: webList[] = [
     list: [
       {
         title: '免费邮箱',
-        img: '',
+        img: 'https://yopmail.com/favicon.gif',
         desc: '使用邮箱测试',
         url: 'https://yopmail.com/zh/',
       },
       {
         title: '免费手机',
-        img: '',
+        img: 'https://cloakmobile.com/wp-content/uploads/2022/07/logo.png',
         desc: '使用免费手机号收取短信',
-        url: 'http://z-sms.com/',
+        url: 'https://cloakmobile.com/sms/?phone=29#smslist',
       },
       {
         title: '二维码生成',
@@ -216,7 +219,7 @@ const list: webList[] = [
       },
       {
         title: 'Quick Reference',
-        img: 'Quick Reference',
+        img: QuickReferenceImg,
         desc: '编程语言速查表，已经支持了挺多的语言，很方便',
         url: 'https://wangchujiang.com/reference/index.html',
       },
@@ -254,6 +257,7 @@ const list: webList[] = [
         img: 'http://cdn.alloyteam.com/assets/img/alloyteam-w-34df9d.svg',
         desc: '腾讯 技术文章',
         url: 'http://www.alloyteam.com/',
+        bgc: 'black'
       },
       {
         title: '京东技术团队',
@@ -290,6 +294,7 @@ const list: webList[] = [
         img: 'https://p3.ssl.qhimg.com/t012d58bd54c2848357.png',
         desc: '360 技术文章',
         url: 'https://75.team/',
+        bgc: 'black'
       },
       {
         title: '明远的自留地',
@@ -304,6 +309,17 @@ const list: webList[] = [
         url: 'https://lq782655835.github.io/blogs/',
       },
     ],
+  },
+  {
+    type: '社区',
+    list: [
+      {
+        title: 'V2EX',
+        img: 'https://www.v2ex.com/static/img/v2ex@2x.png',
+        desc: '相对来说比较纯粹的老牌开发者社区, 社区管理也不像 csdn 那样杂乱, 也没有铺天盖地的商业化宣传。V2EX 的使命是为创意工作者打造一个最好的社区，他们在这里可以获得灵感，分享想法，找到伙伴，获得通向目标的加速度。',
+        url: 'https://www.v2ex.com/',
+      }
+    ]
   },
   {
     type: '资源',
@@ -333,25 +349,19 @@ const list: webList[] = [
         url: 'https://asmcn.icopy.site/',
       },
       {
-        title: 'nodeJs 教程',
-        img: 'http://nodejs.cn/website2/static/nodejs-logo-light-mode-e8344f71081da53be8ee1098584a0ab6.svg',
-        desc: 'nodejs教程,细致',
-        url: 'http://nodejs.cn/learn/the-package-lock-json-file',
-      },
-      {
         title: 'GitHub中文社区',
         img: 'https://play-lh.googleusercontent.com/PCpXdqvUWfCW1mXhH1Y_98yBpgsWxuTSTofy3NGMo9yBTATDyzVkqU580bfSln50bFU',
         desc: '查看开源项目排行榜和当前流行趋势',
         url: 'https://www.githubs.cn/',
       },
       {
-        title: '年度 JavaScript 明星项目',
+        title: '年度 JS 明星项目',
         img: 'https://bestofjs.org/svg/bestofjs.svg',
         desc: '查看每个年度对 JavaScript 领域的总结,涉及的前端面很广, 时刻关注前端生态的变化及优秀项目的发现',
         url: 'https://risingstars.js.org/2021/zh',
       },
       {
-        title: 'github 有趣开源项目集合',
+        title: 'Github 有趣开源项目',
         img: 'https://bestofjs.org/svg/bestofjs.svg',
         desc: '很多有趣的项目，也有可以二开的项目',
         url: 'https://hellogithub.com/',
@@ -368,14 +378,14 @@ const list: webList[] = [
         url: 'https://eggjs.org/zh-cn/',
       },
       {
-        title: '渐进式 Node.js 框架',
-        img: '	https://d33wubrfki0l68.cloudfront.net/e937e774cbbe…15ad5d7732decad182a/26072/logo-small.ede75a6b.svg',
+        title: 'NestJS',
+        img: 'https://d33wubrfki0l68.cloudfront.net/e937e774cbbe23635999615ad5d7732decad182a/26072/logo-small.ede75a6b.svg',
         desc: '支持 TS、JS 的 node 微服务框架，理念、语法上靠近 spring boot，可使用 Express、Fastify 作为底层框架并兼容各生态的包的使用',
         url: 'https://nestjs.com/',
       },
       {
-        title: 'Express 微服务 API 网关',
-        img: 'https://github.com/ExpressGateway/express-gateway/…ion-graphic/ExpressGateway_Wordmark+Companion.png',
+        title: '微服务 API 网关',
+        img: ExpressGatewayImg,
         desc: '基于 Express.js 构建的微服务 API 网关',
         url: 'https://www.express-gateway.io/',
       },
@@ -405,7 +415,8 @@ const list: webList[] = [
         title: 'grafana',
         img: 'https://grafana.com/static/assets/internal/grafana_logo-web-white-text.svg',
         desc: '服务监控可视化',
-        url: 'https://grafana.com/'
+        url: 'https://grafana.com/',
+        bgc: 'black'
       },
       {
         title: 'SkyWalking',
@@ -418,6 +429,12 @@ const list: webList[] = [
         img: 'https://verdaccio.org/img/logo/uk/verdaccio-tiny-uk-no-bg.svg',
         desc: 'npm 私有仓库',
         url: 'https://verdaccio.org/'
+      },
+      {
+        title: 'vocw.chat',
+        img: 'https://verdaccio.org/img/logo/uk/verdaccio-tiny-uk-no-bg.svg',
+        desc: '开源的聊天工具，有web、app、桌面端',
+        url: 'https://voce.chat/zh'
       }
     ]
   },
@@ -437,21 +454,19 @@ const list: webList[] = [
         img: 'https://img11.360buyimg.com/n1/jfs/t1/26907/22/5787/185613/5c419b46E9cf10e55/e9229f7f0f0eadc7.jpg',
         desc: '算法入门友好,图形化的介绍一些常见的数据结构及算法,易于理解',
         url: 'https://www.aliyundrive.com/s/TowakrPYfiG',
-        bgc: '#101010'
       },
       {
         title: '算法 （第四版）',
         img: 'https://images-cn.ssl-images-amazon.cn/images/I/41OhCo2B-VL.jpg',
         desc: '算法学习必读,配套的网站 https://algs4.cs.princeton.edu/home/',
         url: 'https://www.aliyundrive.com/s/xWn4ncKTFRV',
-        bgc: '#101010'
       },
       {
         title: '现代 JavaScript 教程',
         img: 'https://zh.javascript.info/img/sitetoolbar__logo_en.svg',
         desc: 'js 教程',
         url: 'https://zh.javascript.info/',
-        bgc: '#101010'
+        bgc: '#ccc'
       },
     ],
   },
@@ -460,7 +475,7 @@ const list: webList[] = [
     list: [
       {
         title: 'OAuth',
-        img: 'https://grafana.com/static/assets/internal/grafana_logo-web-white-text.svg',
+        img: 'https://oauth.net/images/oauth-logo-square.png',
         desc: 'OAuth 2.0 是行业标准的授权协议。OAuth 2.0 专注于客户端开发人员的简单性,同时为 Web 应用程序、桌面应用程序、移动电话和客厅设备提供特定的授权流程。该规范及其扩展正在IETF OAuth 工作组内开发。',
         url: 'https://oauth.net/2/'
       },
@@ -508,6 +523,12 @@ const list: webList[] = [
         img: 'https://tholman.com/favicon.ico',
         desc: '90 年代的鼠标特效',
         url: 'https://tholman.com/cursor-effects/'
+      },
+      {
+        title: '有趣的论文',
+        img: 'https://cfenollosa.com/img/cfenollosa-small.png',
+        desc: '看上去没用，但有趣的论文',
+        url: 'https://cfenollosa.com/funnypapers/index.html#SexNeurogenesis'
       }
     ]
   }

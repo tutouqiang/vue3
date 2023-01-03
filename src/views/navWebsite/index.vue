@@ -94,12 +94,20 @@ export default {
         text-align: center!important;
       }
       .img {
-        width: 35px;
+        padding: 3px;
+        max-width: 85px;
         height: 35px;
+        border-radius: 5px;
         object-fit: scale-down;
+      }
+      .title {
+        margin-top: 5px;
+        font-size: 14px;
+        font-weight: 600;
       }
       .desc {
         width: 90px;
+        font-size: 12px;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
