@@ -140,12 +140,12 @@ export default {
     }
   }
 
-  /deep/ .ant-anchor-ink::before {
+  :deep(.ant-anchor-ink::before)  {
     width: 0px;
   }
   .ant-anchor-link-active {
     background-color: @primary-color;
-    /deep/ .ant-anchor-link-title-active {
+    :deep(.ant-anchor-link-title-active)  {
       color: #fff;
     }
   }
