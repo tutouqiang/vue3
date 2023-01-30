@@ -196,6 +196,42 @@ Dec 10 17:13:48 VM-0-17-centos nginx[6099]: nginx: configuration file /etc/nginx
 Dec 10 17:13:48 VM-0-17-centos systemd[1]: Started The nginx HTTP and reverse proxy server.
 ```
 
+### 配置多域名、多证书
+主要改动 server 中 listen、ssl 证书部分即可，其余部分安照业务正常配置即可。
+```sh
+server {
+  listen       443 ssl http2 default_server;
+  listen       [::]:443 ssl http2 default_server;
+  server_name  wooc.com;
+  root         /usr/share/nginx/htm
+
+  # ssl 证书保存的目录
+  ssl_certificate /etc/pki/nginx/wooc.com_bundle.crt;
+  ssl_certificate_key /etc/pki/nginx/wooc.com.key;
+}
+
+# 第二个域名、证书去掉 default_server 关键字；
+# 配置多个证书，均为占用 443 端口，必须去掉 default_server，原因如下
+server {  
+  listen       443 ssl http2;
+  listen       [::]:443 ssl http2;
+  server_name  wooc.top;
+  root         /usr/share/nginx/htm
+  
+  # ssl 证书保存的目录
+  ssl_certificate /etc/pki/nginx/wooc.top_bundle.crt;
+  ssl_certificate_key /etc/pki/nginx/wooc.top.key;
+}
+
+# 在 server 块中，当在listen 指令上添加default_server标志时，Nginx将声明该服务器为默认服务器。
+# 之后，当 Nginx 的 HTTP 主机标头与任何其他服务器块不匹配时，Nginx 将使用默认服务器来处理请求。
+# default_server 标志只能在 server 块中添加一次，并将任何 IP:port 组合指定为 listen 指令的参数。
+# 但是，default_server 标志可以在 IP:port 的不同组合上使用多次。
+```
+
+default_server 具体信息可参考：https://docs.nginx.com/nginx/admin-guide/web-server/web-server/
+
+
 ### 常用命令
 
 #### 查看 nginx log

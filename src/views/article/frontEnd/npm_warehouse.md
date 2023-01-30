@@ -9,7 +9,7 @@ createTime: 2022 年 7 月 21 日
 公司需要发布内部 npm 包，需要搭建一个 npm 私有仓库
 
 ## 需求
-没有明确的需求，现有 npm 私有仓库方案也都满足基本需要
+现有 npm 私有仓库方案都满足基本需要
 
 ## 调研
 搜索一波，大部分的文章都列出以下几种方案
@@ -22,7 +22,8 @@ createTime: 2022 年 7 月 21 日
 - doker、nginx、Kubernetes
 - 静态网页及权限配置
 - 有中文文档
-- 有知名项目使用：如 pnpm、
+- 有知名项目使用：如 pnpm.
+- 迁移成本低
 
 需要的基本一应俱全，具体直接访问官网即可 
 
@@ -37,7 +38,7 @@ createTime: 2022 年 7 月 21 日
 
 ## 安装
 
-**Node**  
+### Node
 如需要安装特定版本 node，将以下命令中的 v16.15.1 替换为指定版本即可，详细版本可查看  [node 官网](https://nodejs.org/en/)
 ```sh
 $ cd /usr/local/src
@@ -49,14 +50,14 @@ $ node -v
 v16.15.1
 ```
 
-**Verdaccio**
+### Verdaccio
 ```sh
 $ npm install -g verdaccio
 $ verdaccio -v 
 v5.13.3
 ```
 
-**Nginx**  
+### Nginx
 使用 yum 安装的版本会比较低，如需高版本 nginx 可搜索相应博客。如你的服务器没有 yum 包管理器，可根据服务器系统搜索该系统的包管理器并安装即可
 ```sh
 $ yum install nginx -y
@@ -128,13 +129,13 @@ http 中添加相应配置即可。所有 npm.wooc.top 的地方替换为你的�
 $ vi ~/.config/verdaccio/config.yaml
 ```
 
-**web页面配置**
+### web页面配置
 ```sh
 web:
   title: npm-cz
 ```
 
-**权限配置**  
+### 权限配置
 这里设置禁止用户自己注册，为了更好的进行用户管理，不滥用 npm 账户。
 如何添加用户可看下方 [配置用户](#配置用户)
 ```sh
@@ -145,7 +146,7 @@ auth:
     max_users: -1
 ```
 
-**上游链路**  
+### 上游链路
 默认为 npm 源, 这里新增了一个淘宝源, 同时更改 packages 中相关联的配置
 ```sh
 uplinks:
@@ -177,16 +178,20 @@ packages:
       - taobao
 ```
 
-**通知**  
-消息通知的模板可以在官网看详细的规则
+### 通知
+消息通知的模板可以在官网看详细的规则。以飞书为例配置如下。
 ```sh
 notify:
+  "feishu":
     method: POST
-    headers: [{ "Content-Type": "application/json" }]
-    endpoint: '这里替换为你想触发的服务的链接，可以是服务器接口、群机器人或者邮箱'
-    content: '{"body": {"version": 1,"type": "doc","content": [{"type": "paragraph","content": [{"type": "text","text": "New package published: * {{ name }}* Publisher name: * {{ publisher.name }}"}]}]}}'
+    headers: [{ "Content-Type": "application/json;charset=utf-8" }]
+    endpoint: https://open.feishu.cn/open-apis/bot/v2/ #复制你的机器人 url 或自定义信息触达 url
+    content: '{"msg_type": "interactive","card": "{\"elements\":[{\"alt\":{\"content\":\"\",\"tag\":\"plain_text\"},\"img_key\":\"img_v2_a684adbf-32f8-4d88-a8b9-b429834f862g\",\"tag\":\"img\"},{\"tag\":\"div\",\"text\":{\"content\":\"🎉🎉🎉\\n📦**Name:** * {{name}}*.\\n📚**Versions:** * {{#each versions}} v{{version}}{{/each}} *.\\n🙇**Publisher name:** * {{publisher.name}} *.\",\"tag\":\"lark_md\"}},{\"tag\":\"div\",\"text\":{\"content\":\"**Description:** * {{#each versions}} {{description}}{{/each}} *.\",\"tag\":\"lark_md\"}},{\"actions\":[{\"tag\":\"button\",\"text\":{\"content\":\"立即查看\",\"tag\":\"plain_text\"},\"type\":\"primary\",\"url\":\"https://npm.cz-robots.com/-/web/detail/{{name}}\"}],\"tag\":\"action\"}],\"header\":{\"template\":\"turquoise\",\"title\":{\"content\":\"npm 发布通知\",\"tag\":\"plain_text\"}}}"}'
 
-```
+```  
+
+效果如图
+![飞书消息](./img/npm_warehouse/notify.jpg)
 
 **web 页面语言**  
 支持很多语言，也可以在 web 页面的设置中手动设置，这里设置默认语言为中文
@@ -208,19 +213,19 @@ storage、config.yaml两个文件，其他文件在使用到的时候自己创�
 <!-- <h2 id="配置用户">配置用户</h2> -->
 ## 配置用户
 
-**安装**
+### 安装
 ```sh
 $ npm install htpasswd-for-sinopia -g
 ```
 
-**添加用户**  
+### 添加用户
 
 1、命令行添加
 sinopia-adduser 命令的执行有两个条件
 - 密码文件 htpasswd 默认在 ~/.config/verdaccio 目录下，并且**需要手动创建**
 - 需要**与 htpasswd 文件在同级目录下**
 
-> tip：htpasswd 可以自定义路径，并同步修改 verdaccio 配置文件即可
+> Tip：htpasswd 可以自定义路径，并同步修改 verdaccio 配置文件即可
 
 ```sh
 $ cd ~/.config/verdaccio
@@ -242,7 +247,7 @@ htpasswd-for-sinopia 提供了一个 [在线网站](https://hostingcanada.org/ht
 
 
 ## 启动
-**一、以默认配置启动**
+### 默认配置启动
 ```sh
 $ verdaccio
 ```
@@ -251,7 +256,7 @@ $ verdaccio
 
 ![verdaccio页面 ](./img/npm_warehouse/1.png)
 
-**二、持久化运行**
+### 持久化运行
 
 官方推荐使用 forever, forever 目前靠社区维护更新，所以 forever 文档推荐 pm2
 
@@ -309,7 +314,7 @@ Logged in as wooc on https://npm.wooc.top/.
 确认在项目根目录
 ```sh 
 # 如果已经设置镜像源为私有库地址，执行  npm publish 即可
-$ npm publish --registry https://npm.cz-robots.com/
+$ npm publish --registry https://npm.wooc.top/
 npm notice 
 npm notice 📦  wooc@1.0.0
 npm notice === Tarball Contents === 
@@ -337,14 +342,40 @@ npm notice Publishing to https://npm.wooc.top/
 
 出现上述信息说明发布成功
 
+查看 npm 包在服务器的存储位置  
+```sh
+# npm 包存储路径 /root/.config/verdaccio/storage/  
+# npm 包名称 @cz/mini-i18n
+$ cd /root/.config/verdaccio/storage/@cz/mini-i18n
+mini-i18n-0.0.10.tgz  mini-i18n-0.0.13.tgz  mini-i18n-0.0.16.tgz  mini-i18n-0.0.19.tgz  mini-i18n-0.0.21.tgz  mini-i18n-0.0.24.tgz  mini-i18n-0.0.3.tgz  mini-i18n-0.0.6.tgz  mini-i18n-0.0.9.tgz
+mini-i18n-0.0.11.tgz  mini-i18n-0.0.14.tgz  mini-i18n-0.0.17.tgz  mini-i18n-0.0.1.tgz   mini-i18n-0.0.22.tgz  mini-i18n-0.0.25.tgz  mini-i18n-0.0.4.tgz  mini-i18n-0.0.7.tgz  package.json
+mini-i18n-0.0.12.tgz  mini-i18n-0.0.15.tgz  mini-i18n-0.0.18.tgz  mini-i18n-0.0.20.tgz  mini-i18n-0.0.23.tgz  mini-i18n-0.0.2.tgz   mini-i18n-0.0.5.tgz  mini-i18n-0.0.8.tgz
+```
+
 **6、下载私有包**
 前置准备
-- 项目中配置 .npmrc , 内容为 registry=https://npm.wooc.com @wooc:registry=https://npm.wooc.com (建议)
-- 设置本地 npm 源, 执行命令  npm config set registry https://npm.wooc.com
-- 临时使用, npm --registry https://npm.wooc.com
+- 项目中配置 .npmrc , 内容为 registry=https://npm.wooc.top @wooc:registry=https://npm.wooc.top (建议)
+- 设置本地 npm 源, 执行命令  npm config set registry https://npm.wooc.top
+- 临时使用, npm --registry https://npm.wooc.top
 
 以上三种方式任选其一, 测试私有包的下载是否正常
 
+
+# 迁移
+
+verdaccio 的所有配置均在 /root/.config/verdaccio 目录下，如按上述配置后，目录结构如下
+```sh
+config.yaml      # 配置文件
+config.yaml.bak  # 默认初始的配置文件
+htpasswd         # 用户文件
+storage          # 包文件
+```
+
+自定义路径的按照自定义配置找到相应文件即可。
+
+1、在新服务器上准备好运行环境，保持版本与旧服务器各依赖版本一致即可（参考上方环境准备）。  
+2、将 verdaccio、nginx 配置文件完整上传至新服务器固定位置。  
+3、测试服务，迁移完成。
 
 
 ## 注意事项
@@ -355,15 +386,21 @@ npm notice Publishing to https://npm.wooc.top/
 >Tip: 如果私有库的使用需求不是那么强的话，建议私有库只用在私有包的下载、管理服务，其他的依赖下载指向淘宝源地址即可。  
 
 ## 可能出现的问题
-#### verdaccio Error: 413 Payload Too Large - PUT request entity too large  
+### verdaccio Error: 413 Payload Too Large - PUT request entity too large  
+
+**原因**
 
 包的大小超出限制。  
 
-verdaccio 配置问题  
+**解决方式**
 
-默认为 10mb，如需设置可对配置文件的 max_body_size 字段的值进行更改  
+可能为如下几点原因，对症下药即可
 
- nginx 配置问题  
+**1、verdaccio 配置问题** 
+
+默认为 10M，如需设置可对配置文件的 max_body_size 字段的值进行更改  
+
+ **2、nginx 配置问题**
 
  添加如下配置
  ```sh
@@ -374,7 +411,13 @@ verdaccio 配置问题
  ```
 具体可见：[stackoverflow](!https://stackoverflow.com/questions/62946263/verdaccio-error-413-payload-too-large-put-request-entity-too-large)
 
-#### package-lock 依赖路径为 ip 而非 域名
+### package-lock 依赖路径为 ip 而非 域名
+
+**原因**
+
 如果在服务器上开启多核心运行，下载依赖生成的 package-lock.json 文件中的依赖路径会变为私有库的 ip 地址而不是域名，这可能会导致依赖下载时报错。  
-解决方式：单线程启动
+
+**解决方式**
+
+单线程启动（fork）
 
