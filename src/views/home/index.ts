@@ -1,4 +1,4 @@
-import { ChromeImg, BingImg, BaiduImg, QuickReferenceImg } from '../../assets'
+import { ChromeImg, BingImg, BaiduImg, WebDevImg, QuickReferenceImg } from '../../assets'
 
 export const  favoriteApps = [
   {
@@ -16,10 +16,10 @@ export const  favoriteApps = [
     imgSize: true
   },
   {
-    img: 'https://gw.alipayobjects.com/zos/bmw-prod/735cefc9-f976-4c87-8b48-85f713f5b713.svg',
-    url: 'https://www.yuque.com/zaotalk/worm/bird397',
-    name: '早早聊',
-    desc: '前端早早鸟日刊',
+    img: WebDevImg,
+    url: 'https://web.dev/learn/',
+    name: '谷歌课程',
+    desc: 'Chrome 团队成员、行业专家编写了每门课程',
     style: 'background-color: #fff'
 
   },

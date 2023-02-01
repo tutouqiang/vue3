@@ -1,7 +1,7 @@
 /*
  * 常用工具
  */
-import { AwehuntImg, QuickReferenceImg, ExpressGatewayImg } from '../../assets'
+import { AwehuntImg, QuickReferenceImg, ExpressGatewayImg, PostdropImg } from '../../assets'
 
 interface webList {
   type: string,
@@ -223,6 +223,12 @@ const list: webList[] = [
         desc: '编程语言速查表，已经支持了挺多的语言，很方便',
         url: 'https://wangchujiang.com/reference/index.html',
       },
+      {
+        title: 'Postdrop',
+        img: PostdropImg,
+        desc: '在线编辑邮件模板，兼容性好',
+        url: 'https://app.postdrop.io/',
+      },
     ],
   },
   {
@@ -366,6 +372,12 @@ const list: webList[] = [
         desc: '很多有趣的项目，也有可以二开的项目',
         url: 'https://hellogithub.com/',
       },
+      {
+        title: 'macyy',
+        img: 'https://www.macyy.cn/wp-content/uploads/2022/10/%E6%A8%AA%E7%89%88.png',
+        desc: 'Mac 免费软件资源网站',
+        url: 'https://www.macyy.cn/',
+      },
     ],
   },
   {
@@ -431,8 +443,8 @@ const list: webList[] = [
         url: 'https://verdaccio.org/'
       },
       {
-        title: 'vocw.chat',
-        img: 'https://verdaccio.org/img/logo/uk/verdaccio-tiny-uk-no-bg.svg',
+        title: 'Privoce',
+        img: 'https://dev.voce.chat/api/resource/organization/logo?t=1675233895872',
         desc: '开源的聊天工具，有web、app、桌面端',
         url: 'https://voce.chat/zh'
       }
