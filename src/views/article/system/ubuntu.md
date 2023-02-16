@@ -64,7 +64,7 @@ ubuntu 上 使用默认命令安装的 nodejs 的版本比较低，有很多方�
 
 1、 查看 [NodeSource](!https://github.com/nodesource/distributions) 软件源提供了哪些 node 版本
 
-![node_source ](./img/ubuntu/node_source.jpg)
+![node_source ](./img/ubuntu/node_source.webp)
 
 截止文档完成时 NodeSource 已支持 node v19.x 版本，这里使用当前 LTS 最高版本 18.x 
 

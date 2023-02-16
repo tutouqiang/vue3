@@ -18,7 +18,7 @@
           </div>
           <router-view />
         </section>
-        <a-col :span="0" :lg="6" :xl="5" :xxxl="4" style="margin-left: 50px;">
+        <a-col :xs="0" :sm="0" :md="0" :lg="3" :xl="5" style="margin-left: 50px;">
           <a-affix :offsetTop="100">
             <div class="anchor" style="padding: 10px 0; height: 500px; background-color: #fff; overflow: auto; border-radius: 10px">
               <a-anchor :affix="false" @click="(e) => e.preventDefault()">
@@ -77,7 +77,6 @@ export default {
     });
     this.articleList = [...this.articleList, ...list];
     this.headInfo = this.articleList[this.articleList.length - 1].meta;
-    console.log("articleList", this.articleList, this.headInfo);
   },
   mounted() {
     const element = document.getElementsByClassName("content")[0];
@@ -119,7 +118,7 @@ export default {
   .content {
     max-width: 800px;
     // margin: 0 auto;
-    padding: 10px 0px;
+    padding: 70px 0px;
     will-change: auto;
     transform: translateX(-300px);
     opacity: 0;
@@ -133,6 +132,7 @@ export default {
     }
     .articleInfo {
       display: flex;
+      flex-wrap: wrap;
       color: #999;
     }
     .articleInfo > div {

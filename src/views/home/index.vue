@@ -3,7 +3,7 @@
     <a-row>
       <a-col :span="5" :lg="4" :offset="0" :md="3" :sm="2" :xs="1" style="display: grid; justify-content: right">
       </a-col>
-      <a-col :span="14" :lg="16" offset=”0“ :md="18" :sm="20" :xs="22" style="display: grid; align-items: center;">
+      <a-col :span="14" :lg="16" offset=”0“ :md="18" :sm="20" :xs="24" style="display: grid; align-items: center;">
         <a-input-group compact size="large" class="searchInput">
           <a-select v-model:value="currentBrowser" size="large" >
             <a-select-option :value="item.key" v-for="item in browserList" :key="item.value" style="height: 50px">
@@ -167,7 +167,6 @@ export default {
         min-height: 70px;
         border-radius: 5px;
         margin-bottom: 5px;
-
       }
       span {
         white-space:nowrap;
@@ -178,6 +177,34 @@ export default {
       &:hover {
         transform: scale(1.1);
         box-shadow: 0px 0px 5px 5px rgba(255,255,255,.3);
+      }
+    }
+  }
+
+  @media screen and (max-width: 576px)  {
+    .app {
+      grid-template-columns: repeat(auto-fill, 50px);
+      grid-template-rows: repeat(auto-fill, 50px);
+      a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        color: @text-color;
+        .img_two {
+          width: 50px;
+          min-height: 50px;
+          margin-bottom: 5px;
+          border-radius: 5px;
+        }
+        .img_one {
+          padding: 5px;
+          width: 50px;
+          min-height: 50px;
+          border-radius: 5px;
+          margin-bottom: 5px;
+        }
       }
     }
   }

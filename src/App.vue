@@ -1,13 +1,18 @@
 <template>
-  <router-view></router-view>
+    <Header />
+    <router-view></router-view>
 </template>
 
 <script lang="ts">
+import Header from './layout/header.vue';
 import { defineComponent } from 'vue'
 import { mapState, mapMutations } from 'vuex'
 let timer = false;
 
 export default defineComponent({
+  components: {
+    Header
+  },
   created() {
     console.log(window.innerWidth)
     this.updateScreenWidth(window.innerWidth)

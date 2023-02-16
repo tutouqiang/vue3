@@ -1,17 +1,12 @@
 <template>
   <a-layout id="home">
     <!-- <Header /> -->
-    <a-layout-sider theme="light" :width="open ? 50 : 0" :style="{ height: '100vh', position: 'fixed', left: 0, top: 0, bottom: 0 }">
+    <a-layout-sider v-if="menuShow" theme="light" :width="open ? 50 : 0" :style="{ height: '100vh', position: 'fixed', left: 0, top: 0, bottom: 0 }">
       <Menu />
       <div class="fold" @click="() => { open = !open }">
         <double-left-outlined  v-if="open" />
         <double-right-outlined v-else  />
       </div>
-      <!-- <Button class="fold" @click="() => { open = !open }">
-        <double-left-outlined  v-if="open" />
-        <double-right-outlined v-else  />
-      </Button> -->
-      
     </a-layout-sider>
     
     <transition
@@ -53,7 +48,8 @@ export default {
   data(){
     return {
       currentRoute: '',
-      open: true
+      open: true,
+      menuShow: true
     }
   },  
   watch: {
@@ -65,6 +61,19 @@ export default {
   },
   created() {
     console.log(this.$route.path)
+  },
+  mounted() {
+    const that = this
+    window.onresize = function () {
+      if(document.documentElement.clientWidth <= 576) {
+        if(that.open) {
+          that.open = false
+        }
+        that.menuShow = false
+      } else {
+        that.menuShow = true
+      }
+    } 
   }
 }
 </script>
