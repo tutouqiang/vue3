@@ -229,6 +229,12 @@ const list: webList[] = [
         desc: '在线编辑邮件模板，兼容性好',
         url: 'https://app.postdrop.io/',
       },
+      {
+        title: 'songlh',
+        img: PostdropImg,
+        desc: '在线的 canvas 画图板，可导出',
+        url: 'https://songlh.top',
+      },
     ],
   },
   {
@@ -507,6 +513,12 @@ const list: webList[] = [
         img: 'https://www.craiyon.com/_app/immutable/assets/craiyon_logo-9927047c.png',
         desc: '根据自然语言描述，AI 生成图片',
         url: 'https://www.craiyon.com/'
+      },
+      {
+        title: 'AI 角色聊天',
+        img: 'https://beta.character.ai/static/media/logo-dark.77b3a5cc8e42a91f021f.png',
+        desc: '通过给 AI 投喂指定的预料，将它训练成指定的角色，然后跟他聊天，网站上已经有非常多的角色了。',
+        url: 'https://beta.character.ai/'
       }
     ]
   },
