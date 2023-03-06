@@ -1,0 +1,15 @@
+:root {
+  --g-font-size: 14px;
+  --g-primary-color: #9933FF;
+
+  --g-bg-color-1: #000;
+  --g-font-size: 12px;
+  --g-primary-text: #fff;
+
+  --g-border-raduis: 5px;
+
+  --g-box-shadow-1: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+  0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  --g-box-shadow-2: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 0px 5px 0 rgba(0, 0, 0, 0.08),
+  0 9px 28px 8px rgba(0, 0, 0, 0.05);
+}
