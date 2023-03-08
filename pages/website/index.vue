@@ -13,11 +13,17 @@
 </template>
 
 <script setup lang="ts">
-import config from './config'
+  import config from '../../mock/website.ts'
+  // const config = ref([])
 
-useHead({
-  title: 'Website navigation'
-})
+  useHead({
+    title: 'Website navigation'
+  })
+
+  onBeforeMount(async () => {
+    const result = await $fetch('/api/website')
+    console.log(result)
+  })
 </script>
 
 <style lang="less" scoped>
@@ -48,6 +54,7 @@ useHead({
         font-size: var(--g-font-size);
         border: 1px solid var(--g-primary-text);
         border-radius: var(--g-border-raduis);
+        box-sizing: border-box;
         img {
           position: absolute;
           top: 10px;

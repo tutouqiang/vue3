@@ -9,6 +9,9 @@ export default defineNuxtConfig({
     //     theme: 'prismjs/themes/prism.css'
     //   }
     // },
+    ignores: [
+      'img'
+    ],
     highlight: 'material-theme-darker'
   },
   css: [

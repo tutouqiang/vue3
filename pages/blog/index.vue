@@ -51,13 +51,11 @@
     // width: 1000px;
     display: grid;
     grid-template-columns: repeat(auto-fill, 300px);
-    grid-gap: 50px;
+    grid-gap: 20px;
     grid-auto-flow: row dense;
 
     &-card {
       padding: 0 15px 15px;
-      width: 300px;
-      height: 300px;
       border-radius: var(--g-border-raduis);
       box-shadow: var(--g-box-shadow-2);
       overflow-y: auto;

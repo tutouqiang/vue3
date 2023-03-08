@@ -81,7 +81,7 @@ setDefaultCredentials(config.user);
 ### 3、终端行列问题  
 初始化时终端的行数及列数的函数未触发，导致在宽屏状态下的终端大小为初始状态而没有自适应为宽屏状态。导致输入较长参数时出现未自动切换下一行并且重复覆盖该行的参数
 
-![终端行列问题 ](./img/webssh/1.webp)
+![终端行列问题 ](https://raw.githubusercontent.com/zhangchao-wooc/wooc/master/content/front-end/img/webssh/1.webp)
 
 源代码触发 resizeScreen 位置在 
 ```js
@@ -98,7 +98,7 @@ socket.on('header', (data: string) => {
 ```
 socket 中触发事件位置在下图第一步。而 ssh 初始化终端的行列时在第二步，而真正被触发并设置终端的事件在 conn.shell 事件中，也就是说虽然以设置 header 的事件去触发 resizeScreen 的事件，但 ssh 初始化终端并未开始，所以第三步的 socket.on('resize') 事件并未被触发。我们需要在下图第二步初始化以后的事件中去触发 resizeScreen 事件，这样才能真正生效。
 
-![终端行列问题 ](./img/webssh/2.webp)
+![终端行列问题 ](https://raw.githubusercontent.com/zhangchao-wooc/wooc/master/content/front-end/img/webssh/2.webp)
 
 在触发 resizeScreen 方法时，shell 方法可能还未执行，导致 resizeScreen 失败。
 

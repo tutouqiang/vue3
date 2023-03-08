@@ -191,7 +191,7 @@ notify:
 ```  
 
 效果如图
-![飞书消息](./img/npm_warehouse/notify.webp)
+![飞书消息](https://raw.githubusercontent.com/zhangchao-wooc/wooc/master/content/front-end/img/npm_warehouse/notify.webp)
 
 **web 页面语言**  
 支持很多语言，也可以在 web 页面的设置中手动设置，这里设置默认语言为中文
@@ -240,7 +240,7 @@ wooc:{SHA}fEqNCco3Yq9h5ZUglD3CZJT4lBs=:autocreated 2022-07-22T06:55:48.194Z
 2、在线创建  
 htpasswd-for-sinopia 提供了一个 [在线网站](https://hostingcanada.org/htpasswd-generator/)，可通过手动输入的方式生成，然后手动复制到 htpasswd 文件中即可  
 
-![创建用户 ](./img/npm_warehouse/createUser.webp)
+![创建用户 ](https://raw.githubusercontent.com/zhangchao-wooc/wooc/master/content/front-end/img/npm_warehouse/createUser.webp)
 
 此时即可使用 web 页面或命令行进行登陆测试。
 
@@ -254,7 +254,7 @@ $ verdaccio
 
 访问域名后出现该页面即为成功。默认为英文页面，可点击设置选择中文简体语言
 
-![verdaccio页面 ](./img/npm_warehouse/1.webp)
+![verdaccio页面 ](https://raw.githubusercontent.com/zhangchao-wooc/wooc/master/content/front-end/img/npm_warehouse/1.webp)
 
 ### 持久化运行
 
@@ -338,7 +338,7 @@ npm notice Publishing to https://npm.wooc.top/
 
 **5、查看 web 页面**
 
-![npm web页面](./img/npm_warehouse/npm_publish_web.webp)
+![npm web页面](https://raw.githubusercontent.com/zhangchao-wooc/wooc/master/content/front-end/img/npm_warehouse/npm_publish_web.webp)
 
 出现上述信息说明发布成功
 

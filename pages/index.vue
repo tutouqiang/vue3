@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
   import { useHead } from 'unhead'
-  import { browserList } from './config'
+  import { browserList } from '../mock/home'
 
   const searchText = ref<string>('')
   const currentBrowser = ref<string>('google')
@@ -39,19 +39,19 @@
   &-search {
     display: flex;
     select {
-      width: 100px;
+      width: 60px;
       height: 40px;
       option {
         text-align: center;
       }
     }
     input {
-      width: 300px;
+      width: 200px;
       height: 40px;
       box-sizing: border-box
     }
     button {
-      width: 100px;
+      width: 60px;
       height: 40px;
       color: var(--g-primary-text);
       background-color: var(--g-primary-color);
