@@ -685,6 +685,70 @@
     "estree-walker" "^2.0.2"
     "picomatch" "^2.3.1"
 
+"@sentry-internal/tracing@7.47.0":
+  "integrity" "sha512-udpHnCzF8DQsWf0gQwd0XFGp6Y8MOiwnl8vGt2ohqZGS3m1+IxoRLXsSkD8qmvN6KKDnwbaAvYnK0z0L+AW95g=="
+  "resolved" "https://registry.npmmirror.com/@sentry-internal/tracing/-/tracing-7.47.0.tgz"
+  "version" "7.47.0"
+  dependencies:
+    "@sentry/core" "7.47.0"
+    "@sentry/types" "7.47.0"
+    "@sentry/utils" "7.47.0"
+    "tslib" "^1.9.3"
+
+"@sentry/browser@7.47.0":
+  "integrity" "sha512-L0t07kS/G1UGVZ9fpD6HLuaX8vVBqAGWgu+1uweXthYozu/N7ZAsakjU/Ozu6FSXj1mO3NOJZhOn/goIZLSj5A=="
+  "resolved" "https://registry.npmmirror.com/@sentry/browser/-/browser-7.47.0.tgz"
+  "version" "7.47.0"
+  dependencies:
+    "@sentry-internal/tracing" "7.47.0"
+    "@sentry/core" "7.47.0"
+    "@sentry/replay" "7.47.0"
+    "@sentry/types" "7.47.0"
+    "@sentry/utils" "7.47.0"
+    "tslib" "^1.9.3"
+
+"@sentry/core@7.47.0":
+  "integrity" "sha512-EFhZhKdMu7wKmWYZwbgTi8FNZ7Fq+HdlXiZWNz51Bqe3pHmfAkdHtAEs0Buo0v623MKA0CA4EjXIazGUM34XTg=="
+  "resolved" "https://registry.npmmirror.com/@sentry/core/-/core-7.47.0.tgz"
+  "version" "7.47.0"
+  dependencies:
+    "@sentry/types" "7.47.0"
+    "@sentry/utils" "7.47.0"
+    "tslib" "^1.9.3"
+
+"@sentry/replay@7.47.0":
+  "integrity" "sha512-BFpVZVmwlezZ83y0L43TCTJY142Fxh+z+qZSwTag5HlhmIpBKw/WKg06ajOhrYJbCBkhHmeOvyKkxX0jnc39ZA=="
+  "resolved" "https://registry.npmmirror.com/@sentry/replay/-/replay-7.47.0.tgz"
+  "version" "7.47.0"
+  dependencies:
+    "@sentry/core" "7.47.0"
+    "@sentry/types" "7.47.0"
+    "@sentry/utils" "7.47.0"
+
+"@sentry/types@7.47.0":
+  "integrity" "sha512-GxXocplN0j1+uczovHrfkykl9wvkamDtWxlPUQgyGlbLGZn+UH1Y79D4D58COaFWGEZdSNKr62gZAjfEYu9nQA=="
+  "resolved" "https://registry.npmmirror.com/@sentry/types/-/types-7.47.0.tgz"
+  "version" "7.47.0"
+
+"@sentry/utils@7.47.0":
+  "integrity" "sha512-A89SaOLp6XeZfByeYo2C8Ecye/YAtk/gENuyOUhQEdMulI6mZdjqtHAp7pTMVgkBc/YNARVuoa+kR/IdRrTPkQ=="
+  "resolved" "https://registry.npmmirror.com/@sentry/utils/-/utils-7.47.0.tgz"
+  "version" "7.47.0"
+  dependencies:
+    "@sentry/types" "7.47.0"
+    "tslib" "^1.9.3"
+
+"@sentry/vue@^7.47.0":
+  "integrity" "sha512-ZaiddqyjMH5PAhe3JMw5Xy4vO3wvc97JzmvLnZ3qHkA69hQ1yFDtVhncscWeVtn5r0N9D4+VxUOHMCpDFNyATw=="
+  "resolved" "https://registry.npmmirror.com/@sentry/vue/-/vue-7.47.0.tgz"
+  "version" "7.47.0"
+  dependencies:
+    "@sentry/browser" "7.47.0"
+    "@sentry/core" "7.47.0"
+    "@sentry/types" "7.47.0"
+    "@sentry/utils" "7.47.0"
+    "tslib" "^1.9.3"
+
 "@socket.io/component-emitter@~3.1.0":
   "integrity" "sha512-+9jVqKhRSpsc591z5vX+X5Yyw+he/HCB4iQ/RYxw35CEPaY1gnsNE43nf9n9AaYjAQrTiI/mOwKUKdUs9vf7Xg=="
   "resolved" "https://registry.npmmirror.com/@socket.io/component-emitter/-/component-emitter-3.1.0.tgz"
@@ -4979,6 +5043,11 @@
   "integrity" "sha512-AqTiAOLcj85xS7vQ8QkAV41hPDIJ71XJB4RCUrzo/1GM2CQwhkJGaf9Hgr7BOugMRpgGUrqRg/DrBDl4H40+8g=="
   "resolved" "https://registry.npmmirror.com/trough/-/trough-2.1.0.tgz"
   "version" "2.1.0"
+
+"tslib@^1.9.3":
+  "integrity" "sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg=="
+  "resolved" "https://registry.npmmirror.com/tslib/-/tslib-1.14.1.tgz"
+  "version" "1.14.1"
 
 "tslib@^2.1.0", "tslib@^2.3.0":
   "integrity" "sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg=="

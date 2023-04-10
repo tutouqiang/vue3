@@ -1,7 +1,7 @@
 /*
  * 常用工具
  */
-import { AwehuntImg, QuickReferenceImg, ExpressGatewayImg, PostdropImg } from '@/assets/img'
+import { AwehuntImg, QuickReferenceImg, ExpressGatewayImg, PostdropImg, PixabayImg, WebrcadeImg, RustImg } from '@/assets/img'
 
 interface webList {
   type: string,
@@ -384,6 +384,12 @@ const list: webList[] = [
         desc: 'Mac 免费软件资源网站',
         url: 'https://www.macyy.cn/',
       },
+      {
+        title: 'Android 团队 Rust 课程',
+        img: RustImg,
+        desc: '这是由 Android 团队开发的为期四天的 Rust 课程。该课程涵盖了 Rust 的全部内容，从基本语法到高级主题，如泛型和错误处理。它还包括最后一天的 Android 特定内容。',
+        url: 'https://google.github.io/comprehensive-rust/welcome.html',
+      },
     ],
   },
   {
@@ -530,6 +536,12 @@ const list: webList[] = [
         img: 'https://is2-ssl.mzstatic.com/image/thumb/PurpleSource126/v4/3a/d4/d2/3ad4d271-0b46-e7af-d2c1-47817113d80c/7205d857-ae49-4073-b049-73c2c636ac57_Simulator_Screen_Shot_-_iPhone_8_Plus_-_2022-03-13_at_13.10.42.png/750x750bb.jpeg',
         desc: 'React+Redux+Immutable 做的俄罗斯方块',
         url: 'https://chvin.github.io/react-tetris/?lan=zh'
+      },
+      {
+        title: '任天堂、世嘉等网页版',
+        img: WebrcadeImg,
+        desc: '一个开源网站，让你在网页玩老游戏机（任天堂、世嘉等）的游戏，可以自己上传游戏 ROM。',
+        url: 'https://play.webrcade.com/'
       }
     ]
   },
@@ -554,6 +566,34 @@ const list: webList[] = [
         desc: '看上去没用，但有趣的论文',
         url: 'https://cfenollosa.com/funnypapers/index.html#SexNeurogenesis'
       }
+    ]
+  },
+  {
+    type: '音频视频',
+    list: [
+      {
+        title: 'NCS',
+        img: 'https://ncs.io/static/web/img/logo.png?_m=1597301782',
+        desc: 'NCS 是一个由创作者为创作者提供的唱片公司和音乐平台，为世界提供免费的高品质电子音乐。',
+        url: 'https://ncs.io/music'
+      },
+      {
+        title: 'Pixabay',
+        img: PixabayImg,
+        desc: 'Pixabay 是一个充满活力的创意社区，分享免版税图片、视频和音乐。所有内容均在 Pixabay 许可下发布，这使得它们可以安全使用，无需征求许可或给予艺术家信用 - 即使用于商业目的。',
+        url: 'https://pixabay.com/music/'
+      },
+    ]
+  },
+  {
+    type: '低代码平台',
+    list: [
+      {
+        title: 'amis',
+        img: 'https://baidu.github.io/amis/static/logo_408c434.png',
+        desc: '百度: amis 是一个低代码前端框架，它使用 JSON 配置来生成页面，可以减少页面开发工作量，极大提升效率。',
+        url: 'https://baidu.github.io/amis/zh-CN/docs/index'
+      },
     ]
   }
 

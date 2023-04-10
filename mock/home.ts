@@ -56,7 +56,7 @@ export const  favoriteApps = [
     url: 'https://antdv.com/components/overview',
     name: 'Ant Vue',
     desc: 'Ant Vue',
-    style: 'background-color: #fff',
+    style: 'padding: 5px; background-color: #fff',
     imgSize: true
 
   },
@@ -65,7 +65,7 @@ export const  favoriteApps = [
     url: 'https://ant.design/docs/react/introduce-cn',
     name: 'Ant React',
     desc: 'Ant React',
-    style: 'background-color: #fff',
+    style: 'padding: 5px; background-color: #fff',
     imgSize: true
 
 
@@ -99,7 +99,7 @@ export const  favoriteApps = [
     url: 'https://chinese.freecodecamp.org/learn',
   },
   {
-    name: 'Quick Reference',
+    name: 'QuickReference',
     img: QuickReferenceImg,
     desc: '编程语言速查表，已经支持了挺多的语言，很方便',
     url: 'https://wangchujiang.com/reference/index.html',

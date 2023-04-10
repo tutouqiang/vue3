@@ -36,6 +36,8 @@
   useHead({
     title: 'Blog'
   })
+
+  
 </script>
 
 <style scoped lang="less">

@@ -15,6 +15,7 @@
     "nuxt": "^3.2.2"
   },
   "dependencies": {
+    "@sentry/vue": "^7.47.0",
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
     "prism-themes": "^1.9.0",
