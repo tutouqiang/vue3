@@ -1,41 +1,37 @@
 <template>
   <div class="blog">
     <div class="blog-type">
-        <div class="blog-type-card" v-for="item in articleType" :key="item.mdPath">
-          <div class="blog-type-card-title">{{ item.title }}</div>
-          <ContentList :path="item.mdPath" v-slot="{ list }">
-            <div class="blog-type-card-item" v-for="article in list" :key="article._path">
-              <NuxtLink :to="`/blog${article._path}`">
+        <div class="blog-type-card" v-for="item in blogList" :key="item.mdPath">
+          <div class="blog-type-card-title">{{ item.type }}</div>
+            <div class="blog-type-card-item" v-for="article in item.blogList" :key="article.path">
+              <NuxtLink :to="`/blog${article.path}`">
                 <h3>
                   {{ article.title }}
                 </h3>
               </NuxtLink>
             </div>
-          </ContentList>
         </div>
       </div>
   </div>
 </template>
 
 <script setup lang="ts">
-  const articleType = [
-    {
-      mdPath: "/front-end",
-      title: '前端'
-    },
-    {
-      mdPath: "/source-code-analysis",
-      title: '源码分析'
-    },
-    {
-      mdPath: "/system",
-      title: '系统'
-    }
-  ]
+  import { ref } from 'vue'
+  const blogList = ref()
 
   useHead({
     title: 'Blog'
   })
+
+  onBeforeMount(() => {
+    getBlogData()
+  })
+
+  const getBlogData = async () => {
+    const result = await $fetch('/api/blogData')
+    console.log('getBlogData', result)
+    blogList.value = result.blogData
+  }
 
   
 </script>

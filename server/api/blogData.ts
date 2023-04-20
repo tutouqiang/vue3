@@ -1,8 +1,6 @@
-
+import data from '../blog.json'
 
 export default defineEventHandler((event) => {
 
-  return {
-    api: 1
-  }
+  return data
 })

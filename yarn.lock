@@ -5535,6 +5535,11 @@
   "resolved" "https://registry.npmmirror.com/yaml/-/yaml-1.10.2.tgz"
   "version" "1.10.2"
 
+"yaml@^2.2.1":
+  "integrity" "sha512-e0WHiYql7+9wr4cWMx3TVQrNwejKaEe7/rHNmQmqRjazfOP5W8PB6Jpebb5o6fIapbz9o9+2ipcaTM2ZwDI6lw=="
+  "resolved" "https://registry.npmmirror.com/yaml/-/yaml-2.2.1.tgz"
+  "version" "2.2.1"
+
 "yargs-parser@^21.1.1":
   "integrity" "sha512-tVpsJW7DdjecAiFpbIB1e3qxIQsE6NoPc5/eTdrbbIC4h0LVsWhnoa3g+m2HclBIujHzsxZ4VJVA+GUuc2/LBw=="
   "resolved" "https://registry.npmmirror.com/yargs-parser/-/yargs-parser-21.1.1.tgz"

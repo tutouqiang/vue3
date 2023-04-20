@@ -235,6 +235,18 @@ const list: webList[] = [
         desc: '在线的 canvas 画图板，可导出',
         url: 'https://songlh.top',
       },
+      {
+        title: 'ngsignup',
+        img: '',
+        desc: '在线的免费工具集',
+        url: 'https://www.nosignup.tools',
+      },
+      {
+        title: 'offsec',
+        img: '',
+        desc: '在线的免费安全工具集及学习资源',
+        url: 'https://offsec.tools',
+      },
     ],
   },
   {
@@ -459,6 +471,12 @@ const list: webList[] = [
         img: 'https://dev.voce.chat/api/resource/organization/logo?t=1675233895872',
         desc: '开源的聊天工具，有web、app、桌面端',
         url: 'https://voce.chat/zh'
+      },
+      {
+        title: 'anonymous-chat-room',
+        img: '',
+        desc: '在线 web 聊天室',
+        url: 'https://github.com/velor2012/anonymous-chat-room'
       }
     ]
   },
