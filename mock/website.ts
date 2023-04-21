@@ -1,7 +1,7 @@
 /*
  * 常用工具
  */
-import { AwehuntImg, QuickReferenceImg, ExpressGatewayImg, PostdropImg, PixabayImg, WebrcadeImg, RustImg } from '@/assets/img'
+import { AwehuntImg, QuickReferenceImg, ExpressGatewayImg, PostdropImg, PixabayImg, WebrcadeImg, RustImg, VercelImg } from '@/assets/img'
 
 interface webList {
   type: string,
@@ -402,6 +402,12 @@ const list: webList[] = [
         desc: '这是由 Android 团队开发的为期四天的 Rust 课程。该课程涵盖了 Rust 的全部内容，从基本语法到高级主题，如泛型和错误处理。它还包括最后一天的 Android 特定内容。',
         url: 'https://google.github.io/comprehensive-rust/welcome.html',
       },
+      {
+        title: 'WebGPU 基础知识',
+        img: '',
+        desc: '一组帮助学习WebGPU的文章。',
+        url: 'https://webgpufundamentals.org/',
+      },
     ],
   },
   {
@@ -510,6 +516,13 @@ const list: webList[] = [
         url: 'https://zh.javascript.info/',
         bgc: '#ccc'
       },
+      {
+        title: '计算机程序的结构和解释',
+        img: '',
+        desc: '这是名著《SICP》（计算机程序的构造和解释）一书的官方 JavaScript 版，并且是麻省理工学院的官方版本',
+        url: 'https://sourceacademy.org/sicpjs/index',
+        bgc: '#ccc'
+      },
     ],
   },
   {
@@ -543,6 +556,12 @@ const list: webList[] = [
         img: 'https://beta.character.ai/static/media/logo-dark.77b3a5cc8e42a91f021f.png',
         desc: '通过给 AI 投喂指定的预料，将它训练成指定的角色，然后跟他聊天，网站上已经有非常多的角色了。',
         url: 'https://beta.character.ai/'
+      },
+      {
+        title: 'Vercel AI 集合网站',
+        img: VercelImg,
+        desc: 'Vercel 推出的一个集合型的免费 AI 网站。',
+        url: 'https://play.vercel.ai/'
       }
     ]
   },

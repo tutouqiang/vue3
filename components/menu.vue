@@ -1,5 +1,5 @@
 <template>
-  <div class="w-menu" @click="clickmenu()">
+  <div :class="{'w-menu': true, 'w-menu-rotate-1': open, 'w-menu-rotate-2': !open}" @click="clickmenu()">
     <div class="w-menu-item" v-for="(item, index) in props.menu" :style="computeMenuItemStyle(index)">
       <NuxtLink :to="item.route">
         {{ item?.label }}
@@ -68,8 +68,6 @@
   font-size: 30px;
 }
 
-
-
 .w-menu-item {
   position: absolute;
   width: 50px;
@@ -83,5 +81,13 @@
 .w-menu-item a {
   color: var(--g-primary-color);
   text-decoration: none;
+}
+
+.w-menu-rotate-1 {
+  transform: rotate(360deg);
+}
+
+.w-menu-rotate-2 {
+  transform: rotate(180deg);
 }
 </style>

@@ -35,7 +35,7 @@
 //   }
 // ]
 
-// export default defineNuxtPlugin(nuxtApp => {
+export default defineNuxtPlugin(nuxtApp => {
 //   const blogData: any[] = []
 //   const file = fs.readdirSync(path.resolve(__dirname, '../content'))
 
@@ -82,5 +82,5 @@
 //   // nuxtApp.router.afterEach(() => {
 //   //   // NProgress.done()
 //   // })
-// })
+})
 

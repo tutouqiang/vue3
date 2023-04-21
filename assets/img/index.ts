@@ -9,8 +9,9 @@ import ExpressGatewayImg from './express_gateway.svg'
 import PixabayImg from './pixabay.svg'
 import WebrcadeImg from './webrcade.svg'
 import RustImg from './rust.svg'
+import VercelImg from './vercel.svg'
 
 export {
   ChromeImg, BingImg, BaiduImg, AwehuntImg, WebDevImg, PostdropImg, QuickReferenceImg, ExpressGatewayImg,PixabayImg, WebrcadeImg,
-  RustImg
+  RustImg, VercelImg
 }
