@@ -147,3 +147,13 @@ $ sudo vi /etc/vim/vimrc.tiny
 
 可尝试切换软件源，然后重新选择驱动。
 目前该问题出在阿里源，切换为清华源后既可。
+
+## 没有设置选项、打不开部分的设置页面
+
+可能是你当前 ubuntu 系统中未安装设置的桌面程序，执行如下命令重新安装
+
+```bash
+$ sudo apt-get install gnome-control-center
+```
+
+安装成功后即可在应用程序列表中找到设置选项。
