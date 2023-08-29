@@ -96,3 +96,16 @@ Report issues at https://termux.com/issues
 如果你发现很多命令都没有的时候，不要忘记开头 Termux 对自己的描述：“自动安装最小的基本系统”。
 
 对其他命令有需要的话，按需下载即可。
+
+## Termux 常用设置
+
+### 切换镜像源
+可能会出现部分包不存在或是下载慢的情况，可以使用命令
+```sh
+$ termux-change-repo
+```
+
+执行会会出现类似 bios 的选择界面，通过方向键和确认键选择镜像所在位置即可。
+确认后，Termux 会校验并更新镜像源。
+
+其他进阶配置可以看： https://www.sqlsec.com/2018/05/termux.html
