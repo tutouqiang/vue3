@@ -29,10 +29,8 @@
 
   const getBlogData = async () => {
     const result = await $fetch('/api/blogData')
-    console.log('getBlogData', result)
     blogList.value = result.blogData
   }
-
   
 </script>
 
@@ -57,7 +55,7 @@
       border-radius: var(--g-border-raduis);
       box-shadow: var(--g-box-shadow-2);
       overflow-y: auto;
-      border: 1px solid var(--g-primary-text);
+      // border: 1px solid var(--g-primary-text);
       box-sizing: border-box;
 
       a {

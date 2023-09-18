@@ -31,6 +31,7 @@
 import { useHead } from "unhead";
 import { browserList, favoriteApps } from "../mock/home";
 
+const blogList = ref();
 const searchText = ref<string>("");
 const currentBrowser = ref<string>("google");
 
@@ -39,9 +40,14 @@ useHead({
 });
 
 onBeforeMount(async () => {
-    const data = await useFetch('/api/website')
-    console.log(data)
-  })
+  const data = await useFetch("/api/website");
+  getBlogData();
+});
+
+const getBlogData = async () => {
+  const result = await $fetch("/api/blogData");
+  blogList.value = result.blogData;
+};
 
 const searchBtn = () => {
   const url = browserList.filter((item) => item.key === currentBrowser.value)[0].search;
@@ -71,7 +77,8 @@ const searchBtn = () => {
       }
     }
     input {
-      width: 200px;
+      flex: 1;
+      // min-width: 200px;
       height: 40px;
       box-sizing: border-box;
     }
@@ -88,8 +95,7 @@ const searchBtn = () => {
   }
 
   &-web {
-    max-width: 600px;
-    min-width: 300px;
+    min-width: 375px;
     display: grid;
     grid-template-columns: repeat(auto-fill, 70px);
     grid-template-rows: repeat(auto-fill, 70px);
@@ -136,8 +142,8 @@ const searchBtn = () => {
       box-sizing: border-box;
       color: #000;
       background-color: #fff;
-      opacity: .9;
-      transition: all .3s;
+      opacity: 0.9;
+      transition: all 0.3s;
     }
   }
 }

@@ -1,6 +1,7 @@
 <template>
-  <div :class="{'w-menu': true, 'w-menu-rotate-1': open, 'w-menu-rotate-2': !open}" @click="clickmenu()">
-    <div class="w-menu-item" v-for="(item, index) in props.menu" :style="computeMenuItemStyle(index)">
+  <div class="w-menu" @click="clickmenu()">
+    <div class="w-menu-icon">三</div>
+    <div class="w-menu-item" v-for="(item, index) in props.menu" :style="computeMenuItemStyle(index)" :key="item.route">
       <NuxtLink :to="item.route">
         {{ item?.label }}
       </NuxtLink>
@@ -27,8 +28,8 @@
   const computeMenuItemStyle = (index: number) => {
     if(open.value) {
       return {
-        top: `${-50 * (index + 1)}px`,
-        transition: 'all 3s',
+        marginTop: index === 0 ? '40px' : '0px',
+        transition: 'all 0.3s',
         display: 'grid'
       }
     } else {
@@ -41,46 +42,48 @@
 
 <style scoped lang="css">
 .w-menu {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  position: relative;
+  width: 40px;
+  min-height: 40px;
+  border-radius: 3px;
   background-color: var(--g-primary-color);
   cursor: pointer;
+  overflow: hidden;
   transition: all 0.3s;
-  z-index: 10;
+  z-index: 100;
 }
 
-.w-menu::before {
-  width: 100%;
-  height: 100%;
+.w-menu-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
   display: grid;
-  content: '+';
   place-items: center;
   color: #fff;
-  font-size: 25px;
+  font-size: 18px;
 }
 
-.w-menu:hover {
-  box-shadow: 0 0 5px var(--g-primary-color);
-}
-
-.w-menu:hover .w-menu::before {
-  font-size: 30px;
-}
 
 .w-menu-item {
-  position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   display: grid;
   place-items: center;
-  transition: all 3s;
-  z-index: 1;
+  background-color: var(--g-primary-color);
+  transition: all 0.3s;
+  z-index: 100;
+}
+
+.w-menu-item:hover {
+  background-color: rgba(0,0,0,.2);
 }
 
 .w-menu-item a {
-  color: var(--g-primary-color);
+  color: #fff;
   text-decoration: none;
+  font-size: 12px;
 }
 
 .w-menu-rotate-1 {
