@@ -3,15 +3,17 @@ title: VSCode 常用配置
 createTime: 2022 年 3 月 10 日
 updateTime: 2022 年 4 月 1 日
 ---
-# 常用插件
 
-## 1、Volar
+# VSCode 常用配置
+## 常用插件
+
+### 1、Volar
 
 开发 vue 的工具，代码高亮、提示。必备。Vetur 的 升级版，对 ts 的支持更加友好并兼容 Vetur 的功能。
 
 <br>
 
-## 2、[Bracket Pair Colorizer](https://github.com/CoenraadS/Bracket-Pair-Colorizer-2#readme)
+### 2、[Bracket Pair Colorizer](https://github.com/CoenraadS/Bracket-Pair-Colorizer-2#readme)
 
 括号彩色显示，方便一一对应.
 TIP: 改项目已经停止维护，项目功能被 vscode 官方集中为原生功能。在 vscode > 设置 > setting.json 中加入以下代码即可开启此功能
@@ -24,69 +26,69 @@ TIP: 改项目已经停止维护，项目功能被 vscode 官方集中为原生�
 
 <br>
 
-## 3、GitLens — Git supercharged
+### 3、GitLens — Git supercharged
 
 查看 git 提交历史
 
 <br>
 
-## 4、Auto Close Tag
+### 4、Auto Close Tag
 
 tag 自动补全
 
 <br>
 
-## 5、Beautify
+### 5、Beautify
 
 美化 javascript, JSON, CSS, Sass 和 HTML
 
 <br>
 
-## 6、Eslint
+### 6、Eslint
 
 代码格式检查工具
 
 <br>
 
-## 7、LeetCode
+### 7、LeetCode
 
 可在 vscode 中登录、编写算法题
 
 <br>
 
-## 8、vscode-pdf
+### 8、vscode-pdf
 
 可在 vscode 中查看 pdf 书籍
 
 <br>
 
-## 9、Monokai Pro
+### 9、Monokai Pro
 
 主题美化
 
 <br>
 
-## 10、Markdown Preview Github Styling
+### 10、Markdown Preview Github Styling
 
 本地 md 文档样式上传到 Github、npm 时，经常出现本地与线上表现不一致的问题，此插件可在编写时预览本地 md 文档在 Github 上展现的样式。
 
 <br>
 
-## 11、open in browser
+### 11、open in browser
 
 鼠标邮件直接在浏览器中打开 html 等文件
 
 <br>
 
-# 常用配置
+## 常用配置
 
 <br>
 
-## 添加快捷操作
+### 添加快捷操作
 
 主要是用特定的缩写映射设置，快速实现某些功能或代码。如：不同的注释类型、html 的代码模板
 
-### 快捷注释
+#### 快捷注释
 
 1. 点击设置，选中 “用户代码片段”
 
@@ -179,9 +181,9 @@ tag 自动补全
 
 <br>
 
-## 格式化
+### 格式化
 
-### .vscode
+#### .vscode
 
 将 vscode 编辑器的配置也跟随文件设置,最大程度保证开发人员本地编辑器配置统一。
 
@@ -195,7 +197,7 @@ settings.json 配置
 "editor.formatOnSave": true // 保存后自动格式化
 }
 
-### .editorconfig
+#### .editorconfig
 
 在项目中添加该文件并进行配置
 
@@ -223,7 +225,7 @@ indent_style = tab
 
 <br>
 
-### Prettier + eslint
+#### Prettier + eslint
 
 [perttier+eslint](https://blog.csdn.net/zc135565/article/details/109812986?spm=1001.2014.3001.5501)
 

@@ -1,7 +1,7 @@
 <template>
   <div class="w-menu" @click="clickmenu()">
-    <div class="w-menu-icon">三</div>
-    <div class="w-menu-item" v-for="(item, index) in props.menu" :style="computeMenuItemStyle(index)" :key="item.route">
+    <!-- <div class="w-menu-icon">三</div> -->
+    <div class="w-menu-item" v-for="(item, index) in props.menu" :key="item.route">
       <NuxtLink :to="item.route">
         {{ item?.label }}
       </NuxtLink>
@@ -25,46 +25,21 @@
     console.log(open.value)
   }
 
-  const computeMenuItemStyle = (index: number) => {
-    if(open.value) {
-      return {
-        marginTop: index === 0 ? '40px' : '0px',
-        transition: 'all 0.3s',
-        display: 'grid'
-      }
-    } else {
-      return {
-        display: 'none'
-      }
-    }
-  }
 </script>
 
 <style scoped lang="css">
 .w-menu {
   position: relative;
-  width: 40px;
-  min-height: 40px;
+  padding: 0 10px;
+  width: 100%;
+  height: 40px;
+  display: flex;
   border-radius: 3px;
   background-color: var(--g-primary-color);
-  cursor: pointer;
   overflow: hidden;
   transition: all 0.3s;
   z-index: 100;
 }
-
-.w-menu-icon {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 40px;
-  height: 40px;
-  display: grid;
-  place-items: center;
-  color: #fff;
-  font-size: 18px;
-}
-
 
 .w-menu-item {
   width: 40px;
@@ -72,6 +47,7 @@
   display: grid;
   place-items: center;
   background-color: var(--g-primary-color);
+  cursor: pointer;
   transition: all 0.3s;
   z-index: 100;
 }

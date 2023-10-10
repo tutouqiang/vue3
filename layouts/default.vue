@@ -2,6 +2,7 @@
   <div class="layout">
     <header class="layout-header">
       <MenuLayout class="layout-header-menu" :menu="menu" />
+      <!-- <SearchInput /> -->
     </header>
     <section class="layout-section"><slot /></section>
     <footer></footer>
@@ -10,6 +11,7 @@
 
 <script setup lang="ts">
 import MenuLayout from "@/components/menu.vue";
+import SearchInput from '@/components/search.vue'
 
 const menu: Record<string, string>[] = [
   {
@@ -24,12 +26,12 @@ const menu: Record<string, string>[] = [
     icon: "",
     title: "Website navigation",
   },
-  {
-    route: "/blog",
-    label: "博客",
-    icon: "",
-    title: "Wooc’s blog post",
-  },
+  // {
+  //   route: "/blog",
+  //   label: "博客",
+  //   icon: "",
+  //   title: "Wooc’s blog post",
+  // },
 ];
 </script>
 
@@ -37,6 +39,7 @@ const menu: Record<string, string>[] = [
 .layout {
   display: flex;
   flex-direction: column;
+  background-color: var(--g-bg-color-1);
 }
 .layout-header {
   position: fixed;
@@ -44,17 +47,16 @@ const menu: Record<string, string>[] = [
   left: 0px;
   width: 100vw;
   height: 60px;
-  padding: 0 15px;
+  padding: 10px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   box-sizing: border-box;
   transition: all 0.3s;
+  z-index: 100;
 }
 
-.layout-header-menu {
-  position: absolute!important;
-  right: 20px;
-  top: 10px;
+.layout-section {
+  /* margin-top: 70px; */
 }
 </style>

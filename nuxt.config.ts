@@ -24,7 +24,7 @@ export default defineNuxtConfig({
     ignores: [
       'img'
     ],
-    highlight: 'material-theme-darker'
+    // highlight: 'material-theme-darker'
   },
   css: [
     'normalize.css/normalize.css'

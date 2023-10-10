@@ -7,7 +7,7 @@ updateTime: 2022 年 4 月 1 日
 ---
 
 
-# 前言
+# husky 源码分析——这个库到底做了什么？
 Github：https://github.com/typicode/husky  使用 Git 钩子变得简单
 <br>
 

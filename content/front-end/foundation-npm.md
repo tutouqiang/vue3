@@ -3,7 +3,7 @@ title:  被 npm 包依赖的基础 npm 包
 theme: condensed-night-purple
 createTime: 2022 年 6 月 18 日
 ---
-# 前言
+# 被 npm 包依赖的基础 npm 包
 
 js 生态是非常丰富的。但不管在 js 基础上衍生出什么框架，什么插件或是中间件的 npm 包，其底层实现逻辑都是一致的，那么支撑这些新生框架的底层 npm 包是哪些呢？我这里总结出了如下一些被反复使用的基础 npm 包
 

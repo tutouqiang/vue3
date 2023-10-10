@@ -16,6 +16,7 @@
 
 <style lang="less">
 .article {
+  padding: 10px;
   min-height: 100vh;
   background-color: #f1e5c9!important;
   &-md {

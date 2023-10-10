@@ -6,7 +6,8 @@ createTime: 2021 年 5 月 15 日
 updateTime: 2022 年 4 月 1 日
 ---
 
-# 需求
+# H5 唤醒 APP
+## 需求
 
 - [x] 通过 H5 唤醒 App 并根据情况跳转到指定路径，传递指定参数。
 - [x] 容器需考虑： Twitter、Facebook、WhatsApp、LINE、微信
@@ -16,7 +17,7 @@ updateTime: 2022 年 4 月 1 日
 
 
 
-## 一、可以使用的几种唤醒链接
+### 一、可以使用的几种唤醒链接
 
 **Url Scheme** 
 
@@ -49,9 +50,9 @@ https://a.smart321.com/${res.schema}：唤醒失败的跳转链接
 <br>
 <br>
 
-## 二、各种链接的优缺点
+### 二、各种链接的优缺点
 
-### Link
+#### Link
 
 | 优 点 |  描述  |
 | :---------: | :--------- |
@@ -67,7 +68,7 @@ https://a.smart321.com/${res.schema}：唤醒失败的跳转链接
 | 与后端交互 |  需要公司后端或前端部署或新增服务，处理唤醒失败的逻辑。依赖服务的稳定性。如服务崩溃或未部署，页面会显示 404 |
 | 版本限制 | 1、 Universal Link IOS9 以上，AppLink 安卓6.0以上。  <br><br>2、UniversalLink：IOS < 13.0 有弹框，IOS >= 13.0 没有弹出框，直接打开应用 |
 
-### Scheme
+#### Scheme
 
 | 优点 | 描述 |
 | :---------: | :--------- |
@@ -82,15 +83,15 @@ https://a.smart321.com/${res.schema}：唤醒失败的跳转链接
 
 <br>
 
-### 共同的问题
+#### 共同的问题
 > 1、网页端是无法获取到手机中是否安装该 App 的。对于 App 是否真正被唤醒，网页端是无法捕捉到的
 > 
 > 2、在不同浏览器、不同容器、浏览器的不同版本中的表现情况不一致
 
 <br>
 
-## 三、实现唤醒并解决问题
-### 1、无法捕捉是否安装、唤醒 App
+### 三、实现唤醒并解决问题
+#### 1、无法捕捉是否安装、唤醒 App
 
 > 一般使用 onpagehide、visibilitychange、webkitvisibilitychange 判断网页是否切换到后台，如果切换到后台，则认为 App 已经被打开。
 > 
@@ -125,10 +126,10 @@ https://a.smart321.com/${res.schema}：唤醒失败的跳转链接
   document.addEventListener('webkitvisibilitychange', visibilitychange, false);
 ```
 
-### 2、在不同浏览器、不同容器、浏览器的不同版本中的表现情况
+#### 2、在不同浏览器、不同容器、浏览器的不同版本中的表现情况
 
 
-#### 在谷歌、Safari、夸克浏览器中
+##### 在谷歌、Safari、夸克浏览器中
 
 > 出现是否打开该应用的弹框，如果选择的不允许，并且记住操作。则下次打开该唤醒链接时，即使 App 存 在，也不会唤醒 App
 > 
@@ -136,7 +137,7 @@ https://a.smart321.com/${res.schema}：唤醒失败的跳转链接
 
 
 
-#### 容器中对唤醒链接都是有限制的。
+##### 容器中对唤醒链接都是有限制的。
 
 > 多数容器都会限制唤醒链接，以避免用户跳出应用，做用户留存
 > 
@@ -147,8 +148,8 @@ https://a.smart321.com/${res.schema}：唤醒失败的跳转链接
 >所以我们在开发中需要做的就是区分:  移动端、浏览器端、容器（如微信、Facebook）、系统及版本、用户所在国区。根据不同场景调整唤醒链接、场景处理
 <br>
 
-## 唤醒方式
-#### 1、Iframe
+### 唤醒方式
+##### 1、Iframe
 ```javascript
 // 只在 Android 系统可用，IOS Safari 是不支持的，可以解决 Scheme 打开后404页面的问题
 // 在 Iframe 中打开该链接，并且隐藏该错误页面
@@ -158,17 +159,17 @@ _iframe.style.display = 'none';
  document.body.appendChild(_iframe);
 ```
 
-#### 2、window.top.location.href
+##### 2、window.top.location.href
 ```javascript
 window.top.location.href = url
 ```
 
-#### 3、a 标签
+##### 3、a 标签
 ```javascript
 <a href="<scheme域名>://<path>">打开APP</a>
 ```
 
-#### 4、Intent
+##### 4、Intent
 ```javascript
 // 在安卓手机的 Chrome 浏览器或者安卓手机浏览器上面，可以 Intent 方式唤醒
 intent:
@@ -186,7 +187,7 @@ end;
 <a href="intent://<role>/<path>#Intent;scheme=<scheme>;package=com.domain;S.browser_fallback_url=[url];end">打开APP</a>
 ```
 
-#### 5、使用第三服务、包
+##### 5、使用第三服务、包
 >callapp-lib
 >
 >openinstall

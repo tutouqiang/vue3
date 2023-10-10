@@ -7,8 +7,9 @@
 </template>
 
 <script setup lang="ts">
-  const path = ref('')
-
+  import { ref } from 'vue';
+  const path = ref('/front-end/block')
+  
   onMounted(() => {
     path.value = window.location.pathname.replace('/blog', '')
   })
@@ -16,6 +17,7 @@
 
 <style lang="less">
 .article {
+  padding: 10px;
   min-height: 100vh;
   background-color: #f1e5c9!important;
   &-md {
