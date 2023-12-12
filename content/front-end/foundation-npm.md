@@ -50,8 +50,7 @@ Monaco Editor 是一款开源的在线代码编辑器。它是 VSCode 的浏览�
 
 <a href="https://www.luochang.ink/gadget/monaco-speech-editor/" target="_blank">在线演示</a>
 <a href="https://github.com/microsoft/monaco-editor" target="_blank">Github</a>
-
-<a href="https://github.com/react-monaco-editor/react-monaco-editor" target="_blank">React 版本 react-monaco-editor
-</a>
+<a href="https://github.com/react-monaco-editor/react-monaco-editor" target="_blank">React 版本 react-monaco-editor</a>
 
 
+## 

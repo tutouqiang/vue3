@@ -10,21 +10,19 @@
 </template>
 
 <script setup lang="ts">
-import MenuLayout from "@/components/menu.vue";
-import SearchInput from '@/components/search.vue'
+import MenuLayout from "@/components/menu/index.vue";
+import type { MenuType } from "@/components/menu/type.ts";
 
-const menu: Record<string, string>[] = [
+const menu: MenuType = [
   {
+    index: "1",
     route: "/",
     label: "首页",
-    icon: "",
-    title: "Wooc‘s blog home page.",
   },
   {
+    index: "12",
     route: "/website",
     label: "导航",
-    icon: "",
-    title: "Website navigation",
   },
   // {
   //   route: "/blog",

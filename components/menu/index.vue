@@ -10,21 +10,23 @@
 </template>
 
 <script setup lang="ts">
-  const props = defineProps({
-    menu: { type: Array, required: true }
-  })
+// import { MenuType } from '#build/components';
+import type { MenuType } from "./type";
 
-  let open = ref(true)
+const props = defineProps<{
+  menu: MenuType;
+}>();
 
-  onMounted(() => {
-    console.log(props.menu)
-  })
+let open = ref(true);
 
-  const clickmenu = () => {
-    open.value = !open.value
-    console.log(open.value)
-  }
+onMounted(() => {
+  console.log(props.menu);
+});
 
+const clickmenu = () => {
+  open.value = !open.value;
+  console.log(open.value);
+};
 </script>
 
 <style scoped lang="css">
@@ -53,7 +55,7 @@
 }
 
 .w-menu-item:hover {
-  background-color: rgba(0,0,0,.2);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .w-menu-item a {
