@@ -77,4 +77,10 @@ const getBlogData = async () => {
     text-decoration: none;
   }
 }
+
+@media screen and (max-width: 800px) {
+  .blog-item-type {
+    display: none;
+  }
+}
 </style>

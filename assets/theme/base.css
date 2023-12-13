@@ -1,0 +1,12 @@
+:root {
+  --g-primary-color: rgba(153,51,255, 1);
+
+  --g-bg-color-1: #fff;
+
+  --g-font-size: 12px;
+
+  --g-primary-text: #333;
+
+  --g-border-color: var(--g-primary-text);
+  --g-border-raduis: 5px;
+}

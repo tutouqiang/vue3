@@ -1,0 +1,13 @@
+@import '../theme/dark.css';
+
+button {
+  padding: 10px 15px;
+  font-size: var(--g-font-size);
+  border: none;
+  border-radius: var(--g-border-raduis);
+  cursor: pointer;
+}
+
+button:focus {
+  border: none!important;
+}

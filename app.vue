@@ -7,6 +7,8 @@
 </template>
 
 <script>
-  import '@/assets/dark.css'
+import "@/assets/theme/base.css";
+import "@/assets/theme/dark.css";
+import "@/assets/styles/index.css";
+import "@/assets/theme/layout.css";
 </script>
-

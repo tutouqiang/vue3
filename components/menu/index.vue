@@ -32,36 +32,35 @@ const clickmenu = () => {
 <style scoped lang="css">
 .w-menu {
   position: relative;
-  padding: 0 10px;
   width: 100%;
   height: 40px;
   display: flex;
-  border-radius: 3px;
-  background-color: var(--g-primary-color);
+  justify-content: flex-end;
   overflow: hidden;
   transition: all 0.3s;
   z-index: 100;
 }
 
 .w-menu-item {
-  width: 40px;
+  padding: 0 10px;
   height: 40px;
   display: grid;
   place-items: center;
-  background-color: var(--g-primary-color);
   cursor: pointer;
+  border-radius: var(--g-border-raduis);
   transition: all 0.3s;
-  z-index: 100;
+  box-sizing: border-box;
 }
 
 .w-menu-item:hover {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: var(--g-border-color-1);
+  border-bottom: 1px solid var(--g-border-color);
 }
 
 .w-menu-item a {
-  color: #fff;
+  color: var(--g-primary-text);
   text-decoration: none;
-  font-size: 12px;
+  font-size: var(--g-font-size);
 }
 
 .w-menu-rotate-1 {

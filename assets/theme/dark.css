@@ -1,0 +1,15 @@
+:root {
+  --g-primary-color: rgba(153,51,255, 1);
+
+  --g-bg-color: #000;
+  --g-primary-text: #fff;
+
+  --g-border-color: var(--g-primary-text);
+  --g-border-color-1: rgba(255,255,255,.1);
+  --g-border-raduis: 5px;
+
+  --g-box-shadow-1: 0 3px 6px -4px rgba(255, 255, 255, 0.12), 0 6px 16px 0 rgba(255, 255, 255, 0.08),
+  0 9px 28px 8px rgba(255, 255, 255, 0.05);
+  --g-box-shadow-2: 0 3px 6px -4px rgba(255, 255, 255, 0.12), 0 0px 5px 0 rgba(255, 255, 255.08),
+  0 9px 28px 8px rgba(255, 255, 255, 0.05);
+}

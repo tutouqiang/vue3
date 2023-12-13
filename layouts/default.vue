@@ -1,8 +1,8 @@
 <template>
   <div class="layout">
     <header class="layout-header">
+      <h1 class="logo"><NuxtLink to="/">WOOC</NuxtLink></h1>
       <MenuLayout class="layout-header-menu" :menu="menu" />
-      <!-- <SearchInput /> -->
     </header>
     <section class="layout-section"><slot /></section>
     <footer></footer>
@@ -17,19 +17,23 @@ const menu: MenuType = [
   {
     index: "1",
     route: "/",
-    label: "首页",
+    label: "Home",
   },
   {
-    index: "12",
+    index: "2",
     route: "/website",
-    label: "导航",
+    label: "Website",
   },
-  // {
-  //   route: "/blog",
-  //   label: "博客",
-  //   icon: "",
-  //   title: "Wooc’s blog post",
-  // },
+  {
+    index: "3",
+    route: "/blog",
+    label: "Blog",
+  },
+  {
+    index: "4",
+    route: "/tools",
+    label: "Tools",
+  },
 ];
 </script>
 
@@ -37,24 +41,38 @@ const menu: MenuType = [
 .layout {
   display: flex;
   flex-direction: column;
-  background-color: var(--g-bg-color-1);
+  background-color: var(--g-bg-color);
 }
+
 .layout-header {
   position: fixed;
   top: 0px;
   left: 0px;
+  padding: 0 20px;
   width: 100vw;
-  height: 60px;
-  padding: 10px;
+  height: 40px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  background-color: var(--g-bg-color);
   box-sizing: border-box;
   transition: all 0.3s;
   z-index: 100;
 }
 
+.logo {
+  margin: 0;
+  line-height: 40px;
+}
+.logo a {
+  font-size: var(--g-font-size);
+  color: var(--g-primary-text);
+  text-decoration: none;
+}
+
 .layout-section {
-  /* margin-top: 70px; */
+  margin-top: 40px;
+  min-height: calc(100vh - 40px);
+  height: auto;
 }
 </style>
