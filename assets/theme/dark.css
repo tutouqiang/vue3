@@ -3,6 +3,7 @@
 
   --g-bg-color: #000;
   --g-primary-text: #fff;
+  --g-primary-text-6: rgba(255,255,255, .6);
 
   --g-border-color: var(--g-primary-text);
   --g-border-color-1: rgba(255,255,255,.1);

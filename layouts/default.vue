@@ -5,7 +5,7 @@
       <MenuLayout class="layout-header-menu" :menu="menu" />
     </header>
     <section class="layout-section"><slot /></section>
-    <footer></footer>
+    <footer>Simple Small Beautiful Fast</footer>
   </div>
 </template>
 
@@ -74,5 +74,11 @@ const menu: MenuType = [
   margin-top: 40px;
   min-height: calc(100vh - 40px);
   height: auto;
+}
+
+footer {
+  padding: 5px;
+  text-align: center;
+  color: var(--g-primary-text-6);
 }
 </style>

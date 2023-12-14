@@ -11,23 +11,16 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      tools: [
-        {
-          label: "Wake App",
-          route: "/tools/wake_up",
-        },
-      ],
-    };
+<script setup>
+const router = useRouter();
+const tools = [
+  {
+    label: "Wake App",
+    route: "/tools/wake_up",
   },
-  methods: {
-    jump(item) {
-      window.location.href = item.route;
-    },
-  },
+];
+const jump = (item) => {
+  router.push({ path: item.route });
 };
 </script>
 

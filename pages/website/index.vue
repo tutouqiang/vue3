@@ -38,14 +38,17 @@ onBeforeMount(async () => {
   background-color: var(--g-bg-color);
   &-box {
     margin: 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     h2 {
       padding-bottom: 10px;
     }
 
     &-item {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, 100px);
-      grid-template-rows: repeat(auto-fill, 100px);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 20px;
       a {
         position: relative;

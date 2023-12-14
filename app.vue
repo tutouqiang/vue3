@@ -1,6 +1,7 @@
 <template>
   <div class="app">
     <NuxtLayout>
+      <NuxtPwaManifest />
       <NuxtPage />
     </NuxtLayout>
   </div>
