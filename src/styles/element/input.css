@@ -1,0 +1,13 @@
+@import '@/styles/theme/dark.css';
+
+input {
+  padding: 10px 15px;
+  width: 100%;
+  font-size: var(--g-font-size);
+  border: none;
+  border-radius: var(--g-border-raduis);
+}
+
+input:focus {
+  border: none!important;
+}
