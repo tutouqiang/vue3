@@ -22,14 +22,11 @@
         <div class="blog-item-name">全部</div>
       </div>
       <template v-for="item in blogData.types" :key="item.title">
-        <!-- <RouterLink :to="`${item.route}`" class="link"> -->
-
         <div class="blog-item" @click="clickBlogType(item)">
           <div class="blog-item-name">
             {{ item.title }}
           </div>
         </div>
-        <!-- </RouterLink> -->
       </template>
     </div>
   </div>
@@ -47,7 +44,6 @@ const clickBlogType = (item: any) => {
     allBlogs.value = blogData.data;
   } else {
     const currentBlogTypeData = blogData.data.filter((blog) => blog.type === item.title);
-    console.log(currentBlogTypeData);
     allBlogs.value = currentBlogTypeData;
   }
 };
@@ -55,10 +51,12 @@ const clickBlogType = (item: any) => {
 
 <style lang="scss" scoped>
 .blog {
+  padding: 10px;
   display: grid;
   justify-content: center;
   grid-template-columns: 800px 200px;
   gap: 15px;
+  box-sizing: border-box;
   &-box {
     margin-top: 10px;
     padding: 10px;
@@ -125,6 +123,18 @@ const clickBlogType = (item: any) => {
 @media screen and (max-width: 800px) {
   .blog-item-type {
     display: none;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .blog {
+    grid-template-columns: minmax(300px, 1fr);
+    &-box {
+      margin: 10px auto 0;
+    }
+    &-types {
+      display: none;
+    }
   }
 }
 </style>

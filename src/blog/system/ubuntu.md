@@ -88,7 +88,7 @@ ubuntu 上 使用默认命令安装的 nodejs 的版本比较低，有很多方�
 
 **1、 查看 <a href="https://github.com/nodesource/distributions" target="_blank">NodeSource</a> 软件源提供了哪些 node 版本**
 
-![node_source ](https://raw.githubusercontent.com/zhangchao-wooc/wooc/master/content/system/img/ubuntu/node_source.webp)
+![node_source ](https://raw.githubusercontent.com/zhangchao-wooc/wooc/master/src/blog/system/img/ubuntu/node_source.webp)
 
 截止文档完成时 NodeSource 已支持 node v19.x 版本，这里使用当前 LTS 最高版本 18.x 
 
@@ -144,11 +144,11 @@ $ sudo vi /etc/vim/vimrc.tiny
 
 如果你找不到无线网卡连接选项，在软件和更新中找到附加驱动选项，选择使用 Broadcom 802.11 驱动项。
 
-![node_source ](https://raw.githubusercontent.com/zhangchao-wooc/wooc/master/content/system/img/ubuntu/wifi.webp)
+![node_source ](https://raw.githubusercontent.com/zhangchao-wooc/wooc/master/src/blog/system/img/ubuntu/wifi.webp)
 
 如出现依赖错误要求安装 libc6-dev，且安装 libc6-dev 及其依赖失败时。
 
-![node_source ](https://raw.githubusercontent.com/zhangchao-wooc/wooc/master/content/system/img/ubuntu/libc6-dev.webp)
+![node_source ](https://raw.githubusercontent.com/zhangchao-wooc/wooc/master/src/blog/system/img/ubuntu/libc6-dev.webp)
 
 可尝试切换软件源，然后重新选择驱动。
 目前该问题出在阿里源，切换为清华源后既可。

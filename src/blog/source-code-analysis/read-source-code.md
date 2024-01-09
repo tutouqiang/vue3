@@ -67,10 +67,10 @@ highlight: androidstudio
 **以 JS 项目 <a href="https://github.com/reduxjs/redux" target="_blank">redux</a>  为例**
 
 通过 package.json 中的 main、unpkg、module 等字段来确定入口文件，但这往往是打包后的入口文件位置。  
-![redux package.json ](https://raw.githubusercontent.com/zhangchao-wooc/wooc/master/content/source-code-analysis/img/read-source-code/package.json.webp)  
+![redux package.json ](https://raw.githubusercontent.com/zhangchao-wooc/wooc/master/src/blog/source-code-analysis/img/read-source-code/package.json.webp)  
 
 通过构建工具的入口配置文件 rollup.config.js 中的配置可确定入口文件为 src/index.ts。  
-![redux rollup.config.js ](https://raw.githubusercontent.com/zhangchao-wooc/wooc/master/content/source-code-analysis/img/read-source-code/rollup.config.js.webp) 
+![redux rollup.config.js ](https://raw.githubusercontent.com/zhangchao-wooc/wooc/master/src/blog/source-code-analysis/img/read-source-code/rollup.config.js.webp) 
 
 构建工具有很多，如 vite、webpack 等，其入口文件的配置关键字不同，但理解上大致相同，根据需要到相应的官网查看入口配置项即可找到入口文件。
 
@@ -79,7 +79,7 @@ highlight: androidstudio
 **这里以 <a href="https://github.com/rstacruz/nprogress" target="_blank">nprogress</a>  项目为例**
 
 可以看到，这里只有一个 JS 文件，基本确定就是唯一的文件，同时也是入口文件。  
-![nprogress](https://raw.githubusercontent.com/zhangchao-wooc/wooc/master/content/source-code-analysis/img/read-source-code/nprogress.webp) 
+![nprogress](https://raw.githubusercontent.com/zhangchao-wooc/wooc/master/src/blog/source-code-analysis/img/read-source-code/nprogress.webp) 
 
 ## 阅读重点
 
