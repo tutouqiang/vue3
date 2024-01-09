@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+// @ts-expect-error
 import { createRouter, createWebHistory } from 'vue-router/auto'
 import { createHead } from '@unhead/vue'
 import App from './App.vue'
