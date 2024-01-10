@@ -83,7 +83,8 @@ const menu = [
   &-section {
     margin-top: 40px;
     min-height: calc(100vh - 40px - 20px);
-    height: auto;
+    height: calc(100vh - 40px - 20px);
+    overflow: auto;
   }
 
   &-footer {
