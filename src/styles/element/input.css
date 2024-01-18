@@ -5,7 +5,7 @@ input {
   width: 100%;
   font-size: var(--g-font-size);
   border: none;
-  border-radius: var(--g-border-raduis);
+  border-radius: var(--g-border-radius);
 }
 
 input:focus {

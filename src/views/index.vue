@@ -1,5 +1,5 @@
 <template>
-  <div class="home">Please click right-top menu.</div>
+  <div class="home">A developer who loves code.</div>
 </template>
 
 <script setup lang="ts"></script>

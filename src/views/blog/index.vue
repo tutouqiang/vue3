@@ -65,7 +65,7 @@ const clickBlogType = (item: any) => {
     width: 100%;
     min-height: 300px;
     height: calc(100vh - 100px);
-    border-radius: var(--g-border-raduis);
+    border-radius: var(--g-border-radius);
     background-color: var(--g-border-color-1);
     overflow: auto;
     box-sizing: border-box;
@@ -81,7 +81,7 @@ const clickBlogType = (item: any) => {
     &:hover {
       padding-left: 15px;
       background-color: rgba(255, 255, 255, 0.2);
-      border-radius: var(--g-border-raduis);
+      border-radius: var(--g-border-radius);
     }
     &-name {
       flex: 3;
@@ -113,7 +113,7 @@ const clickBlogType = (item: any) => {
     padding: 10px;
     min-height: 300px;
     width: 200px;
-    border-radius: var(--g-border-raduis);
+    border-radius: var(--g-border-radius);
     background-color: var(--g-border-color-1);
     box-sizing: border-box;
     overflow: auto;

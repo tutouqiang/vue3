@@ -37,7 +37,7 @@ export default {
     },
     title: {
       type: String,
-      default: "123",
+      default: "",
       required: false,
     },
   },
@@ -97,7 +97,8 @@ export default {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(var(--g-bg-color), 0.3);
+  filter: blur(1px);
 }
 
 .drawer-content {
@@ -108,8 +109,9 @@ export default {
   max-width: 800px;
   width: 100vw;
   height: 80%;
-  background-color: #fff;
-  border-radius: var(--g-border-raduis) var(--g-border-raduis) 0 0;
+  background-color: var(--g-bg-color);
+  box-shadow: var(--g-box-shadow-2);
+  border-radius: var(--g-border-radius) var(--g-border-radius) 0 0;
   transition: all 0.3s;
 }
 
@@ -126,9 +128,15 @@ export default {
 
 .drawer-content-header_title {
   font-size: var(--g-font-size-1);
+  color: var(--g-primary-text);
 }
 
 .drawer-content-header div:last-child {
   cursor: pointer;
+}
+
+.drawer-content-section {
+  height: 100%;
+  overflow-y: scroll;
 }
 </style>

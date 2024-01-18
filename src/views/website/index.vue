@@ -51,7 +51,7 @@ import config from "./website";
         text-decoration: none;
 
         background-color: var(--g-border-color-1);
-        border-radius: var(--g-border-raduis);
+        border-radius: var(--g-border-radius);
         box-sizing: border-box;
         transition: all 0.3s;
         &:hover {

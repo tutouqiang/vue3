@@ -5,7 +5,7 @@ meta:
   - name: description
     content: javascript 一道关于 ‘区块’ 的题目
   - name: keywords
-    content: 区块、作用域、作用域链、变量提升、严格模式、ES6
+    content: 区块、作用域、作用域链、变量提升、严格模式、ES6、wooc
 createTime: 2022 年 3 月 15 日
 updateTime: 2022 年 4 月 1 日
 ---

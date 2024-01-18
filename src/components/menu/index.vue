@@ -46,7 +46,7 @@ const clickmenu = () => {
   display: grid;
   place-items: center;
   cursor: pointer;
-  border-radius: var(--g-border-raduis);
+  border-radius: var(--g-border-radius);
   transition: all 0.3s;
   box-sizing: border-box;
 }

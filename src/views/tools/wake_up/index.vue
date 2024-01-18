@@ -134,7 +134,7 @@ export default {
   padding: 20px;
   width: 330px;
   background-color: var(--g-border-color-1);
-  border-radius: var(--g-border-raduis);
+  border-radius: var(--g-border-radius);
   border-top: 1px solid var(--g-border-color);
   border-bottom: 1px solid var(--g-border-color);
   transition: all 0.3s;

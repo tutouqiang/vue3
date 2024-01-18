@@ -8,6 +8,9 @@ import AutoImport from 'unplugin-auto-import/vite'
 import VueRouter from 'unplugin-vue-router/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 import Markdown from 'unplugin-vue-markdown/vite'
+import MarkdownItPrism from 'markdown-it-prism'
+import Prism from 'prismjs'
+import loadLanguages from 'prismjs/components/index'
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 dayjs.extend(customParseFormat)
@@ -55,7 +58,6 @@ export default defineConfig(() => {
             route: `/blog/${filePath}`
           }
           blog.data.push(params)
-          console.log(params)
           fs.writeFileSync('./src/blog/data.json', JSON.stringify(blog, null, 2))
           return {
             head: {
@@ -64,6 +66,15 @@ export default defineConfig(() => {
             },
             frontmatter
           }
+        },
+        markdownItSetup: (md) => {
+          md.use(MarkdownItPrism, {
+            defaultLanguage: 'js', // 设置默认语言
+            plugins: ['line-numbers'], // 添加其他插件
+            init() {
+              // 初始化 Prism.js，例如添加自定义语言等
+            }
+          })
         }
       }),
       VueRouter({

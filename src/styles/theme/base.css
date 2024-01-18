@@ -12,7 +12,7 @@
   --g-primary-text: #333;
 
   --g-border-color: var(--g-primary-text);
-  --g-border-raduis: 5px;
+  --g-border-radius: 5px;
 }
 
 body {

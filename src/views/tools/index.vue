@@ -42,7 +42,7 @@ const jump = (item) => {
   place-items: center;
   color: var(--g-primary-text);
   font-size: var(--g-font-size);
-  border-radius: var(--g-border-raduis);
+  border-radius: var(--g-border-radius);
   background-color: var(--g-border-color-1);
   border-bottom: 1px solid var(--g-border-color);
   cursor: pointer;

@@ -58,8 +58,8 @@ webshell ➡️ 跳板机 ➡️ 设备
 连接后的 ssh 域名、端口、账号、密码都是暴露在界面上的并不安全，url 动态传参也是使用的**明文传输**，这就直接**造成关键信息的泄漏**，需要进行**传参加密、页面显示的优化**。
 
 ### 2、初始化参数问题
-https://github.com/billchurch/webssh2/blob/main/app/server/app.js
-路径下的方法
+https://github.com/billchurch/webssh2/blob/main/app/server/app.js 路径下的方法
+
 ```js
 // app.js
 setDefaultCredentials(config);

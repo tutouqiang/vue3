@@ -1,5 +1,5 @@
 .markdown-body {
-  color: #595959;
+  color: #ddd;
   font-size: 15px;
   font-family: -apple-system, system-ui, BlinkMacSystemFont, Helvetica Neue,
     PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
@@ -15,143 +15,144 @@
   padding: 1em 1em 5em;
 
 
-/* 段落 */
-p {
-  color: #595959;
-  font-size: 15px;
-  line-height: 2;
-  font-weight: 400;
-}
+  /* 段落 */
+  p {
+    color: #ddd;
+    font-size: 15px;
+    line-height: 2;
+    font-weight: 400;
+  }
 
-/* 段落间距控制 */
-p+p {
-  margin-top: 16px;
-}
+  /* 段落间距控制 */
+  p+p {
+    margin-top: 16px;
+  }
 
-/* 标题的通用设置 */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  padding: 30px 0;
-  margin: 0;
-  color: #9933ff;
-}
+  /* 标题的通用设置 */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    padding: 30px 0;
+    margin: 0;
+    color: #9933ff;
+  }
 
-/* 一级标题 */
-h1 {
-  position: relative;
-  text-align: center;
-  font-size: 22px;
-  margin: 25px 0;
-}
+  /* 一级标题 */
+  h1 {
+    position: relative;
+    text-align: center;
+    font-size: 22px;
+    margin: 25px 0;
+  }
 
-/* 二级标题 */
-h2 {
-  position: relative;
-  font-size: 20px;
-  border-left: 4px solid;
-  padding: 0 0 0 10px;
-  margin: 30px 0;
-}
+  /* 二级标题 */
+  h2 {
+    position: relative;
+    font-size: 20px;
+    border-left: 4px solid;
+    padding: 0 0 0 10px;
+    margin: 30px 0;
+  }
 
-/* 三级标题 */
-h3 {
-  font-size: 16px;
-}
+  /* 三级标题 */
+  h3 {
+    font-size: 16px;
+  }
 
-/* 无序列表 */
-ul {
-  list-style: disc outside;
-  margin-left: 2em;
-  margin-top: 1em;
-}
+  /* 无序列表 */
+  ul {
+    list-style: disc outside;
+    margin-left: 2em;
+    margin-top: 1em;
+  }
 
-/* 无序列表内容 */
-li {
-  line-height: 2;
-  color: #595959;
-  margin-bottom: 0;
-  list-style: inherit;
-}
+  /* 无序列表内容 */
+  li {
+    line-height: 2;
+    color: #ddd;
+    margin-bottom: 0;
+    list-style: inherit;
+  }
 
-img {
-  max-width: 100%;
-}
+  img {
+    max-width: 100%;
+  }
 
-/* 已加载图片 */
-img.loaded {
-  margin: 0 auto;
-  display: block;
-}
+  /* 已加载图片 */
+  img.loaded {
+    margin: 0 auto;
+    display: block;
+  }
 
-/* 引用 */
-blockquote {
-  background: #fff9f9;
-  margin: 2em 0;
-  padding: 2px 20px;
-  border-left: 4px solid #b2aec5;
-  overflow: auto;
-}
+  /* 引用 */
+  blockquote {
+    background: #fff9f9;
+    margin: 2em 0;
+    padding: 2px 20px;
+    border-left: 4px solid #b2aec5;
+    border-radius: 5px;
+    overflow: auto;
+  }
 
-/* 引用文字 */
-blockquote p {
-  color: #666;
-  line-height: 2;
-}
+  /* 引用文字 */
+  blockquote p {
+    color: #333;
+    line-height: 2;
+  }
 
-/* 链接 */
-a {
-  color: #036aca;
-  border-bottom: 1px solid rgba(3, 106, 202, 0.8);
-  font-weight: 400;
-  text-decoration: none;
-}
+  /* 链接 */
+  a {
+    color: #036aca;
+    border-bottom: 1px solid rgba(3, 106, 202, 0.8);
+    font-weight: 400;
+    text-decoration: none;
+  }
 
-/* 加粗 */
-strong {
-  color: #036aca;
-}
+  /* 加粗 */
+  strong {
+    color: #036aca;
+  }
 
-/* 加粗斜体 */
-em strong {
-  color: #036aca;
-}
+  /* 加粗斜体 */
+  em strong {
+    color: #036aca;
+  }
 
-/* 分隔线 */
-hr {
-  border-top: 1px solid #135ce0;
-}
+  /* 分隔线 */
+  hr {
+    border-top: 1px solid #135ce0;
+  }
 
-/* 表格 */
-table {
-  border-collapse: collapse;
-  margin: 1rem 0;
-  overflow-x: auto;
-}
+  /* 表格 */
+  table {
+    border-collapse: collapse;
+    margin: 1rem 0;
+    overflow-x: auto;
+  }
 
-table th,
-table td {
-  border: 1px solid #dfe2e5;
-  padding: 0.6em 1em;
-}
+  table th,
+  table td {
+    border: 1px solid #dfe2e5;
+    padding: 0.6em 1em;
+  }
 
-table tr {
-  border-top: 1px solid #dfe2e5;
-}
+  table tr {
+    border-top: 1px solid #dfe2e5;
+  }
 
-table tr:nth-child(2n) {
-  background-color: #f6f8fa;
-}
+  table tr:nth-child(2n) {
+    background-color: #f6f8fa;
+  }
 
-/* code highligt */
-pre {
-  background-color: #000;
-  padding: 15px;
-  border-radius: var(--g-border-raduis);
-  word-break: break-all;
-  overflow: auto;
-}
+  /* code highligt */
+  pre {
+    background-color: #000;
+    padding: 15px;
+    border-radius: var(--g-border-radius);
+    word-break: break-all;
+    overflow: auto;
+  }
 }
