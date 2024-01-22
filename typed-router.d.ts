@@ -63,7 +63,7 @@ declare module 'vue-router/auto/routes' {
     '/blog/system/mac-config': RouteRecordInfo<'/blog/system/mac-config', '/blog/system/mac-config', Record<never, never>, Record<never, never>>,
     '/blog/system/nginx': RouteRecordInfo<'/blog/system/nginx', '/blog/system/nginx', Record<never, never>, Record<never, never>>,
     '/blog/system/ubuntu': RouteRecordInfo<'/blog/system/ubuntu', '/blog/system/ubuntu', Record<never, never>, Record<never, never>>,
-    '/blog/system/web-server-configuration': RouteRecordInfo<'/blog/system/web-server-configuration', '/blog/system/web-server-configuration', Record<never, never>, Record<never, never>>,
+    '/blog/system/web-server-deploy': RouteRecordInfo<'/blog/system/web-server-deploy', '/blog/system/web-server-deploy', Record<never, never>, Record<never, never>>,
     '/home/': RouteRecordInfo<'/home/', '/home', Record<never, never>, Record<never, never>>,
     '/tools/': RouteRecordInfo<'/tools/', '/tools', Record<never, never>, Record<never, never>>,
     '/tools/wake_up/': RouteRecordInfo<'/tools/wake_up/', '/tools/wake_up', Record<never, never>, Record<never, never>>,
