@@ -1,5 +1,5 @@
 ---
-title:  基础 web 服务器搭建
+title: 基础 web 服务器搭建
 meta:
   - name: description
     content: 基础 web 服务器搭建
@@ -7,28 +7,30 @@ meta:
     content: 基础 web 服务器搭建、前端服务器搭建、前端服务器配置
 theme: condensed-night-purple
 createTime: 2023 年 10 月 18 日
-updateTime: 2023 年 10 月 18 日
+updateTime: 2024 年 1 月 23 日
 ---
 
 # 基础 web 服务器搭建
 
-搭建满足前端运行环境的服务器。包括必备基础配置已及进阶配置，满足前端服务的**稳定运行、性能监控、事件通知、日志收集**等基础需求。 以 **centos 8.0** 为例。
+搭建满足前端项目运行环境的服务器。 以 **centos 8.0** 系统为例。
 
 <br/>
 
 ## 必备基础配置
-centos 默认的包管理器为 yum。 
+``centos`` 默认的包管理器为 ``yum``。 
 
-``yum -y update`` 升级所有包同时也升级软件和系统内核。或者执行 ``yum -y upgrade``只升级所有包，不升级软件和系统内核。  
+``yum -y update`` 升级所有包同时也升级软件和系统内核。或者执行 ``yum -y upgrade`` 只升级所有包，不升级软件和系统内核。  
 <br/>
 
-### curl
+### <a href="https://github.com/curl/curl" target="_blank">curl</a>
 这里主要用来安装其他安装包，比较方便，也是比较常用的。
- ``yum install curl -y``  
+```sh 
+$ yum install curl -y
+```  
 <br/>
 
-### [nvm]('https://github.com/nvm-sh/nvm')
-nvm 用于管理 node 版本, 可以到 [Github]('https://github.com/nvm-sh/nvm') 获取最新版本进行安装。这里使用 0.39.7 版本进行演示。
+### <a href="https://github.com/nvm-sh/nvm" target="_blank">nvm</a>
+nvm 用于管理 node 版本, 可以到 <a href="https://github.com/nvm-sh/nvm" target="_blank">[Github nvm]</a> 获取最新版本进行安装。这里使用 0.39.7 版本进行演示。
 
 ```sh
 # 安装 nvm
@@ -73,7 +75,37 @@ $ nvm which v16.20.2 # 获取可执行文件的安装路径
 ```
 <br/>
 
-### [Nginx](!https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#compiling-and-installing-from-source)
+### <a href="https://github.com/Unitech/pm2" target="_blank">PM2</a>
+PM2 是一个守护进程管理器, 是使用比较广泛的 nodejs 项目的进程管理工具。提供日志管理、负载均衡、自动重启等功能。 PM2 提供了实时监控和诊断工具，可以查看内存使用情况、CPU 使用情况和请求量等关键指标，帮助排查问题和性能调优。
+
+```sh
+$ npm install pm2 -g
+# 使用 npm 命令启动项目，并命名为 my-project; 也可直接执行 index.js 入口脚本来启动项目。
+$ pm2 start -n my-project npm -- run start
+# 列出所有进程
+$ pm2 list
+┌────┬───────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name          │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼───────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ my-project    │ default     │ N/A     │ fork    │ 13668    │ 0      │ 21   │ online    │ 0%       │ 0b       │ root     │ disabled │
+└────┴───────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+# 查看项目运行监控
+$ pm2 monit
+```
+<br/>
+
+#### pm2 常用命令
+```sh
+$ pm2 start app.js -n my-project # 启动项目
+$ pm2 restart my-project # 重启项目, 可使用命名的项目名称或者 id
+$ pm2 stop my-project # 停止项目
+$ pm2 delete my-project # 删除项目
+$ pm2 logs # 查看项目日志
+$ pm2 monit # 查看项目运行监控
+```
+<br/>
+
+### <a href="https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#compiling-and-installing-from-source" target="_blank">Nginx</a>
 使用最广泛的代理服务，社区庞大、相关配置比较好查找。用于设置前端文件的代理服务器。可配置 https 证书、服务端压缩、负载均衡等必要配置，也可结合其他的开源插件使用更丰富的功能。
 
 **安装方式分两种**
@@ -151,8 +183,11 @@ $ systemctl disable nginx # 关闭 nginx 开机自启动
 
 #### 配置 nginx
 ```sh
-$ sudo vi /etc/nginx/nginx.conf
+# 备份默认的 nginx 配置文件
+$ sudo mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak
 
+# 编辑并新建 nginx 配置文件
+$ sudo vi /etc/nginx/nginx.conf
 # 配置内容并保存
 # For more information on configuration, see:
 #   * Official English Documentation: http://nginx.org/en/docs/
@@ -199,18 +234,6 @@ http {
     # See http://nginx.org/en/docs/ngx_core_module.html#include
     # for more information.
     include /etc/nginx/conf.d/*.conf;
-
-    # # 如需要配置 ws 则配置此处，如需 wss：配合 https 代理到指定的 ws 服务端口即可
-    # # 如只需 ws, 则配合 http 配置并代理到指定的 ws 服务即可
-    # map $http_upgrade $connection_upgrade { 
-	  #  default upgrade; 
-	  #  '' close; 
-    # } 
-
-   # 按需要配置负载均衡
-   upstream load_balancing {  
-     server 127.0.0.1:7001; 
-   }
 
    server {
        listen 80;
@@ -273,6 +296,6 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 ```
 <br/>
 
-### 最后
+### 部署项目
 使用手动上传或 CI/CD 工具上传前端构建产物到服务器指定目录，并重启 nginx 服务，即可完成部署。
 
